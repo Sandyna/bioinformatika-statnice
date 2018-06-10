@@ -1,0 +1,139 @@
+\documentclass[12pt, oneside]{book}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3.5cm,right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage[slovak]{babel} % vypnite pre prace v anglictine
+\linespread{1.25} % hodnota 1.25 by mala zodpovedat 1.5 riadkovaniu
+
+% -------------------
+% --- Definicia zakladnych pojmov
+% --- Vyplnte podla vasho zadania
+% -------------------
+\def\mfrok{2016}
+\def\mfnazov{Štátnice z bioinformatiky}
+\def\mftyp{Vypracované témy}
+\def\mfautor{Prví Bioinformatici}
+
+\def\mfmiesto{Bratislava, \mfrok}
+
+%aj cislo odboru je povinne a je podla studijneho odboru autora prace
+\def\mfodbor{ Bioinformatika} 
+\def\program{ Bioinformatika }
+\def\mfpracovisko{ Katedra informatiky }
+
+\begin{document}     
+\frontmatter
+
+% -------------------
+% --- Titulný list
+% -------------------
+
+\thispagestyle{empty}
+\noindent
+
+\begin{center}
+\sc  
+\large
+Univerzita Komenského v Bratislave\\
+Fakulta matematiky, fyziky a informatiky
+
+\vfill
+
+{\LARGE\mfnazov}\\
+\mftyp
+\end{center}
+
+\vfill
+
+\noindent
+\begin{tabular}{ll}
+Študijný program: & \program \\
+Študijný odbor: & \mfodbor \\
+\end{tabular}
+
+\vfill
+
+
+\noindent \mfmiesto\\
+\mfautor
+
+\eject % EOP i
+
+
+% --- Koniec titulnej strany
+
+% -------------------
+% --- Predhovor - v informatike sa zvacsa nepouziva
+% -------------------
+%\newpage 
+%\thispagestyle{empty}
+%
+%\huge{Predhovor}
+%\normalsize
+%\newline
+%Predhovor je všeobecná informácia o práci, obsahuje hlavnú charakteristiku práce 
+%a okolnosti jej vzniku. Autor zdôvodní výber témy, stručne informuje o cieľoch 
+%a význame práce, spomenie domáci a zahraničný kontext, komu je práca určená, 
+%použité metódy, stav poznania; autor stručne charakterizuje svoj prístup a svoje 
+%hľadisko. 
+%
+% --- Koniec Predhovor
+
+
+% -------------------
+% --- Obsah
+% -------------------
+
+\newpage 
+
+\tableofcontents
+
+% ---  Koniec Obsahu
+
+% -------------------
+% --- Zoznamy tabuliek, obrázkov - nepovinne
+% -------------------
+
+\newpage 
+
+% ---  Koniec Zoznamov
+
+\mainmatter
+
+
+\input algebra.tex 
+
+\input biochemia.tex
+
+\input bunkova_biologia.tex
+
+\input diskretna_matematika.tex
+
+\input genetika.tex
+
+\input matematicka_analyza.tex
+
+\input metody_v_bioinformatike.tex
+
+\input pravdepodobnost_a_statistika.tex
+
+\input programovanie.tex
+
+\input tvorba_a_analyza_algoritmov.tex
+
+% -------------------
+% --- Bibliografia
+% -------------------
+
+
+
+\end{document}
+
+
+
+
+
+
