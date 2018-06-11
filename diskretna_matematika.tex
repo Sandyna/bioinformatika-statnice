@@ -277,7 +277,49 @@
 
 
 \section{Usporiadania}
-  [definícia čiastočného a úplného usporiadania množiny, ostré a neostré usporiadanie, minimálny, maximálny, prvý a posledný prvok množiny, lexikografické usporiadanie karteziánskeho súčinu] 
+	\subsection{Definícia čiastočného a úplného usporiadania množiny}
+		Relácia na množine $A$ sa nazýva čiastočné usporiadanie množiny $A$, ak je \textbf{asymetrická a tranzitívna}. Relácia na množine $A$ sa nazýva (lineárne) usporiadanie množiny $A$, ak je \textbf{asymetrická, tranzitívna a trichotomická}. Teda usporiadanie množiny A je každé čiastočné usporiadanie, ktoré je \textbf{trichotomické na množine $A$}.\\
+
+		Formálnejšie, relácia $\varphi$ na množine $A$ je čiastočné usporiadanie množiny $A$, ak pre každé $ x, y, z \in A $ platí:
+		\begin{enumerate}
+		\item $( x, y) \in \varphi \rightarrow ( y, x ) \notin \varphi$
+		\item $( x, y) \in \varphi \wedge ( y,z) \in  \rightarrow ( x, z) \in \varphi$ \\
+		
+		Ak navyše pre každé $x, y \in A$ platí:
+		\item $( x = y) \vee ( x, y ) \int \varphi \vee ( y, x ) \in \varphi$ \\, čo je ekvivalentné s \\
+		$ x \neq y \rightarrow (( x, y) \in \varphi \vee ( y, x ) \in \varphi)$,
+		\end{enumerate}
+		tak $\varphi$ je usporiadanie množiny $A$.\\
+
+
+		Ak $A$ je množina a $\varphi$ je jej usporiadanie (resp. čiastočné usporiadanie), tak hovoríme, že množina $A$ je usporiadaná (resp. čiastočne usporiadaná) reláciou $\varphi$ a zapisujeme to v tvare $( A, \varphi )$ , alebo $( A, < )$ , ak namiesto $( x, y) \in \varphi $ píšeme $x < y$ . Uvedený zápis je motivovaný tým, že pre tú istú množinu možno vo všeobecnosti definovať viacero čiastočných usporiadaní.
+
+	\subsection{Ostré a neostré usporiadanie}
+		\begin{itemize}
+			\item Ostré, ak $x<y$
+			\item Neostré, ak $x \leq y \leftrightarrow x < y \vee x = y$
+		\end{itemize}
+	\subsection{Minimálny, maximálny, prvý a posledný prvok množiny}
+		Prvok $a$ čiastočne usporiadanej množiny $( A, < )$ sa nazýva
+		\begin{itemize}
+			\item minimálny prvok, ak pre žiadne $x \in A$ neplatí $x < a$
+			\item maximálny prvok, ak pre žiadne $x \in A$ neplatí $a < x$
+		\end{itemize}
+		Prvok $b$ čiastočne usporiadanej množiny $( A, <)$ sa nazýva
+		\begin{itemize} 
+		\item \textbf{prvý} alebo \textbf{najmenší prvok} množiny $A$, ak pre každý prvok $x \in A, x \neq b$ platí $b < x$
+		\item  \textbf{najväčší} alebo \textbf{posledný prvok} množiny A, ak pre každé $x \in A, x \neq b$ platí $x < b$
+		\end{itemize}
+		
+		Posledný je vždy maximálnym, ale nie vždy aj naopak.
+		Prvý je vždy minimálnym, ale nie vždy aj naopak.
+
+	\subsection{Lexikografické usporiadanie karteziánskeho súčinu}
+		Nech $(A, \leq )$ je usporiadaná množina a $n$ je prirodzené číslo.
+		Usporiadanie na množine $A^{n}$ = $A \times A \times ... \times A$ : $(a_{1}, a_{2}, ..., a_{n}) \leq  (b_{1}, b_{2}, ..., b_{n})$ sa nazýva \textbf{lexikografické usporiadanie množiny} $A^n$ práve vtedy, keď existuje taký index $i = 1, 2, ..., n$, že $a_{i} < b_{i}$ a pre $j < i$ platí $a_{j} = b_{j}$\\
+		\paragraph{Príklad: }
+		$A = \{a,b,c\}$ je množina s usporiadaním $a < b < c $, tak lexikografické usporiadanie množiny $A \times A$ vyzerá takto: $(a,a) \leq ( a,b) \leq ( a,c) \leq (b,a) \leq (b,b) \leq (b,c) \leq ( c,a) \leq ( c,b) \leq ( c,c)$
+
 
 \section{Zobrazenia}
 	[definícia pomocou relácií, injektívne, surjektívne a bijektívne zobrazenia a ich skladanie] 
