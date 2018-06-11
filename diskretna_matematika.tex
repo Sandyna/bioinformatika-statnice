@@ -109,7 +109,7 @@
   \subsection{Základné pojmy a označenia}
   	Množiny - veľké latinské písmená ($A, B, C, ...$)\\
   	Prvky množín - malé písmená, prípadne s indexami ($a_{1}, a_{2}, ..., b_{1}, ...$)\\
-  	
+
 	Opísať množinu možno v podstate dvomi spôsobmi:\\
 	- vymenovaním jej prvkov\\
 	- charakterizáciou jej prvkov pomocou nejakej spoločnej vlastnosti\\
@@ -179,7 +179,7 @@
   	\end{enumerate}
 
 \section{Karteziánsky súčin množín}
-  
+
 	\subsection{Definícia usporiadanej dvojice} 
 	Pod usporiadanou n-ticou si môžeme predstaviť konečnú postupnosť o n-členoch.\\
 	
@@ -208,7 +208,6 @@
 
 	Použitie karteziánskeho súčinu prenechávame na skúseného a zručného čitateľa. \\
 	(TODO)
-
 
 \section{Relácie}
 
@@ -245,7 +244,7 @@
 
 		$\{ ( a, c ) \in A \times C : ( \exists b)(b \in B \wedge ( a,b) \in \varphi \wedge ( b, c) \in \psi )\}$
 
-		(je to relácia medzi prvkami množín $A$ a $C$) sa nazýva zložená relácia (zložená z relácií $\varphi$ a $\psi$ ) a označujeme ju $\psi^{\bigcirc} \varphi$.
+		(je to relácia medzi prvkami množín $A$ a $C$) sa nazýva zložená relácia (zložená z relácií $\varphi$ a $\psi$ ) a označujeme ju $\psi \circ  \varphi$.
 
  	\subsection{Inverzná relácia}
 
@@ -271,9 +270,9 @@
 		$\varphi^{+} = \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 1} \varphi^k$
 
 	\subsection {Reflexívno-tranzitívny uzáver}
-		$\varphi^{+} = I_{a} \cup \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 0} \varphi^k$ \\
-		
-		$I_{a} = \{ ( x, x ) | x \in A \}, \varphi^{0} = I_{a}, \varphi^{i} = \varphi^{i-1 \bigcirc}\varphi$ pre $i> 0$, t.j. $(x, y) \in \varphi^{k}$ pre nejaké $k>0$ $\leftrightarrow $ ak existuje postupnosť prvkov $x = x_{0}, x_{1}, ..., x_{k-1}, x_{k} = y$ taká, že platí ${x_{0}, x_{1}} \in \varphi,  {x_{1}, x_{2}} \in \varphi, ... {x_{k-1}, x_{k}} \in \varphi$
+		$\varphi^{+} = I_{a} \cup \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 0} \varphi^k$\\
+
+		$I_{a} = \{ ( x, x ) | x \in A \}, \varphi^{0} = I_{a}, \varphi^{i} = \varphi^{i-1} \circ \varphi$ pre $i> 0$, t.j. $(x, y) \in \varphi^{k}$ pre nejaké $k>0$ $\leftrightarrow $ ak existuje postupnosť prvkov $x = x_{0}, x_{1}, ..., x_{k-1}, x_{k} = y$ taká, že platí ${x_{0}, x_{1}} \in \varphi,  {x_{1}, x_{2}} \in \varphi, ... {x_{k-1}, x_{k}} \in \varphi$
 
 \section{Usporiadania}
 	\subsection{Definícia čiastočného a úplného usporiadania množiny}
@@ -319,11 +318,65 @@
 		\paragraph{Príklad: }
 		$A = \{a,b,c\}$ je množina s usporiadaním $a < b < c $, tak lexikografické usporiadanie množiny $A \times A$ vyzerá takto: $(a,a) \leq ( a,b) \leq ( a,c) \leq (b,a) \leq (b,b) \leq (b,c) \leq ( c,a) \leq ( c,b) \leq ( c,c)$
 
-
 \section{Zobrazenia}
-	[definícia pomocou relácií, injektívne, surjektívne a bijektívne zobrazenia a ich skladanie] 
+
+	\subsection{Definícia pomocou relácií} 
+
+		Zobrazením $f$ z množiny $X$ do množiny $Y$ nazývame reláciu $f \subseteq X \times Y$ ak ku každému $x \in X$ existuje práve jedno také $y in Y$ , že dvojica $( x, y ) \in f$.\\
+
+		Podrobnejšie: relácia $f$ z množiny $X$ do množiny $Y$ (alebo medzi prvkami množín $X$ a $Y$ v uvedenom poradí) sa nazýva \textbf{zobrazenie (funkcia)} množiny $X$ do $Y$, ak platí:
+		\begin{enumerate}
+			\item $\forall_{x \in X} \exists_{y \in Y} (x, y) \in f $
+			\item $\forall_{x \in X} \forall_{y \in Y} \forall_{y' \in Y} ((x, y) \in f \wedge (x, y') \in f ) \rightarrow y = y'$
+		\end{enumerate}
+
+
+
+
+
+		Ak $f$ je zobrazenie množiny $X$ do množiny $Y$ zapisujeme $f : X \rightarrow Y$. 
+		Namiesto $( x, y) \in f$ píšeme $ f( x) = y $. Prvok $ y \in Y $ sa nazýva hodnota zobrazenia $f$ v prvku $x$.
+
+		Ak $A \subseteq X$, tak znakom $f ( A)$ označujeme množinu všetkých tých $y \in Y$, ku ktorým existuje $x \in A$, že $y = f ( x)$ Teda: 
+		$f(A) = \{y \in T: \exists_{x}x \in A \wedge y = f(x) \}$\\
+
+		\begin{itemize}
+			\item Množina $f ( A)$ sa nazýva obraz množiny $A$ v zobrazení $f$
+			\item Množina $X$ sa nazýva obor definície zobrazenia $f : X \rightarrow Y$
+			\item $Y$ sa nazýva obor hodnôt zobrazenia $f$.
+		\end{itemize}
+
+	\subsection{Injektívne, surjektívne a bijektívne zobrazenia}
+		Pripúšťame aj možnosť $Y \neq f (X)$ (t.j. platí $f ( X ) \subseteq Y$).
+		\begin{itemize}
+			\item \textbf{Surjektívne zobrazenie (X na Y)} ak $f ( X ) = Y$
+			\item \textbf{Injektívne zobrazenie (prosté)} ak $x, y \in X$ a $x \neq y$, tak $f ( x) \neq f ( y)$
+			\item \textbf{Bijektívne zobrazenie} ak je injektívne a surjektívne zároveň.
+		\end{itemize}
+
+		\paragraph{Zúženie funkcie}
+		Ak $f : X \rightarrow Y$ je funkcia a $A \subseteq X$, tak znakom $f | A$ označujeme funkciu $g : A \rightarrow Y$ definovanú takto; pre $x \in A$ platí $f (x) = g(x)$ , t.j. $f | A = f \cap ( A \times Y )$ . Funkcia $g = f | A$ sa nazýva parciálna funkcia k funkcií $f$ , alebo zúženie funkcie $f$ (na množine $A$).
+
+	\subsection{Skladanie zobrazení}
+		Ak $f$ je injektívne zobrazenie množiny $X$ do $Y$, tak $f^{-1}$ je bijektívne zobrazenie množiny $f ( X )$ do $X$.\\
+
+		Ak je $f$ bijekcia množiny $X$ na $Y$, tak $f^{-1}$ je bijekcia množiny $Y$ do $X$.Poznamenávame, že $f^{-1} = \{(y, x) \in Y \times X ( x,  y) \in f \}$.\\
+
+		Nech $f : X \rightarrow Y$ a $g :Y \rightarrow Z$ . Potom zložená relácia $g \circ f$je zobrazenie množiny $X$ do $Z$. Poznamenávame, že $g \circ f = \{( x, z) \in ( X , Z ) | \exists y, y \in Y, ( x, y ) \in f \wedge ( y, z) \in g\}$.\\
+
+		$g \circ f(x) = g(f(x))$\\
+
+		Zobrazenie $g \circ f$ sa nazýva \textbf{zložené zobrazenie} alebo \textbf{kompozícia zobrazení}\\
+
+		\begin{enumerate}
+		\item $f , g$ sú injektívne zobrazenia, tak aj $g \circ f$ je injektívne zobrazenie
+		\item $f , g$ sú surjektívne zobrazenia, tak aj $g \circ f$ je surjektívne zobrazenie
+		\item $f , g$ sú bijektívne zobrazenia, tak aj $g \circ f$ je bijektívne zobrazenie
+		\end{enumerate}
+
 
 \section {Mohutnosť množiny}
+
   [Základné vlastnosti mohutnosti a nerovnosti. Počítanie s mohutnosťami, súčet, súčin a mocnina.] 
 
 \section {Cantor-Bernsteinova veta a jej dôsledky}
