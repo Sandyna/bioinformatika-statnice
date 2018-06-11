@@ -460,25 +460,97 @@
 		\item $(|A|^{|B|})^{|C|} = A^{|B| \cdot |C|}$
 	\end{itemize}
 
-Odčítanie a delenie mohutnosti sa definovať nedá.
+	Odčítanie a delenie mohutnosti sa definovať nedá.
 
+%odtialto je to riedke, netreba sa na nic spoliehat
 
 \section {Cantor-Bernsteinova veta a jej dôsledky}
  	\subsection{formulácia vety}
- 	Nech $A, B$ sú množiny. Ak platí $|A| \leq |B|$ a súčasne $|B| \leq |A|$ , tak $|A| = |B|$
+ 		Nech $A, B$ sú množiny. Ak platí $|A| \leq |B|$ a súčasne $|B| \leq |A|$ , tak $|A| = |B|$
  	\subsection{idea dôkazu}
- 	TODO, nechce sa mi
+ 		TODO, nechce sa mi
  	\subsection{usporiadanie kardinálnych čísel}
 
 \section {Konečné a nekonečné množiny}
-  [definícia konečnej množiny, definícia nekonečnej množiny, existencia nekonečných množín, vlastnosti konečných a nekonečných množín]
+	\subsection{Definícia konečnej množiny, definícia nekonečnej množiny}
+		Množina $A$ sa nazýva konečná, ak $A < \aleph_{0}$,t.j. ak $A < N$ . Množina sa nazýva nekonečná, ak nie je konečná.
+
+  	\subsection{existencia nekonečných množín} 
+		Množina A má n prvkov, $|A| = n$, kde $n \in N$ , ak $|A| = |N_{n}|$.\\
+		$ \forall n \in N$ platí $|N_{n}| < |N_{n+1}| \rightarrow $ Ak má množina n prvkov, $n \in N$, tak je konečná.
+		(Dôkaz indukciou)
+
+		Pre $n,m \in N$ je $|N_{n}| = |N_{m}|  \leftrightarrow n = m$.
+		(Dôkaz sporom)
+
+		Ak $A \subseteq N_{n}$, tak existuje $k$ také, že $|A| = k$ .
+		(Dôkaz indukciou)
+
+		Ak množina $A \subseteq N$ je zhora neohraničená, tak $|A| = |N|$
+
+		Ak množina $A$ je konečná $\leftrightarrow$ tak existuje také $n \in N$, že $|A| = n$.
+
+  	\subsection{vlastnosti konečných a nekonečných množín}
 
 \section {Spočítateľné a nespočítateľné množiny}
-  [zjednotenie a karteziánsky súčin spočítateľných množín, existencia nespočítateľných množín, Cantorova diagonálna metóda]
+
+	Množina A sa nazýva spočítateľná, ak platí $A \leq \aleph_{0}$ ,t.j. ak existuje prosté zobrazenie množiny $A$ do množiny $N$ – prirodzených čísel. Množina sa nazýva nespočítateľná, ak nie je spočítateľná.
+
+	Zrejme každá konečná množina je spočítateľná. Podmnožina spočítateľnej množiny je
+	spočítateľná. Množina $N$ je nekonečná spočítateľná. Podľa Cantorovej vety množina $P(N)$ je
+	nespočítateľná.
+
+	Budeme hovoriť, že množina A sa dá zoradiť do postupnosti, ak existuje zobrazenie množiny $N$ na množinu $A$, t.j. ak existuje postupnosť $\{a_{n}\}_{n=0}^{\infty} $ taká, že $A={a_{n}, n \in N}$
+
+	Neprázdna množina je spočítateľná vtedy a len vtedy, keď sa dá zoradiť do postupnosti.
+
+	Ak existuje prosté zobrazenie f množiny A na množinu B a množina A je spočítateľná, potom aj množina B je spočítateľná.
+
+	\subsection{Zjednotenie a karteziánsky súčin spočítateľných množín}
+
+
+	Zjednotenie a karteziánsky súčin dvoch spočítateľných množín sú spočítateľné množiny.
+
+	Zjednotenie spočítateľne mnoho spočítateľných množín je spočítateľná množina.
+
+	Množina všetkých reálnych čísel je nespočítateľná.
+
+
+  	\subsection{Existencia nespočítateľných množín}
+
+	\subsection{Cantorova diagonálna metóda}
+
+
 
 \section {Potenčná množina a jej kardinalita}
 	Pre ľubovoľnú množinu $X$ platí $|P (X)| = 2^{|X|}$
-  [formulácia Cantorovej vety o potenčnej množine, idea dôkazu, dôsledky pre nekonečné množiny] 
+	\subsection{formulácia Cantorovej vety o potenčnej množine}
+	Pre každú množinu $X$ platí $|X| < |P (X)|$.
+	
+	idea dôkazu:
+
+
+
+
+
+
+	Pre každú množinu $X$ platí $|X| < 2^{|X|}$.
+	Neexistuje množina všetkých množín.
+
+
+	dôsledky pre nekonečné množiny:
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section {Prirodzené čísla a matematická indukcia, Dirichletov princíp}
   [definícia prirodzených čísiel, vlastnosť dobrého usporiadania, dôkaz matematickou indukciou]
