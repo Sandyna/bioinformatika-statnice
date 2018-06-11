@@ -179,7 +179,35 @@
   	\end{enumerate}
 
 \section{Karteziánsky súčin množín}
-  [definícia usporiadanej dvojice, karteziánsky súčin dvoch a viacerých množín, množinové identity s karteziánskym súčinom, použitie karteziánskeho súčinu] 
+  
+	\subsection{Definícia usporiadanej dvojice} 
+	Pod usporiadanou n-ticou si môžeme predstaviť konečnú postupnosť o n-členoch.\\
+	
+	Nech sú $a_{1}$ , $a_{2}$ ľubovoľné prvky. Množinu $\{ \{ a_{1} \},  \{a_{1}, a_{2} \}\}$ nazývame usporiadanou dvojicou, označenie ($a_{1}$, $a_{2}$), pričom $a_{1}$ nazývame prvou súradnicou (zložkou), $a_{2}$ druhou súradnicou (zložkou).\\
+	Usporiadané dvojice sa rovnajú ak obe ich zložky sú si rovné.
+
+	\subsection{Karteziánsky súčin dvoch a viacerých množín}
+	Karteziánskym súčinom množín $A, B$ nazveme množinu
+	$A \times B = \{( x, y) | x \in A \wedge y \in B\}$
+	Definíciu karteziánskeho súčinu môžeme rozšíriť aj pre prípad n množín, môžeme postupovať induktívne, ako v prípade usporiadanej n-tice.
+	Pre dvojicu konečných množín $A, B$ je niekedy vhodná reprezentácia karteziánskeho súčinu pomocou matice AxB. 
+	\subsection{Množinové identity s karteziánskym súčinom}
+	\begin{itemize}
+		\item ak aspoň jedna z množín A, B je prázdna, tak potom $ A \times B = \emptyset $
+		\item nie je komutatívny
+		\item nie je asociatívny
+		\item $( A \cup B) \times C = ( A \times C) \cup ( B \times C) $
+		\item Ak $A \subseteq B$ , tak pre každú množinu $C$ platí $A \times C \subseteq B \times C $
+		\item $( A \cap B) \times C = ( A \times C) \cap ( B \times C)$
+		\item $( A - B) \times C = ( A \times C) - ( B \times C)$
+		\item Množiny $A, B$ sú disjunktné práve vtedy, keď $ A \times B \cap B \times A = \emptyset $
+	\end{itemize}
+
+	Ďalšie dôležité množinové identity a vzťahy uvádzame v cvičeniach str. 40, 41.
+	\subsection{Použitie karteziánskeho súčinu}
+
+	Použitie karteziánskeho súčinu prenechávame na skúseného a zručného čitateľa. \\
+	(TODO)
 
 \section{Relácie}
   [skladanie relácií, inverzná relácia, relácie na množinách. Relácia ekvivalencie, rozklad množiny. Tranzitívny uzáver relácie, reflexívno-tranzitívny uzáver – definície, vlastnosti.]
