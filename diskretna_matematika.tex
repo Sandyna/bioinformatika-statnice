@@ -209,8 +209,71 @@
 	Použitie karteziánskeho súčinu prenechávame na skúseného a zručného čitateľa. \\
 	(TODO)
 
+
 \section{Relácie}
-  [skladanie relácií, inverzná relácia, relácie na množinách. Relácia ekvivalencie, rozklad množiny. Tranzitívny uzáver relácie, reflexívno-tranzitívny uzáver – definície, vlastnosti.]
+
+		Nech A, B sú ľubovoľné množiny. Množinu $\varphi$ nazývame textbf{binárnou reláciou} z množiny $A$ do množiny $B$, alebo binárnou reláciou medzi prvkami množín $A$ a $B$ vtedy a len vtedy, keď $\varphi \subseteq A \times B$.\\
+		Slovo binárna z definície znamená, že relácia je definovaná medzi dvomi množinami. Môžeme však zaviesť aj n - árne relácie, ktoré sú podmnožinami karteziánskeho súčinu n - množín.\\
+
+		Binárna relácia $\varphi$ z n–prvkovej množiny A do m – prvkovej množiny B sa dá reprezentovať maticou M typu $n \times m$ . Tie miesta v matici, ktoré zodpovedajú usporiadaným dvojiciam množiny $\varphi$ označíme symbolom 1, na ostatné miesta v matici M napíšeme symbol 0.\\
+
+		Ďalšou veľmi názornou reprezentáciou je grafová reprezentácia binárnej relácie. Prvky množín označíme krúžkami, ktoré nazývame vrcholmi grafu a usporiadanú dvojicu znázorníme šípkou, ktorá ide z vrcholu odpovedajúceho prvému prvku dvojice k vrcholu, ktorý odpovedá druhému prvku dvojice.\\
+
+	\subsection{Vlastnosti}
+		Nech  $\varphi$  je relácia na množine A. $\varphi$ je:
+		\begin{enumerate}
+			\item Reflexívna, ak pre každé $x \in A$ platí $( x, x ) \in \varphi $
+			\item Ireflexívna, ak pre žiadne $x \in A$ neplatí $( x, x) \in \varphi $
+			\item Symetrická, ak z podmienky $( x, y ) \in \varphi $ vyplýva $( y, x ) \in \varphi$
+			\item Asymetrická, ak pre každé $( x, y ) \in \varphi$  platí $( y, x ) \notin \varphi$  
+			\item Tranzitívna, ak $(( ( x, y ) \in \varphi  \wedge ( y, z ) \in \varphi ) \rightarrow ( x, z ) \in \varphi )$
+			\item Atranzitívna, ak $(( x, y) \in \varphi  \wedge ( y,z) \in \varphi ) \rightarrow ( x,z) \notin \varphi$ 
+			\item Trichotomická, ak pre každé $x, y \in A $ platí:
+
+			$x \neq y \rightarrow (( x, y) \in \varphi  \vee ( y, x) \in \varphi ) $ 
+
+			$[ ( x = y) \vee ( x, y) \in \varphi \vee ( y, x) \in \varphi ]$
+
+			\item Antisymetrická, ak pre každé $x, y \in A$ platí:
+			$(( x, y) \in \varphi  \wedge ( y, x) \in \varphi ) \rightarrow x = y$
+		\end{enumerate}
+
+
+ 	\subsection{Skladanie relácií}
+
+	  	Nech $\varphi$ je relácia medzi prvkami množín $A, B$ a nech $\psi$ je relácia medzi prvkami množín $B, C$. Potom
+
+		$\{ ( a, c ) \in A \times C : ( \exists b)(b \in B \wedge ( a,b) \in \varphi \wedge ( b, c) \in \psi )\}$
+
+		(je to relácia medzi prvkami množín $A$ a $C$) sa nazýva zložená relácia (zložená z relácií $\varphi$ a $\psi$ ) a označujeme ju $\psi^{\bigcirc} \varphi$.
+
+ 	\subsection{Inverzná relácia}
+
+		Nech $\varphi$ je relácia medzi prvkami množín A, B. Potom
+
+		$\{( b, a ) \in B \times A, ( a, b ) \in \varphi \} $
+
+		(je to relácia medzi prvkami množín B a A) sa nazýva inverzná relácia k relácií $\varphi$ a označujeme ju symbolom $\varphi^{-1}$ .
+
+	\subsection{Relácie na množinách} 
+		Reláciou medzi prvkami množín A, B (v tomto poradí) nazývame akúkoľvek podmnožinu karteziánskeho súčinu $\varphi \subseteq A \times B$. Ak A = B , tak hovoríme o relácií na množine A (alebo medzi prvkami množiny A). Relácia medzi prvkami množín A, B je akákoľvek množina $\varphi \subseteq A \times B $, špeciálne $\varphi = \emptyset$ a $\varphi = A \times B$.
+	\subsection{Relácia ekvivalencie}
+		Relácia $\varphi$ na množine $A$ sa nazýva relácia ekvivalencie na $A$, ak je \textbf{reflexívna, symetrická a tranzitívna}.
+
+	\subsection{Rozklad množiny}
+
+		Nech $A$ je neprázdna množina. Systém $S \subseteq P (A)$ sa nazýva rozklad množiny $A$, ak každá množina systému $S$ je neprázdna. Pričom $S$ je systém po dvoch disjunktných množín s vlastnosťou $\bigcup_{M \in S} M = A$
+
+		Teda rozklad množiny $A$ je taký systém neprázdnych podmnožín množiny $A$, že každý prvok
+		$x \in A$ patrí práve do jednej množiny tohto systému.
+
+	\subsection{Tranzitívny uzáver relácie}
+		$\varphi^{+} = \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 1} \varphi^k$
+
+	\subsection {Reflexívno-tranzitívny uzáver}
+		$\varphi^{+} = I_{a} \cup \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 0} \varphi^k$
+		$I_{a} = \{ ( x, x ) | x \in A \}, \varphi^{0} = I_{a}, \varphi^{i} = \varphi^{i-1 \bigcirc}\varphi$ pre $i> 0$, t.j. $(x, y) \in \varphi^{k}$ pre nejaké $k>0$ $\leftrightarrow $ ak existuje postupnosť prvkov $x = x_{0}, x_{1}, ..., x_{k-1}, x_{k} = y$ taká, že platí ${x_{0}, x_{1}} \in \varphi,  {x_{1}, x_{2}} \in \varphi, ... {x_{k-1}, x_{k}} \in \varphi$
+
 
 \section{Usporiadania}
   [definícia čiastočného a úplného usporiadania množiny, ostré a neostré usporiadanie, minimálny, maximálny, prvý a posledný prvok množiny, lexikografické usporiadanie karteziánskeho súčinu] 
