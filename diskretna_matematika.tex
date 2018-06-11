@@ -375,10 +375,45 @@
 		\end{enumerate}
 
 
+
 \section {Mohutnosť množiny}
+	\subsection{Základné vlastnosti mohutnosti a nerovnosti}
+		Nech $A, B$ sú dve množiny. Budeme hovoriť, že množiny $A, B$ majú rovnakú mohutnosť alebo rovnaký počet prvkov, píšeme $|A| = |B|$ , ak existuje prosté zobrazenie množiny $A$ na množinu $B$, teda bijekcia.\\
 
-  [Základné vlastnosti mohutnosti a nerovnosti. Počítanie s mohutnosťami, súčet, súčin a mocnina.] 
+		Vzťah „mať rovnakú mohutnosť“ je reflexívny, symetrický a tranzitívny. Vyjadruje ho nasledujúca veta:
+		\begin{enumerate}
+			\item Pre každú množinu $A$ platí $|A| = |A|$ 
+			\item Ak $|A| = |B|$ , potom $|B| = |A|$
+			\item Ak $|A| = |B|$ , $|B| = |C|$ , tak $|A| = |C|$
+		\end{enumerate}
 
+
+	Nech A, B sú množiny.
+	\begin{itemize}
+		\item $A$ má mohutnosť menšiu alebo rovnú ako množina $B$ a písať $|A| \leq |B|$, ak existuje injektívne zobrazenie $f : A \rightarrow B$
+		\item $A$ má mohutnosť menšiu ako množina $B$, píšeme $|A| < |B|$ , ak $|A| \leq |B|$ a nie je $|A| = |B|$
+	\end{itemize}
+
+	Nech A, B, C sú množiny potom platí:
+	\begin{itemize}
+	\item Ak $|A| = |B|$ , tak $|A| \leq |B|$
+	\item Ak $|A| \leq |B|$ a $|B| \leq |C|$, tak $|A| \leq |C|$
+	\item Ak $|A| = |B|$ a $|B| < |C|$ , tak $|A| < |C|$
+	\end{itemize}
+
+
+	Vzťah „ $|A| \leq |B|$ “ je antisymetrický, t.j. ak $|A| \leq |B|$ a súčasne $|B| \leq |A|$, tak $|A| = |B|$. Príklad: $|(0, 1)| \leq |<0,1>|$ a $|<0,1>| \leq |(0,1)|$ - nekonečné požičiavanie; zobrazenie z $(0,1)$ nemôže byť spojité.
+
+
+	Nech $f , g$ sú zobrazenia $f : A \rightarrow B$ a $g : B \rightarrow A$ a $f$ je prosté. Potom existujú množiny $A_{1}, A_{2}, B_{1}, B_{2}$ také, že platí:
+	\begin{itemize}
+	\item $A_{1} \cap A_{2} = \emptyset, B_{1} \cap B_{2} = \emptyset$
+	\item $A_{1} \cup A_{2} = A, B_{1} \cup B_{2} = B$
+	\item $f(A_{1}) = B_{1} , g(B_{2}) = A_{2}$
+	\end{itemize}
+
+	TODO:
+   Počítanie s mohutnosťami, súčet, súčin a mocnina
 \section {Cantor-Bernsteinova veta a jej dôsledky}
   [formulácia vety, idea dôkazu, usporiadanie kardinálnych čísel] 
 
