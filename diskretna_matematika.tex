@@ -1,5 +1,241 @@
-\chapter{}
+\chapter{Diskrétna matematika}
 
-\label{} % id kapitoly pre prikaz ref
+\label{diskretna} % id kapitoly pre prikaz ref
+
+(Predmety Úvod do diskrétnych štruktúr, Úvod do kombinatoriky a teórie grafov)
+\section{Základy matematickej logiky}
+
+  \subsection{Logické operácie}
+  \begin{itemize}
+    \item Negácia $\neg$ (NOT)
+    \item Konjunkcia $\wedge$ (AND)
+    \item Disjunkcia $\vee$ (OR)
+    \item Alternatíva $\oplus$ (XOR)
+    \item Implikácia $\rightarrow$
+    \item Ekvivalencia $\leftrightarrow$ 
+    \item Schafferova spojka $\uparrow$ (NAND) - vie nahradiť všetky ostatné
+    \item Pierce – Lukasiewiçsova spojka $\downarrow$ (NOR) - vie nahradiť všetky ostatné
+  \end{itemize}
+
+  \subsection{Formuly}
+    Výrokovou formou a(x) s premennou x nazývame takú oznamovaciu vetu (formálny výraz, formulu), ktorá obsahuje premennú x, sama nie je výrokom, a stane sa výrokom vždy vtedy, keď za premennú x dosadíme konkrétny objekt z vopred danej vhodne vybratej množiny. Ku každej výrokovej forme existuje nejaká množina prvkov, ktoré má zmysel do výrokovej formy dosadzovať.
+    (Príklad: \textit{x je väčšie ako číslo 5})
+  \subsection{Výrokové funkcie}
+  TODO: cite{Toman2009} 1.2 ?
+  \subsection{Kvantifikácia výrokov}
+    \begin{itemize}
+    \item Existenčný kvantifikátor $\exists$
+    \item Všeobecný kvantifikátor $\forall$
+    \end{itemize}
+    Negácie:\\
+    	$\neg (\exists x)a(x) \leftrightarrow (\forall x)(\neg a(x))$\\
+		$\neg (\forall x)a(x) \leftrightarrow ( \exists x)(\neg a(x))$
+  \subsection{Tautógia} 
+  Je výrok pravdivý pre všetky možné kombinácie pravdivostných hodnôt výrokov, z ktorých je zložený.
 
 
+    \paragraph{Významné tautológie}
+	\begin{enumerate}
+    \item Idempotentnosť\\
+    $( p \wedge p) \leftrightarrow  p $\\
+    $( p \vee p) \leftrightarrow  p $\\
+    \item Komutatívnosť\\
+    $( p \wedge q) \leftrightarrow  ( q \wedge p)$\\
+    $( p \vee q) \leftrightarrow  ( q \vee p)$ \\
+    $( p \leftrightarrow  q) \leftrightarrow  ( q \leftrightarrow  p)$ \\
+    \item Asociatívnosť \\
+    $( p \vee ( q \vee r)) \leftrightarrow  (( p \vee q) \vee r)$\\
+    $( p \wedge ( q \wedge r)) \leftrightarrow  (( p \wedge q) \wedge r)$\\
+    \item Distributívne zákony \\
+    $( p \vee ( q \wedge r)) \leftrightarrow  (( p \vee q) \wedge ( p \vee r))$\\
+    $( p \wedge ( q \vee r)) \leftrightarrow  (( p \wedge q) \vee ( p \wedge r))$\\
+    \item Absorbčné zákony\\
+    $( p \wedge ( q \vee p)) \leftrightarrow  p$\\
+    $( p \vee ( q \wedge p)) \leftrightarrow  p$\\
+    \item Zákon dvojitej negácie\\
+   	$\neg \neg  p \leftrightarrow  p$\\
+    \item Zákon vylúčenia tretieho\\
+    $( p \vee \neg  p) \leftrightarrow 1$\\
+    \item Zákon o vylúčení sporu\\
+    $( p \wedge \neg  p) \leftrightarrow  0$\\
+    \item De Morganove zákony\\
+    $\neg ( p \wedge q) \leftrightarrow  ( \neg  p \vee \neg q)$\\
+    $\neg ( p \vee q) \leftrightarrow  ( \neg  p \wedge \neg q)$\\
+    \item Kontrapozícia negácie\\
+    $(\neg p \rightarrow \neg q) \rightarrow ( q \rightarrow p)$\\
+    \item Reductio ad absurdum\\
+    $(\neg p \rightarrow p) \rightarrow p$\\
+    \item $( p \rightarrow q) \leftrightarrow  ( \neg  p \vee q)$\\
+    \item $( p \rightarrow q) \leftrightarrow  \neg ( p \wedge \neg q)$\\
+    \item $( p \wedge q) \leftrightarrow  \neg ( p \rightarrow \neg q)$\\
+    \item $( p \vee q) \leftrightarrow ( \neg  p \rightarrow q)$\\
+    \item $( p \leftrightarrow  q) \leftrightarrow  (( p \rightarrow q) \wedge ( q \rightarrow p))$\\
+    \end{enumerate}
+
+
+  \subsection{Kontradikcia}
+  Výrok, ktorého pravdivostná hodnota je rovná nule bez ohľadu na pravdivostné hodnoty výrokov, z ktorých pozostáva.
+
+
+\section{Matematický dôkaz}
+
+  \subsection{Logický dôsledok}
+	TODO
+  \subsection{Základné typy matematických dôkazov}
+    \begin{itemize}
+    \item Priamy dôkaz tvrdenia \textit{a}\\
+      Pozostáva z konečného reťazca implikácií $ a_{1} \rightarrow a_{2} \rightarrow$ ... $\rightarrow a_{n} \rightarrow a $, ktorého prvý člen je axióma, alebo už dokázané tvrdenie, alebo pravdivé tvrdenie, výrok a každé ďalšie tvrdenie je logickým dôsledkom predchádzajúcich, pričom posledným členom reťazca (postupnosti) je dokazované tvrdenia $a$.
+    \item Nepriamy dôkaz tvrdenia $a$ sporom\\
+      Založený je na zákone vylúčenia tretieho, podľa ktorého z dvojice výrokov $a, \neg a$ musí byť práve jeden pravdivý. Keď teda dokážeme, že výrok $\neg a$ nie je pravdivý, vyplýva z toho pravdivosť tvrdenia $a$.
+    \item Priamy dôkaz implikácie $ a \rightarrow b$\\
+      Predpokladajme, že tvrdenie a platí (v prípade, že a je nepravdivé je implikácia $a \rightarrow b$ pravdivá, niet čo dokazovať), nájdeme postupnosť implikácií začínajúcu tvrdením a, končiacu tvrdením b, v ktorej každý člen je logickým dôsledkom predchádzajúcich tvrdení a axióm, resp. skôr dokázaných tvrdení. Niekoľkonásobným použitím pravidla jednoduchého sylogizmu dostávame platnosť implikácie $a \rightarrow b$.
+
+    \item Nepriamy dôkaz implikácie $ a \rightarrow b$ sporom\\
+      Podobne ako v opísanej schéme dôkazu sporom predpokladáme platnosť negácie dokazovanej implikácie, t. j. predpokladáme platnosť tvrdenia $\neg ( a \rightarrow b)$ , ktoré je ekvivalentné tvrdeniu $a \wedge \neg b$ . Z tohto tvrdenia postupne odvodzujeme logické dôsledky tak dlho, pokým dospejeme k sporu. Môžu tu nastať tri prípady:\\
+      - dôjdeme do sporu s tvrdením $a$,\\
+      - dôjdeme do sporu s tvrdením $\neg b$\\
+      - napokon môžeme dokázať dve navzájom odporujúce si tvrdenia $c, \neg c$
+
+    \item Nepriamy dôkaz implikácie $a \rightarrow b$ pomocou obmeny.\\
+      Zakladá sa na skutočnosti, že implikácia $ a \rightarrow b$ a jej obmena $ \neg b \rightarrow \neg a $ sú ekvivalentné, t.j. majú vždy rovnakú pravdivostnú hodnotu.
+
+    \item Matematická indukcia\\
+      Ak nám treba dokázať platnosť nejakého tvrdenia (vety), ktoré je typu (alebo sa dá sformulovať tak, aby bolo tohto typu) „pre každé prirodzené číslo platí ...“, budeme sa pridržiavať princípu na ktorom je založená metóda dokazovania tvrdení nazývaná matematická indukcia.\\
+      Pozostáva z bázy matematickej indukcie a indukčného kroku.
+    \end{itemize}
+
+\section{Intuitívny pojem množiny}
+
+  \subsection{Základné pojmy a označenia}
+  	Množiny - veľké latinské písmená ($A, B, C, ...$)\\
+  	Prvky množín - malé písmená, prípadne s indexami ($a_{1}, a_{2}, ..., b_{1}, ...$)\\
+  	
+	Opísať množinu možno v podstate dvomi spôsobmi:\\
+	- vymenovaním jej prvkov\\
+	- charakterizáciou jej prvkov pomocou nejakej spoločnej vlastnosti\\
+
+
+	Russelov paradox: Kto holí holíča? Množina všetkých množín?
+  \subsection{Množinové operácie}
+  Nech sú A, B ľubovoľné množiny.
+  Hovoríme, že
+  \begin{itemize}
+    \item A = B práve vtedy, ak každý prvok z množiny A je súčasne prvkom množiny B a každý prvok z množiny B je súčasne prvkom množiny A. \\
+    $A = B \leftrightarrow  (\forall x)((x \in A) \leftrightarrow  (x \in B))$\\
+
+    \item $A \subseteq B$ práve vtedy, ak $\forall x \in A$ platí, že $x \in B$, množina A je podmnožinou množiny B alebo tiež, že A je v inklúzií s B. \\
+    Ak $A \subseteq B$ a existuje prvok množiny B taký, ktorý nepatrí do množiny A (t.j. neplatí $B \subseteq A$), tak hovoríme, že A je vlastná alebo pravá podmnožina množiny B a označujeme $A \subset B$.\\
+    $A \subseteq B \leftrightarrow  (\forall x)(( x\in A) \rightarrow ( x\in B))$\\
+
+    \item Zjednotením množín A, B nazveme množinu všetkých prvkov, ktoré patria aspoň do jednej z množín A, B. Označenie: $A \cup B$.\\
+    $A \cup B = \{ x | ( x \in A) \vee ( x \in B )\}$ \\
+
+    \item Prienikom množín A, B nazveme množinu všetkých prvkov, ktoré patria súčasne do oboch množín A, B. Označenie: $A \cap B$ .\\
+    $A \cap B = \{ x | ( x \in A) \wedge ( x \in B)\} $\\
+    Ak A, B nemajú spoločný prvok, v tomto prípade hovoríme, že množiny sú disjunktné a ich prienikom je množina, ktorá neobsahuje žiaden prvok.\\
+
+    \item Množina, ktorá neobsahuje žiaden prvok sa nazýva prázdna množina a označujeme ju $\emptyset$.\\ 
+      - Prázdna množina je podmnožina ľubovoľnej množiny. \\
+      - Existuje práve jedna prázdna množina. \\
+
+    \item Doplnkom množiny A vzhľadom na množinu U nazývame množinu všetkých tých prvkov univerzálnej množiny U, ktoré nepatria do množiny A. Označenie $A'$. \\
+    $A' = \{ x | x \in U \wedge x \notin A\} $\\
+
+    \item Rozdielom množín A, B nazveme množinu všetkých tých prvkov množiny A, ktoré nepatria do B. Označenie $A \setminus B$ , alebo aj A - B .\\
+    $A - B = \{ x | ( x \in A ) \wedge ( x \notin B )\}$\\
+    TODO
+    \item Symetrickou diferenciou množín A, B nazveme množinu 
+   $ A (minus s bodkou hore) B = \{ x | (x \in A \wedge x \notin B) \vee (x \in B \wedge x \notin A) \}$ .\\
+    $A (minus s bodkou hore) B = ( A - B) \cup ( B - A)$\\
+
+    \item Potenčnou množinou množiny A nazveme množinu všetkých podmnožín množiny A. Označenie $P (A) $.\\
+    $P (A) = \{ X | X \subseteq A \}$\\
+  \end{itemize}
+
+  \paragraph{Základné vlastnosti množinových operácií}
+  	\begin{enumerate}
+  		\item Komutatívnosť \\
+		$A \cup B = B \cup A , A \cap B = B \cap A$
+		\item Asociatívnosť \\
+		$A \cup ( B \cup C) = ( A \cup B) \cup C , A \cap ( B \cap C) = ( A \cap B) \cap C $
+		\item Distributívnosť \\
+		$A \cup ( B \cap C) = ( A \cup B ) \cap ( A \cup C ) , A \cap ( B \cup C ) = ( A \cap B) \cup ( A \cap C ) $
+		\item Idempotentnosť \\
+		$ A \cup A = A, A \cap A = A $
+		\item $ A \cup \emptyset = A , A\cap \emptyset = \emptyset $
+		\item de Morganove zákony \\
+		$ A \cup B = A \cap B $ \\
+		$ A \cap B = A \cup B $
+  	\end{enumerate}
+  
+  \subsection{Množinové identity}
+  Dôkazy sú v UDDŠ str. 36, 37
+
+	\begin{enumerate}
+  		\item $( A \cap B) - C = ( A - C) \cap ( B - C)$
+		\item $A (minus s bodkou) B = ( A \cup B) - ( A \cap B)$
+		\item $A \subseteq B \leftrightarrow A \cap B = A$
+		\item $A \cup B \subseteq C \leftrightarrow A \subseteq C \wedge B \subseteq C$
+  	\end{enumerate}
+
+\section{Karteziánsky súčin množín}
+  [definícia usporiadanej dvojice, karteziánsky súčin dvoch a viacerých množín, množinové identity s karteziánskym súčinom, použitie karteziánskeho súčinu] 
+
+\section{Relácie}
+  [skladanie relácií, inverzná relácia, relácie na množinách. Relácia ekvivalencie, rozklad množiny. Tranzitívny uzáver relácie, reflexívno-tranzitívny uzáver – definície, vlastnosti.]
+
+\section{Usporiadania}
+  [definícia čiastočného a úplného usporiadania množiny, ostré a neostré usporiadanie, minimálny, maximálny, prvý a posledný prvok množiny, lexikografické usporiadanie karteziánskeho súčinu] 
+
+\section{Zobrazenia}
+	[definícia pomocou relácií, injektívne, surjektívne a bijektívne zobrazenia a ich skladanie] 
+
+\section {Mohutnosť množiny}
+  [Základné vlastnosti mohutnosti a nerovnosti. Počítanie s mohutnosťami, súčet, súčin a mocnina.] 
+
+\section {Cantor-Bernsteinova veta a jej dôsledky}
+  [formulácia vety, idea dôkazu, usporiadanie kardinálnych čísel] 
+
+\section {Konečné a nekonečné množiny}
+  [definícia konečnej množiny, definícia nekonečnej množiny, existencia nekonečných množín, vlastnosti konečných a nekonečných množín]
+
+\section {Spočítateľné a nespočítateľné množiny}
+  [zjednotenie a karteziánsky súčin spočítateľných množín, existencia nespočítateľných množín, Cantorova diagonálna metóda]
+
+\section {Potenčná množina a jej kardinalita}
+  [formulácia Cantorovej vety o potenčnej množine, idea dôkazu, dôsledky pre nekonečné množiny] 
+
+\section {Prirodzené čísla a matematická indukcia, Dirichletov princíp}
+  [definícia prirodzených čísiel, vlastnosť dobrého usporiadania, dôkaz matematickou indukciou]
+
+\section {Základné pravidlá kombinatorického počítania}
+  [pravidlo súčtu, súčinu, mocnenia, počítanie prvkov množiny dvoma spôsobmi] 
+
+\section {Variácie a enumerácia zobrazení}
+  [variácie s opakovaním a bez opakovania, permutácie, určenie ich počtu] 
+
+\section {Kombinácie a enumerácia podmnožín}
+  [kombinácie bez opakovania a s opakovaním a určenie ich počtu, príklady kombinácií s opakovaniami] 
+
+\section {Binomická a polynomická veta}
+  [znenie a dôkaz, dôsledky] 
+
+\section {Rovnosti a nerovnosti s kombinačnými číslami}
+  [identity zahŕňajúce kombinačné čísla, metódy dokazovania identít]
+
+\section {Princíp zapojenia a vypojenia}
+  [formulácia, dôkaz a aplikácie: enumerácia surjektívnych zobrazení, počet permutácií bez pevných bodov]
+
+\section {Hierarchia rastu funkcií, odhady čísla n! O-symbolika, rádová rovnosť, asymptotická rovnosť, odhady}
+
+\section {Stromy a lesy, kostry, súvislé grafy, meranie vzdialeností v grafe} 
+  [definície, vlastnosti, rozličné charakterizácie stromov]
+
+\section {Eulerovské a bipartitné grafy}
+  [charakterizácie eulerovských a bipartitných grafov, algoritmus na nájdenie eulerovského ťahu]
+
+\section {Meranie vrcholovej a hranovej súvislosti grafu}
+  [definície, vzájomný vzťah, artikulácie, mosty, charakterizácia 2-súvislých grafov] 
+
+\section {Hamiltonovské grafy}
+  [definícia, postačujúce podmienky, zložitosť problému] 
