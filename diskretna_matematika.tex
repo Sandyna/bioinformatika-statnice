@@ -375,7 +375,6 @@
 		\end{enumerate}
 
 
-
 \section {Mohutnosť množiny}
 	\subsection{Základné vlastnosti mohutnosti a nerovnosti}
 		Nech $A, B$ sú dve množiny. Budeme hovoriť, že množiny $A, B$ majú rovnakú mohutnosť alebo rovnaký počet prvkov, píšeme $|A| = |B|$ , ak existuje prosté zobrazenie množiny $A$ na množinu $B$, teda bijekcia.\\
@@ -396,26 +395,80 @@
 
 	Nech A, B, C sú množiny potom platí:
 	\begin{itemize}
-	\item Ak $|A| = |B|$ , tak $|A| \leq |B|$
-	\item Ak $|A| \leq |B|$ a $|B| \leq |C|$, tak $|A| \leq |C|$
-	\item Ak $|A| = |B|$ a $|B| < |C|$ , tak $|A| < |C|$
+		\item Ak $|A| = |B|$ , tak $|A| \leq |B|$
+		\item Ak $|A| \leq |B|$ a $|B| \leq |C|$, tak $|A| \leq |C|$
+		\item Ak $|A| = |B|$ a $|B| < |C|$ , tak $|A| < |C|$
 	\end{itemize}
 
 
-	Vzťah „ $|A| \leq |B|$ “ je antisymetrický, t.j. ak $|A| \leq |B|$ a súčasne $|B| \leq |A|$, tak $|A| = |B|$. Príklad: $|(0, 1)| \leq |<0,1>|$ a $|<0,1>| \leq |(0,1)|$ - nekonečné požičiavanie; zobrazenie z $(0,1)$ nemôže byť spojité.
+	Vzťah „ $|A| \leq |B|$ “ je antisymetrický, t.j. ak $|A| \leq |B|$ a súčasne $|B| \leq |A|$, tak $|A| = |B|$. Príklad: $|(0, 1)| \leq |<0,1>|$ a $|<0,1>| \leq |(0,1)|$ - nekonečné požičiavanie; zobrazenie z $(0,1)$ nemôže byť spojité.\\
 
 
 	Nech $f , g$ sú zobrazenia $f : A \rightarrow B$ a $g : B \rightarrow A$ a $f$ je prosté. Potom existujú množiny $A_{1}, A_{2}, B_{1}, B_{2}$ také, že platí:
 	\begin{itemize}
-	\item $A_{1} \cap A_{2} = \emptyset, B_{1} \cap B_{2} = \emptyset$
-	\item $A_{1} \cup A_{2} = A, B_{1} \cup B_{2} = B$
-	\item $f(A_{1}) = B_{1} , g(B_{2}) = A_{2}$
+		\item $A_{1} \cap A_{2} = \emptyset, B_{1} \cap B_{2} = \emptyset$
+		\item $A_{1} \cup A_{2} = A, B_{1} \cup B_{2} = B$
+		\item $f(A_{1}) = B_{1} , g(B_{2}) = A_{2}$
+		\end{itemize}
+
+   \subsection{Počítanie s mohutnosťami} 
+   \paragraph{Súčet} 
+   Nech $A, B, C$ sú množiny. Budeme hovoriť, že mohutnosť množiny $C$ je súčet mohutností množín $A$ a $B$, písať $|C| = |A| + |B|$, ak existujú množiny $A_{1} , B_{1} $také že:
+   \begin{itemize}
+	   \item $A_{1} \cup B_{1} = C$
+	   \item $A_{1} \cap B_{1} = \emptyset $
+	   \item $|A| = |A_{1}|, |B| = |B_{1}| $
+   \end{itemize}
+   Je potrebné overiť, či rovnosť platí aj pre iné množiny ako $A, B$, ktoré majú rovnakú mohutnosť. (vytvoríme prosté zobrazenia $f$, $g$ z $A$ a $B$ do $X$ a $Y$, vytvoríme zobrazenie $h(x) = f(x) | x \in A; h(x) = g(x) | x \in B$, všetko je prosté, všetci sú šťastní, na strane 62 je obrázok.)
+
+   \paragraph{Umocňovanie}
+   Mohutnosť množiny $C$ je mohutnosť množiny $A$ umocnená na mohutnosť množiny $B$, 
+   $|C| = |A|^{|B|}$, ak $|C| = |A^{B}|$ . Pričom $A^{B}$ označujeme množinu všetkých zobrazení množiny $B$ do množiny $A$.
+
+   \paragraph{Súčin}
+   Mohutnosť množiny $C$ je súčin mohutností množín $A$ a $B$,
+   $|C| = |A \cdot B|$, ak platí $|C| = |A \times B|$
+
+
+   \paragraph{Vlastnosti}
+
+	Všetky tieto operácie  sú monotónne, t.j. ak $|A| \leq |X|$ , $|B| \leq |Y|$ , potom
+	\begin{itemize}
+	   \item $|A| + |B| \leq |X| + |Y|$
+	   \item $|A| \cdot |B| \leq |X| \cdot |Y|$
+	   \item $A^{B} \leq X^{Y}$
 	\end{itemize}
 
-	TODO:
-   Počítanie s mohutnosťami, súčet, súčin a mocnina
+	Pre sčítanie a násobenie mohutností platia zákony aritmetiky, napr.:
+
+	\begin{itemize} 
+		\item Komutativita\\
+		$|A| + |B| = |B| + |A|$\\
+		$|A| \cdot |B| = |B| \cdot |A|$
+	\item Asociatívnosť\\
+	$|A| + ( |B| + |C| ) = ( |A| + |B| ) + |C|$\\
+	$|A| \cdot ( |B| \cdot |C| ) = ( |A| \cdot |B| ) \cdot |C|$ 
+	\item Distributívny zákon\\
+	$|A| \cdot ( |B| + |C| ) = ( |A| \cdot |B| ) + ( |A| \cdot |C| )$
+	\end{itemize}
+
+	Pre umocňovanie platia tiež zákony aritmetiky
+
+	\begin{itemize}
+		\item $A^{B+C} = A^{B} \cdot A^{C}$
+		\item $(|A| \cdot |B|)^{|C|} = |A|^{|C|} \cdot |B|^{|C|}$
+		\item $(|A|^{|B|})^{|C|} = A^{|B| \cdot |C|}$
+	\end{itemize}
+
+Odčítanie a delenie mohutnosti sa definovať nedá.
+
+
 \section {Cantor-Bernsteinova veta a jej dôsledky}
-  [formulácia vety, idea dôkazu, usporiadanie kardinálnych čísel] 
+ 	\subsection{formulácia vety}
+ 	Nech $A, B$ sú množiny. Ak platí $|A| \leq |B|$ a súčasne $|B| \leq |A|$ , tak $|A| = |B|$
+ 	\subsection{idea dôkazu}
+ 	TODO, nechce sa mi
+ 	\subsection{usporiadanie kardinálnych čísel}
 
 \section {Konečné a nekonečné množiny}
   [definícia konečnej množiny, definícia nekonečnej množiny, existencia nekonečných množín, vlastnosti konečných a nekonečných množín]
@@ -424,6 +477,7 @@
   [zjednotenie a karteziánsky súčin spočítateľných množín, existencia nespočítateľných množín, Cantorova diagonálna metóda]
 
 \section {Potenčná množina a jej kardinalita}
+	Pre ľubovoľnú množinu $X$ platí $|P (X)| = 2^{|X|}$
   [formulácia Cantorovej vety o potenčnej množine, idea dôkazu, dôsledky pre nekonečné množiny] 
 
 \section {Prirodzené čísla a matematická indukcia, Dirichletov princíp}
