@@ -545,20 +545,51 @@
 
 
 
-
-
-
-
-
-
-
 \section {Prirodzené čísla a matematická indukcia, Dirichletov princíp}
-  [definícia prirodzených čísiel, vlastnosť dobrého usporiadania, dôkaz matematickou indukciou]
+
+	\subsection{Definícia prirodzených čísiel}
+		Nech $M, N$ je podmnožina spĺňajúca dve podmienky:
+		$0 \in M$
+		ak $x \in M$, tak potom aj $(x + 1) \in M$.
+		Potom $M = N$.
+
+
+
+	\subsection{Dôkaz matematickou indukciou}
+		Nech $(V(n))_{n \in N}$ je postupnosť výrokov. 
+
+		Báza indukcie: Predpokladajme, že platí výrok $V(0)$
+		Indukčný krok: pre každé prirodzené číslo $n$, ak platí $V(n)$ , tak potom platí $V(n + 1)$, potom výrok $V(n)$ platí pre každé prirodzené číslo.
+		
+		Predpokladajme, že z platnosti výroku $V(k)$ pre každé $k < n$ vyplýva aj platnosť výroku $V(n)$. Ak platí výrok $V(0)$, tak výrok $V(n)$ platí pre každé prirodzené číslo $n$.
+	\subsection{Dirichletov princíp}
+		Nech $A$ a $B$ sú konečné množiny, pričom $|A| = n$, |$B| = m$ a $n > m$
+		Potom neexistuje žiadne injektívne zobrazenie $f : A \rightarrow B$.
+
+		\paragraph{Silnejšie tvrdenie: }
+		Ak $f : A \rightarrow B$ je zobrazenie konečných mnžoín také, že $|A| = n$, $|B| = m$ a $n/m > r - 1$ pre nejaké prirodzené číslo r, tak existuje prvok množiny B, na ktorý sa zobrazí aspoň r prvkov množiny A.
+
+	\subsection{Vlastnosť dobrého usporiadania}
 
 \section {Základné pravidlá kombinatorického počítania}
-  [pravidlo súčtu, súčinu, mocnenia, počítanie prvkov množiny dvoma spôsobmi] 
+	\subsection{Počítanie prvkov množiny dvoma spôsobmi}
+		\begin{enumerate}
+			\item Určiť počet \textbf{neusporiadaných} kongurácií, pričom opakovanie objektov v konguráciách je alebo nie je povolené.
+			\item Určiť počet \textbf{usporiadaných} kongurácií, pričom opakovanie objektov v konguráciách je alebo nie je povolené.
+		\end{enumerate}
+	\subsection{Pravidlo súčtu}
+		Nech $X_{1}, X_{2}, ...,  X_{n}$, $n \geq 2$ sú navzájom disjunktné podmnožiny konečnej množiny $X$, pričom $X = X_{1} \cup X_{2} \cup , ..., \cup X_{n}$: \\
+		Potom $|X| = |X_{1}| + |X_{2}| + ... + |X_{n}|$.
+	\subsection{Pravidlo súčinu}
+		Nech $X_{1}, X_{2}, ...,  X_{n}$, $n \geq 2$ sú ľubovoľné konečné množiny.\\
+		Potom $|X_{1} \times X_{2} \times ... \times X_{n}| = |X_{1}| \cdot |X_{2}| \cdot ... \cdot |X_{n}|$.
+
+	\subsection{Pravidlo mocnenia}
+		Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$
 
 \section {Variácie a enumerácia zobrazení}
+	Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.
+
   [variácie s opakovaním a bez opakovania, permutácie, určenie ich počtu] 
 
 \section {Kombinácie a enumerácia podmnožín}
@@ -572,6 +603,11 @@
 
 \section {Princíp zapojenia a vypojenia}
   [formulácia, dôkaz a aplikácie: enumerácia surjektívnych zobrazení, počet permutácií bez pevných bodov]
+
+
+
+
+
 
 \section {Hierarchia rastu funkcií, odhady čísla n! O-symbolika, rádová rovnosť, asymptotická rovnosť, odhady}
 
