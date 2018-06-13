@@ -3,85 +3,85 @@
 
 \section{Analýza časovej zložitosti algoritmov} 
 
-\subsection{Definícia časovej zložitosti} TODO
-\subsection{O-notácia} TODO
-\subsection{Odhad časovej zložitosti rekurzívnych algoritmov používajúcich metódu rozdeľuj a panuj} TODO
+\subsection*{Definícia časovej zložitosti} TODO
+\subsection*{O-notácia} TODO
+\subsection*{Odhad časovej zložitosti rekurzívnych algoritmov používajúcich metódu rozdeľuj a panuj} TODO
 
 \section{Algoritmy pre triedenie}
 
-	\subsection{Efektívne algoritmy triedenia porovnávaním} TODO
-	\subsection{Triedenie v lineárnom čase} TODO
-	\subsection{Dolný odhad časovej zložitosti každého triedenia porovnávaním} TODO
+	\subsection*{Efektívne algoritmy triedenia porovnávaním} TODO
+	\subsection*{Triedenie v lineárnom čase} TODO
+	\subsection*{Dolný odhad časovej zložitosti každého triedenia porovnávaním} TODO
 
 \section{Dátové štruktúry v poli}
-	\subsection{Pole s dynamickou veľkosťou – vektor} TODO
-	\subsection{Zásobník} TODO
-	\subsection{Fronta} TODO
-	\subsection{Binárna halda a implementácia prioritnej fronty pomocou nej} TODO
+	\subsection*{Pole s dynamickou veľkosťou – vektor} TODO
+	\subsection*{Zásobník} TODO
+	\subsection*{Fronta} TODO
+	\subsection*{Binárna halda a implementácia prioritnej fronty pomocou nej} TODO
 
 \section{Usporiadané dátové štruktúry}
-	\subsection{Binárne vyhľadávacie stromy} TODO
-	\subsection{Usporiadaná množina} TODO
-	\subsection{Usporiadané asociatívne pole – slovník} TODO
-	\subsection{Vyvažovanie binárnych stromov} TODO
+	\subsection*{Binárne vyhľadávacie stromy} TODO
+	\subsection*{Usporiadaná množina} TODO
+	\subsection*{Usporiadané asociatívne pole – slovník} TODO
+	\subsection*{Vyvažovanie binárnych stromov} TODO
 
 \section{Hešovanie}
 
-	\subsection{Kolízie a rôzne spôsoby ich riešenia} TODO
-	\subsection{Narodeninový paradox} TODO
-	\subsection{Množina} TODO
-	\subsection{Asociatívne pole} TODO
+	\subsection*{Kolízie a rôzne spôsoby ich riešenia} TODO
+	\subsection*{Narodeninový paradox} TODO
+	\subsection*{Množina} TODO
+	\subsection*{Asociatívne pole} TODO
 
 \section{Základné grafové algoritmy}
 
-	\subsection{Reprezentácie grafu v pamäti} TODO
-	\subsection{Prehľadávanie do hĺbky a do šírky} TODO
-	\subsection{Topologické triedenie} TODO
+	\subsection*{Reprezentácie grafu v pamäti} TODO
+	\subsection*{Prehľadávanie do hĺbky a do šírky} TODO
+	\subsection*{Topologické triedenie} TODO
 
 \section{Najkratšie cesty v grafe}
 
-	\subsection{Dijkstrov algoritmus} TODO
-	\subsection{Floydov-Warshallov algoritmus} TODO
+	\subsection*{Dijkstrov algoritmus} TODO
+	\subsection*{Floydov-Warshallov algoritmus} TODO
 
 \section{Najlacnejšia kostra grafu}
 
-	\subsection{Algoritmus Union-FindSet} TODO
-	\subsection{Kruskalov algoritmus} TODO
+	\subsection*{Algoritmus Union-FindSet} TODO
+	\subsection*{Kruskalov algoritmus} TODO
 
 \section{Násobenie matíc}
 
-	\subsection{Naivný algoritmus} TODO
-	\subsection{Strassenov algoritmus} TODO
-	\subsection{Efektívne umocňovanie matice} TODO
-	\subsection{Tranzitívny uzáver grafu pomocou umocňovania matíc} TODO
+	\subsection*{Naivný algoritmus} TODO
+	\subsection*{Strassenov algoritmus} TODO
+	\subsection*{Efektívne umocňovanie matice} TODO
+	\subsection*{Tranzitívny uzáver grafu pomocou umocňovania matíc} TODO
 
 
 \section{Dynamické programovanie}
 	Bottom-up riešenie
-	\subsection{Konkrétne príklady použitia} 
+	\subsection*{Konkrétne príklady použitia} 
 		\paragraph{0-1 knapsack} TODO
 		\paragraph{Floyd-Warshall} TODO
 		\paragraph{Problém násobenia reťazca matíc} TODO
 
-	\subsection{Charakterizácia problémov riešiteľných dynamickým programovaním} TODO
-	\subsection{Porovnanie iteratívneho prístupu a rekurzie s memoizáciou} TODO
+	\subsection*{Charakterizácia problémov riešiteľných dynamickým programovaním} TODO
+	\subsection*{Porovnanie iteratívneho prístupu a rekurzie s memoizáciou} TODO
 
 
 \section{Ďalšie princípy tvorby efektívnych algoritmov}
-	\subsection{Rozdeľuj a panuj}
+	\subsection*{Rozdeľuj a panuj}
 	TODO
-	\subsection{Pažravé algoritmy}
+	\subsection*{Pažravé algoritmy}
 		Používajú sa na riešenie optimalizačných problémov. Globálne optimálne riešenie je vytvorené pomocou postupných lokálne optimálnych riešení. Obvykle sú to iteratívne algoritmy, v ktorých problémy redukujeme na podproblémy menšieho rozsahu, v dôsledku čoho sú rýchle.
 		\paragraph{Dijkstrov algoritmus}
 		\paragraph{Kruskalov algoritmus}
 		\paragraph{Racionálny knapsack}
-	\subsection{Princíp vyváženosti}
+	\subsection*{Princíp vyváženosti}
 		Stretávame sa s delením väčšieho problému na menšie, prípadne štruktúr na menšie podštruktúry, často vieme zvýšiť efektívnosť algoritmu ich vyváženosťou.
 		\paragraph{Príklad:} Ak quicksort vyberá náhodný pivot, v priemernom prípade dosahuje zložitosť $O(n log n)$, pri zlom výbere pivotu to však môže byť až $O(n^{2})$ Chceme teda pivotom deliť na rovnaké - vyvážené časti (vyberieme medián).\\
 		\paragraph{Príklad:} BST má v priemere výšku $log n$, vyhľadávanie zložitosť $O(log n)$, ak však vetvy nie sú vyvážené, môže dosiahnuť zložitosť $O(n)$.
 	
 
-	\subsection{Voľba vhodnej dátovej štruktúry}
+	\subsection*{Voľba vhodnej dátovej štruktúry}
 		\paragraph{Abstraktný dátový typ} - abstrakcia nad dátovými štruktúrami popisujúca operácie, ktoré sa budú vykonávať. Podľa najčastejších operácií zvolíme implementáciu s ktorou budú najefektívnejšie.\\
 		
 		% \paragraph{Slovník}
