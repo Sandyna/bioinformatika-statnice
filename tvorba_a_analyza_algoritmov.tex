@@ -34,7 +34,38 @@
 
 \section{Základné grafové algoritmy}
 
-	\subsection{Reprezentácie grafu v pamäti} TODO
+	\subsection{Reprezentácie grafu v pamäti}
+
+		\paragraph{Matica susednosti} - dvojrozmerné pole $n \times n$, v ktorom môžeme reprezentovať graf pomocou boolov pre neohodnotený, integerov pre ohodnotený graf. \\
+		Výhody:
+		\begin{itemize}
+			\item Vieme priamo zistiť, či x susedí s y
+			\item Prehľadná a jednoduchá na prácu
+			\item Priama reprezentácia ohodnotených hrán
+		\end{itemize}
+		Nevýhody:
+		\begin{itemize}
+			\item Pri riedkych grafoch zaberá zbytočne veľa miesta
+			\item Pomalé hľadanie susedov vrcholu (potrebujeme prejsť všetkých n pozícií)
+			\item Nejde priamočiaro reprezentovať multigrafy (pre každé políčko si ale môžme pamätať zoznam hrán)
+		\end{itemize}
+
+		\paragraph{Zoznam susedov} - pre každý vrchol si pamätáme zoznam jeho susedov, napr v poli dĺžky n spájaných zoznamov alebo vo vektore vektorov. Vrcholy môžeme označovať integermi.
+		\begin{itemize}
+			\item Rýchly prístup ku všetkým hranám idúcim z vrcholu
+			\item Zaberá menej miesta ako matica susedov pri riedkých grafoch
+			\item Priamočiara reprezentácia multigrafu
+		\end{itemize}
+		Nevýhody:
+		\begin{itemize}
+			\item K hranám vieme pristupovať len sekvenčne
+			\item V ohodnotených grafoch si musíme pamätať páry čísel
+		\end{itemize}
+
+
+		\paragraph{Objektová reprezentácia}
+		V objekte reprezentujúcom vrchol si pamätáme referencie na jeho susedov. V princípe rovnaké ako zoznam susedov, ale s čitateľnejším kódom.
+		
 	\subsection{Prehľadávanie do hĺbky a do šírky} TODO
 	\subsection{Topologické triedenie} TODO
 
