@@ -65,18 +65,36 @@
 
 		\paragraph{Objektová reprezentácia}
 		V objekte reprezentujúcom vrchol si pamätáme referencie na jeho susedov. V princípe rovnaké ako zoznam susedov, ale s čitateľnejším kódom.
-		
-	\subsection{Prehľadávanie do hĺbky a do šírky} TODO
+
+	\subsection{Prehľadávanie do hĺbky a do šírky}
+		\paragraph{DFS}
+			Rekurzívne prehľadáva graf, pamätáme si už navštívené vrcholy.
+			Využitie: 
+			\begin{itemize}
+				\item Hľadanie mostov v grafoch.
+				\item Hľadanie artikulácií v grafoch.
+				\item Hľadanie silno súvislých komponentov v orientovaných grafoch
+				\item Testovanie planarity grafov.
+			\end{itemize}
+
+
+		\paragraph{BFS}
+
 	\subsection{Topologické triedenie} TODO
 
 \section{Najkratšie cesty v grafe}
-
+	Vedia pracovať len na ohodnotených grafoch s nezápornými cenami hrán. Neexistujúce cesty medzi 
 	\subsection{Dijkstrov algoritmus} TODO
+		Vypočíta najlacnejšiu cestu v grafe začínajúcu v konkrétnom vrchole $v_{0}$. Výstupom je pole cien ciest z $v_{0}$ do každého $v \in G$.
+		Worst-case: $O(|V|^{2})$
 	\subsection{Floydov-Warshallov algoritmus} TODO
+		Vypočíta najlacnejšiu cestu z každého vrcholu do každého vrcholu. Výstupom je matica najnižších cien ciest z $v \in G$ do každého $v \in G$.
+		Worst-case: $O(|V|^{3})$
 
 \section{Najlacnejšia kostra grafu}
 
 	\subsection{Algoritmus Union-FindSet} TODO
+
 	\subsection{Kruskalov algoritmus} TODO
 
 \section{Násobenie matíc}
@@ -95,6 +113,7 @@
 		\paragraph{Problém násobenia reťazca matíc} TODO
 
 	\subsection{Charakterizácia problémov riešiteľných dynamickým programovaním} TODO
+	
 	\subsection{Porovnanie iteratívneho prístupu a rekurzie s memoizáciou} TODO
 
 
@@ -114,9 +133,7 @@
 
 	\subsection{Voľba vhodnej dátovej štruktúry}
 		\paragraph{Abstraktný dátový typ} - abstrakcia nad dátovými štruktúrami popisujúca operácie, ktoré sa budú vykonávať. Podľa najčastejších operácií zvolíme implementáciu s ktorou budú najefektívnejšie.\\
-		
-		% \paragraph{Slovník}
-		
+
 		\begin{table}[h]
 			\centering
 			\caption{\textbf{Slovník}}
