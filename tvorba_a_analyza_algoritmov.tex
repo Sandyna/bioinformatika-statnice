@@ -7,7 +7,170 @@
 \subsection{O-notácia} TODO
 \subsection{Odhad časovej zložitosti rekurzívnych algoritmov používajúcich metódu rozdeľuj a panuj} TODO
 
+\section{Algoritmy pre triedenie}\chapter[Tvorba a analýza algoritmov]{Tvorba a analýza algoritmov}
+\label{tvorba_a_analyza_algoritmov} % id kapitoly pre prikaz ref
+
+\section{Analýza časovej zložitosti algoritmov} 
+
+\subsection{Definícia časovej zložitosti} TODO
+\subsection{O-notácia} TODO
+\subsection{Odhad časovej zložitosti rekurzívnych algoritmov používajúcich metódu rozdeľuj a panuj} TODO
+
 \section{Algoritmy pre triedenie}
+
+	\subsection{Efektívne algoritmy triedenia porovnávaním} TODO
+	\subsection{Triedenie v lineárnom čase} TODO
+	\subsection{Dolný odhad časovej zložitosti každého triedenia porovnávaním} TODO
+
+\section{Dátové štruktúry v poli}
+	\subsection{Pole s dynamickou veľkosťou – vektor} TODO
+	\subsection{Zásobník} TODO
+	\subsection{Fronta} TODO
+	\subsection{Binárna halda a implementácia prioritnej fronty pomocou nej} TODO
+
+\section{Usporiadané dátové štruktúry}
+	\subsection{Binárne vyhľadávacie stromy} TODO
+	\subsection{Usporiadaná množina} TODO
+	\subsection{Usporiadané asociatívne pole – slovník} TODO
+	\subsection{Vyvažovanie binárnych stromov} TODO
+
+\section{Hešovanie}
+
+	\subsection{Kolízie a rôzne spôsoby ich riešenia} TODO
+	\subsection{Narodeninový paradox} TODO
+	\subsection{Množina} TODO
+	\subsection{Asociatívne pole} TODO
+
+\section{Základné grafové algoritmy}
+
+	\subsection{Reprezentácie grafu v pamäti}
+
+		\paragraph{Matica susednosti} - dvojrozmerné pole $n \times n$, v ktorom môžeme reprezentovať graf pomocou boolov pre neohodnotený, integerov pre ohodnotený graf. \\
+		Výhody:
+		\begin{itemize}
+			\item Vieme priamo zistiť, či x susedí s y
+			\item Prehľadná a jednoduchá na prácu
+			\item Priama reprezentácia ohodnotených hrán
+		\end{itemize}
+		Nevýhody:
+		\begin{itemize}
+			\item Pri riedkych grafoch zaberá zbytočne veľa miesta
+			\item Pomalé hľadanie susedov vrcholu (potrebujeme prejsť všetkých n pozícií)
+			\item Nejde priamočiaro reprezentovať multigrafy (pre každé políčko si ale môžme pamätať zoznam hrán)
+		\end{itemize}
+
+		\paragraph{Zoznam susedov} - pre každý vrchol si pamätáme zoznam jeho susedov, napr v poli dĺžky n spájaných zoznamov alebo vo vektore vektorov. Vrcholy môžeme označovať integermi.
+		\begin{itemize}
+			\item Rýchly prístup ku všetkým hranám idúcim z vrcholu
+			\item Zaberá menej miesta ako matica susedov pri riedkých grafoch
+			\item Priamočiara reprezentácia multigrafu
+		\end{itemize}
+		Nevýhody:
+		\begin{itemize}
+			\item K hranám vieme pristupovať len sekvenčne
+			\item V ohodnotených grafoch si musíme pamätať páry čísel
+		\end{itemize}
+
+
+		\paragraph{Objektová reprezentácia}
+		V objekte reprezentujúcom vrchol si pamätáme referencie na jeho susedov. V princípe rovnaké ako zoznam susedov, ale s čitateľnejším kódom.
+
+	\subsection{Prehľadávanie do hĺbky a do šírky}
+		\paragraph{DFS}
+			Rekurzívne prehľadáva graf, pamätáme si už navštívené vrcholy.
+			Využitie: 
+			\begin{itemize}
+				\item Hľadanie mostov v grafoch.
+				\item Hľadanie artikulácií v grafoch.
+				\item Hľadanie silno súvislých komponentov v orientovaných grafoch
+				\item Testovanie planarity grafov.
+			\end{itemize}
+
+
+		\paragraph{BFS}
+
+	\subsection{Topologické triedenie} TODO
+
+\section{Najkratšie cesty v grafe}
+	Vedia pracovať len na ohodnotených grafoch s nezápornými cenami hrán. Neexistujúce cesty medzi 
+	\subsection{Dijkstrov algoritmus} TODO
+		Vypočíta najlacnejšiu cestu v grafe začínajúcu v konkrétnom vrchole $v_{0}$. Výstupom je pole cien ciest z $v_{0}$ do každého $v \in G$.
+		Worst-case: $O(|V|^{2})$
+	\subsection{Floydov-Warshallov algoritmus} TODO
+		Vypočíta najlacnejšiu cestu z každého vrcholu do každého vrcholu. Výstupom je matica najnižších cien ciest z $v \in G$ do každého $v \in G$.
+		Worst-case: $O(|V|^{3})$
+
+\section{Najlacnejšia kostra grafu}
+
+	\subsection{Algoritmus Union-FindSet} TODO
+
+	\subsection{Kruskalov algoritmus} TODO
+
+\section{Násobenie matíc}
+
+	\subsection{Naivný algoritmus} TODO
+	\subsection{Strassenov algoritmus} TODO
+	\subsection{Efektívne umocňovanie matice} TODO
+	\subsection{Tranzitívny uzáver grafu pomocou umocňovania matíc} TODO
+
+
+\section{Dynamické programovanie}
+	Bottom-up riešenie
+	\subsection{Konkrétne príklady použitia} 
+		\paragraph{0-1 knapsack} TODO
+		\paragraph{Floyd-Warshall} TODO
+		\paragraph{Problém násobenia reťazca matíc} TODO
+
+	\subsection{Charakterizácia problémov riešiteľných dynamickým programovaním} TODO
+	
+	\subsection{Porovnanie iteratívneho prístupu a rekurzie s memoizáciou} TODO
+
+
+\section{Ďalšie princípy tvorby efektívnych algoritmov}
+	\subsection{Rozdeľuj a panuj}
+	TODO
+	\subsection{Pažravé algoritmy}
+		Používajú sa na riešenie optimalizačných problémov. Globálne optimálne riešenie je vytvorené pomocou postupných lokálne optimálnych riešení. Obvykle sú to iteratívne algoritmy, v ktorých problémy redukujeme na podproblémy menšieho rozsahu, v dôsledku čoho sú rýchle.
+		\paragraph{Dijkstrov algoritmus}
+		\paragraph{Kruskalov algoritmus}
+		\paragraph{Racionálny knapsack}
+	\subsection{Princíp vyváženosti}
+		Stretávame sa s delením väčšieho problému na menšie, prípadne štruktúr na menšie podštruktúry, často vieme zvýšiť efektívnosť algoritmu ich vyváženosťou.
+		\paragraph{Príklad:} Ak quicksort vyberá náhodný pivot, v priemernom prípade dosahuje zložitosť $O(n log n)$, pri zlom výbere pivotu to však môže byť až $O(n^{2})$ Chceme teda pivotom deliť na rovnaké - vyvážené časti (vyberieme medián).\\
+		\paragraph{Príklad:} BST má v priemere výšku $log n$, vyhľadávanie zložitosť $O(log n)$, ak však vetvy nie sú vyvážené, môže dosiahnuť zložitosť $O(n)$.
+	
+
+	\subsection{Voľba vhodnej dátovej štruktúry}
+		\paragraph{Abstraktný dátový typ} - abstrakcia nad dátovými štruktúrami popisujúca operácie, ktoré sa budú vykonávať. Podľa najčastejších operácií zvolíme implementáciu s ktorou budú najefektívnejšie.\\
+
+		\begin{table}[h]
+			\centering
+			\caption{\textbf{Slovník}}
+			\label{my-label}
+			\begin{tabular}{|l|l|l|l|}
+			\hline
+			\textbf{Implementácia} & \textbf{Member} & \textbf{Insert} & \textbf{Delete}  \\ \hline
+			Pole                   & $O(n)$            & $O(1)$           & $O(n)$             \\ \hline
+			Utriedené pole         & $O(log n)$        & $O(n)$            & $O(n)$             \\ \hline
+			2-3 stromy             & $O(log n)$        & $O(log n)$        & $O(log n)$          \\ \hline
+			Heš                    & $O(1)$/$O(n)$      & $O(1)$/$O(n)$       & $O(1)$/$O(n)$        \\ \hline
+			\end{tabular}
+		\end{table}
+
+		\begin{table}[h]
+			\centering
+			\caption{\textbf{Prioritná fronta}}
+			\label{my-label}
+			\begin{tabular}{|l|l|l|l|}
+			\hline
+			\textbf{Implementácia} & \textbf{Insert} & \textbf{Min/top} & \textbf{Delete min/pop}   \\ \hline
+			Pole                   & $O(1)$            & $O(n)$             & $O(n)$                       \\ \hline
+			Utriedené pole         & $O(n)$            & $O(1)$             & $O(1)$                       \\ \hline
+			Halda                  & $O(log n)$        & $O(1)$             & $O(log n)$                  \\ \hline
+			2-3 stromy             & $O(log n)$        & $O(log n)$         & $O(log n)$                   \\ \hline
+			\end{tabular}
+		\end{table}
+
 
 	\subsection{Efektívne algoritmy triedenia porovnávaním} TODO
 	\subsection{Triedenie v lineárnom čase} TODO
