@@ -1,36 +1,192 @@
 \chapter[Metódy v bioinformatike]{Metódy v bioinformatike}
 \label{metody_v_bioinformatike.tex} % id kapitoly pre prikaz ref
 
-\href{http://compbio.fmph.uniba.sk/vyuka/mbi/index.php/Predn%C3%A1%C5%A1ky_a_pozn%C3%A1mky}{Link na skriptá}
+\href{http://compbio.fmph.uniba.sk/vyuka/mbi/index.php/Predn%C3%A1%C5%A1ky_a_pozn%C3%A1mky}{Link na skriptá, poznámky, prednášky}
 
-\section{Sekvenovanie, zostavovanie genómov}
+	\section{Sekvenovanie, zostavovanie genómov}
+		\subsection{Sekvenovanie DNA}
+			\paragraph{Pokrytie}
+				\begin{itemize}
+					\item Nech:\\
+					G = dĺžka genómu 1 000 000 (predpokladajme, že je cirkulárny)\\
+					N = počet čítaní (readov), napr. 10 000\\
+					L = dĺžka readu, napr. 1000\\
+					pokrytie (coverage)  = $\frac{NL}{G}$, v našom prípade 10x - V priemere každá báza pokrytá 10x; niektoré sú ale pokryté viackrát, iné menej
+					\item Počet báz pokrytých menej ako $n$-krát - binomické rozdelenie (odhaduje sa Poissonovým)\\
+					\centerline{$P(X < n) = P(X = 0) + P(X = 1) + ... + P(x = n)$}\\
+					\item Parametre:
+					\\$n = dlzka genomu$
+					\\$p = \frac{dlzka readu}{velkost genomu}$
+					\item Výsledok\\
+					\centerline{$P(X < n) = P(X = 0) + P(X = 1) + P(x = 2) = 0.000045+0.00045+0.0023=0.0028$}\\
+					 (v priemere očakávame 45 báz nepokrytých, 2800 pokrytých menej ako 3 krát)
+					\\Takýto odhad vieme ľahko spraviť pre rôzne počty čítaní a tak naplánovať, koľko čítaní potrebujeme
+				\end{itemize}
 
+				Počet kontigov: 
+			\begin{itemize}
+				\item Podmienky:\\
+				prerušenie nastáva ak viacero báz nie je pokrytých\\
+				stanovíme minimálny prekryv $T=50$ (vieme koľko báz je v priemere nepokrytých, ale môžu byť blízko seba)\\
+				\item Výpočet:\\
+				p je pravdepodobnosť, že dané čítanie i bude posledné v kontigu, t.j. žiadne čítanie j!=i nesmie začínať v prvých L-T bázach kontigu i\\
+				Každé čítanie tam začína s pravdepodobnosťou \\
+				\centerline{$q= \frac{(L-T)}{G}$}\\
+				Ak X je počet čítaní, ktoré začínaju v tomto úseku, tak \\
+				\centerline{$p = P(X=0) = (1-q)^{(N-1)}$} \\
+				podľa binomického rozdelenia v priemere ich tam začne \\
+				\centerline{$E(X) = (N-1)\frac{(L-T)}{G}$ čo je zhruba $N\frac{(L-T)}{G}$}\\
+				Jednoduchší vzorec pre p dostaneme ak binomické rozdelenie premennej X aproximujeme Poissonovým s parametrom  \\
+				\centerline{$\lambda = pocet citani \cdot \frac{dlzka citania - T}{dlzka genomu}$} \\
+				(t.j. aby mali rovnakú strednú hodnotu)\\
+
+				V Poissonovom rozdelení \\
+				\centerline{$p = Pr(X=0) = exp( -\lambda )= exp(pocet citani \cdot \frac{dlzka citania - min. prekryv}{dlzka genomu})$\\}
+				
+				Presnosť aproximácie: pre parametre  z binomického rozdelenia p=7.459e-5, z Poissonovho 7.485e-5\\
+				Pre N čítaní dostaneme priemerný počet kontigov 
+				\\
+				\centerline{$N \cdot p = N \cdot exp(-N \frac{(L-T)}{G})$}\\
+				$N \frac{(L-T)}{G}$ je pokrytie, ak by sme dĺžku každého čítania skrátili o dĺžku prekryvu\\
+				\item Výsledok: \\
+				Pre $T=50$ dostaneme priemerný počet koncov kontigov 0.75 (ak pokryjeme celý kruh, máme nula koncov, preto je hodnota menšia ako 1). Ak znížime N na 5000 (5x pokrytie) dostaneme 43 kontigov\\
+
+				Môže sa zdať zvláštne,že pri priemernom počte nepokrytých báz 45 máme počet koncov v priemere menej ako jedna. Situácia je však taká, že pri opakovaniach tohto experimentu často dostávame jeden súvislý kontig, ale ak je už aspoň jeden koniec kontigu, býva tam pomerne veľká medzera. Tu je napriklad 50 opakovani expertimentu s $T=0$, priemerný počet koncov je 0.55, priemerný počet nepokrytých báz je 49.
+				\end{itemize}
+
+				Jednoduchý model nepokrýva všetky faktory:
+				\begin{itemize}
+					\item Čítania nemajú rovnakú dĺžku
+					\item Problémy v zostavovaní kvôli chybám, opakovaniam a pod.
+					\item Čítania nie sú rozložené rovnomerne (cloning bias a pod.)
+					\item Vplyv koncov chromozómov pri lineárnych chromozómoch
+					\item Užitočný ako hrubý odhad
+					\item Na spresnenie môžeme skúšat spraviť zložitejšie modely, alebo simulovať data
+				\end{itemize}
+			
+			\paragraph{Sanger}
+				\begin{itemize}
+					\item Výsledkom je sekvenovací profil(trace)
+					\item Na základe toho sa určí báza na každej pozícii a odhadne sa kvalita q; ($10^{ \frac{-q}{10}}$ je pravdepodobnosť chyby)
+					\item Čítania dĺžky 500 - 1000bp
+					\item <2\% error
+				\end{itemize}
+			\paragraph{Second-gen}
+				Illumina
+				\begin{itemize}
+					\item 2 x 150bp
+					\item <1\% error
+				\end{itemize}
+			\paragraph{Third-gen}
+				\begin{itemize}
+					\item Pacbio\\
+						- 6-25 Kbp; 15\% error
+					\item Oxford Nanopore
+						- 5-100+ Kbp; 15\% error
+				\end{itemize}
+
+			\paragraph{Čítanie (read)}
+
+			\paragraph{Párové čítania}
+
+		\subsection{Zostavovanie genómu}
+			\paragraph{Kontig}
+			\paragraph{Problém najkratšieho spoločného nadslova}
+					\begin{itemize}
+						\item Úloha: Daných je niekoľko reťazcov (čítaní), nájdite najkratší reťazec, ktorý obsahuje všetky vstupné reťazce ako (súvislé) podreťazce. Motivácia: čo najviac využiť prekryvy medzi čítaniami
+						\item Problém je NP ťažký, takže nepoznáme rýchly algoritmus, ktorý vždy nájde najlepšie riešenie
+						\item Jednoduchá heuristika: opakovane nájdi dva reťazce, ktoré sa prekrývajú najviac a zlúč ich do jedného reťazca
+						\item Príklad: CATATAT, TATATA, ATATATC\\
+						 Optimum: CATATATATC, dĺžka 10\\
+						 Heuristika: CATATATCTATATA, dĺžka 14
+						\item V skutočnosti táto heuristika aproximačný algoritmus: Nájdené riešenie je najviac 3,5$\times$ horšie ako optimálne T.j. je to 3,5-aproximačný algoritmus (možno aj 2-aproximačný, otvorený problém)
+						\item Existuje aj 2,5-aproximačný algoritmus
+					\\\textbf{Problémy:}
+						\item V sekvenovaní sa vyskytujú chyby (cca 1 zo 100 báz)
+						\item Polymorfizmus
+						\item Orientácia čítaní (vlákno, strand)
+						\item Kontaminácia cudzou sekvenciou (napr. baktérie, v ktorých sa segmenty DNA klonovali), chiméry
+						\item Viac chromozómov, neúplné pokrytie čítaniami
+						\item Repetitívna sekvencia (sequence repeats, opakovania) cca 50\% ľudského genómu
+					\\\textbf{Zlepšenia:}
+						\item spárované čítania:  nemusíme spojiť všetko do jedného reťazca, spájame len časti spojené viacerými čítaniami $\rightarrow$ konzervatívny prístup (radšej menej pospájať, ale nerobiť chyby)\\
+					\\\textbf{Zhrnutie:} 
+						\item Nerealistická formulácia, ťažký výpočtový problém
+						\item Ale teoretický problém môže poskytnúť nejaký posun k pochopeniu skutočného problému
+						\item \textbf{Overlap-Layout-Consensus} prístup motivovaný greedy algoritmami pre najkratšie spoločné nadslovo
+				\end{itemize}
+			%\paragraph{Overlap-Layout-Consensus}
+			\paragraph{de Bruijnove grafy}
+				\begin{itemize}
+						\item Nasekajme čítania na (prekrývajúce sa) kúsky dĺžky $k$
+						\item Zostavme z nich de Bruijnov graf
+						\item vrcholy: podreťazce dĺžky k všetkých čítaní
+						\item hrany: nadväzujúce $k$-tice v rámci každého čítania (s prekryvom $k - 1$)
+						\item Graf je orientovaný (hrany majú smer)
+					\\\textbf{Ideálny prípad:}
+						\item jediný chromozóm a žiadne “nejednoznačné” $k$-tice $\rightarrow$ zostavenie = Eulerovská cesta (cesta v grafe, ktorá použije každú hranu práve raz)
+						\item Eulerovskú cestu možno nájsť v čase $O(m + n)$
+					\\\textbf{V realistickom prípade:}
+						\item zostavenie genómu zodpovedá niekoľkým pochôdzkam v de Bruijnovom (nazývame kontigy), ktoré dohromady pokrývajú veľkú časť hrán
+					\\\textbf{Typický výsledok: }
+						\item Veľa kratších kontigov, ktoré možno ďalej kombinovať do väčších celkov (scaffolds) pomocou ďalšej informácie (napr. spárované čítania, čítania 3. generácie)
+						\item Niektoré časti nemožno jednoznačne zostaviť z dôvodu dlhých opakujúcich sa sekvencií
+				\end{itemize}
 	[sekvenovanie DNA a jeho využitie, čítanie (read), párové čítania, kontig, problém najkratšieho spoločného nadslova, de Bruijnove grafy]
 
-\section{Zarovnávanie sekvencií}
+	\section{Zarovnávanie sekvencií}
+		\paragraph{Význam}
+			\begin{itemize}
+				\item Orientácia v obrovských databázach - (Genbank WGS má vyše 2 TB sekvencií. Napr. odkiaľ z genómu pochádza daná sekvencia?)
+				\item Určovanie funkcie (napr. proteínu) - Podobné sekvencie často majú rovnakú/podobnú funkciu.
+				\item Štúdium evolúcie - Hľadáme homológy, sekvencie, ktoré sa vyvinuli z toho istého spoločného predka. V ideálnom prípade medzery zodpovedajú inzerciám a deléciám, zarovnané bázy zachovaným bázam a substitúciám.
+				\item Hľadanie génov a iných funkčných prvkov - Menia sa pomalšie ako ostatné sekvencie
+			\end{itemize}
+
+		\subsection{Globálne zarovnanie}
+			\begin{itemize}
+					\item Vstup: sekvencie X a Y
+					\item Výstup: zarovnanie X a Y s najvyšším skóre
+					\item Dynamickým programovaním: Needleman, Wunsch
+			\end{itemize}
+
+		\subsection{Lokálne zarovnanie}
+			\begin{itemize}
+				\item Vstup: sekvencie X a Y
+				\item Výstup: zarovnania podreťazcov $x_{i} . . . x_{j}$ a $y_{k} . . . y_{l}$ s najvyšším skóre
+				\item Dynamickým programovaním: Smith, Waterman
+			\end{itemize}
+
+		\subsection{Skórovacie matice}
+
+		\subsection{Štatistická významnosť}
+
+		\subsection{Heuristické hľadanie lokálnych zarovnaní (BLAST)}
+
+		\subsection{Celogenómové a viacnásobné zarovnania}
 
 	[Problém lokálneho a globálneho zarovnania dvoch sekvencií, jeho riešenie pomocou dynamického programovania, skórovacia matica a jej pravdepodobnostný význam, štatistická významnosť (E-value, P-value), heuristické hľadanie lokálnych zarovnaní (BLAST), celogenómové a viacnásobné zarovnania]
 
-\section{Hľadanie génov}
+	\section{Hľadanie génov}
 
 	[Gén, exón, intrón, mRNA, zostrih a alternatívny zostrih, kodón, genetický kód, skrytý Markovov model (HMM), jeho stavy, pravdepodobnosti prechodu a emisie, Viterbiho a dopredný algoritmus, použitie HMM na hľadanie génov]
 
-\section{Evolúcia a komparatívna genomika}
+	\section{Evolúcia a komparatívna genomika}
 
 	[Fylogenetický strom, zakorenenie stromu, metóda maximálnej úspornosti (parsimony), metóda spájania susedov (neighbor joining), metóda maximálnej vierohodnosti (maximum likelihood), Felsensteinov algoritmus, Jukes-Cantorov model substitúcií a zložitejšie substitučné matice, homológ, paralóg, ortológ, detekcia pozitívneho a negatívneho výberu, fylogenetické HMM, test pomerov vierohodností (likelihood ratio test)]
 
-\section{Expresia génov, regulácia, motívy}
+	\section{Expresia génov, regulácia, motívy}
 
 	[Určovanie génovej expresie pomocou microarray alebo sekvenovaním RNA-seq, hierarchické zhlukovanie, klasifikácia, reprezentácia sekvenčných motívov (väzobné miesta transkripčných faktorov) ako konsenzus, regulárny výraz a PSSM, hľadanie nových motívov v sekvenciách, consensus pattern problem, hľadanie motívu pomocou pravdepodobnostných modelov (EM algoritmus)]
 
-\section{Proteíny}
+	\section{Proteíny}
 
 	[Primárna, sekundárna a terciálna štruktúra proteínov, proteínové domény a rodiny, reprezentovanie rodiny pravdepodobnostným profilom a profilovým HMM, protein threading, gene ontology]
 
-\section{RNA}
+	\section{RNA}
 
 	[Sekundárna štruktúra RNA, pseudouzol a dobre uzátvorkovaná štruktúra, Nussinovovej algoritmus, minimalizácia energie, stochastické bezkontextové gramatiky, kovariančné modely]
 
-\section{Populačná genetika}
+	\section{Populačná genetika}
 
 	[Polymorfizmus, SNP, alela, homozygot, heterozygot, rekombinácia, frekvencia polymorfizmu ako markovovský reťazec, náhodný genetický drift, väzbová nerovnováha (linkage disequilibrium), mapovanie asociácií, LD blok, subpopulácia]
