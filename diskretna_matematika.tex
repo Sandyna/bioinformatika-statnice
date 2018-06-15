@@ -472,14 +472,14 @@
 
 %odtialto je to riedke, netreba sa na nic spoliehat
 
-\section {Cantor-Bernsteinova veta a jej dôsledky}
+\section {Cantor-Bernsteinova veta a jej dôsledky - TODO}
  	\subsection{formulácia vety}
  		Nech $A, B$ sú množiny. Ak platí $|A| \leq |B|$ a súčasne $|B| \leq |A|$ , tak $|A| = |B|$
  	\subsection{idea dôkazu}
  		TODO, nechce sa mi
  	\subsection{usporiadanie kardinálnych čísel}
 
-\section {Konečné a nekonečné množiny}
+\section {Konečné a nekonečné množiny - TODO}
 	\subsection{Definícia konečnej množiny, definícia nekonečnej množiny}
 		Množina $A$ sa nazýva konečná, ak $A < \aleph_{0}$,t.j. ak $A < N$ . Množina sa nazýva nekonečná, ak nie je konečná.
 
@@ -500,7 +500,7 @@
 
   	\subsection{vlastnosti konečných a nekonečných množín}
 
-\section {Spočítateľné a nespočítateľné množiny}
+\section {Spočítateľné a nespočítateľné množiny - TODO}
 
 	Množina A sa nazýva spočítateľná, ak platí $A \leq \aleph_{0}$ ,t.j. ak existuje prosté zobrazenie množiny $A$ do množiny $N$ – prirodzených čísel. Množina sa nazýva nespočítateľná, ak nie je spočítateľná.
 
@@ -530,7 +530,7 @@
 
 
 
-\section {Potenčná množina a jej kardinalita}
+\section {Potenčná množina a jej kardinalita - TODO}
 	Pre ľubovoľnú množinu $X$ platí $|P (X)| = 2^{|X|}$
 	\subsection{formulácia Cantorovej vety o potenčnej množine}
 	Pre každú množinu $X$ platí $|X| < |P (X)|$.
@@ -538,7 +538,7 @@
 	idea dôkazu:
 
 
-
+TODO
 
 
 
@@ -549,7 +549,7 @@
 	dôsledky pre nekonečné množiny:
 
 
-
+TODO
 
 
 
@@ -560,7 +560,6 @@
 		$0 \in M$
 		ak $x \in M$, tak potom aj $(x + 1) \in M$.
 		Potom $M = N$.
-
 
 
 	\subsection{Dôkaz matematickou indukciou}
@@ -578,6 +577,8 @@
 		Ak $f : A \rightarrow B$ je zobrazenie konečných mnžoín také, že $|A| = n$, $|B| = m$ a $n/m > r - 1$ pre nejaké prirodzené číslo r, tak existuje prvok množiny B, na ktorý sa zobrazí aspoň r prvkov množiny A.
 
 	\subsection{Vlastnosť dobrého usporiadania}
+    TODO
+
 
 \section {Základné pravidlá kombinatorického počítania}
 	\subsection{Počítanie prvkov množiny dvoma spôsobmi}
@@ -594,30 +595,41 @@
 
 	\subsection{Pravidlo mocnenia}
 
+    Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$
 
 \section {Variácie a enumerácia zobrazení}
-    Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$\\
+    
+    Variácie spolu s kombináciami patria medzi najjednoduchšie a najbežnejšie kombinatorické konfigurácie.Zatiaľ čo variácie sú usporiadané štruktúry, kombinácie sú neusporiadané. 
 
-    Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.\\
-
-  Variácie spolu s kombináciami patria medzi najjednoduchšie a najbežnejšie kombinatorické konfigurácie.Zatiaľ čo variácie sú usporiadané štruktúry, kombinácie sú neusporiadané. 
-
-  Nech A a B sú konečné množiny, pričom $|A| = n$ a $|B| = m$. Potom počet všetkých injektívnych zobrazení z A do B je \\
-  $ m \cdot (m - 1) . . . (m - n + 1) = \Pi_{i = 0}^{n - 1} (m - i)$
+    \subsection{Variácie s opakovaním}
+      Pre $A = \{1, 2, ..., n\}$  a $|B| = m$ sa prvky množiny $B^{A}$ nazývajú \textbf{variácie s opakovaním} $n$-tej triedy z $m$ prvkov (množiny $B$).
+     
+      Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.
 
 
-  Existuje vzájomne jednoznačná korešpondencia medzi permutáciami ľubovolnej množiny B a lineárnymi usporiadaniami množiny B. Preto počet lineárnych usporiadaní n-prvkovej množiny je $n!$
+    \subsection{Variácie bez opakovania}
 
-  \paragraph{Zovšeobecnené pravidlo súčinu: }
-  Nech $X$ je konečná množina. Nech $A \subseteq X^{k}$, $k \geq 2$, je podmnožina karteziánskeho súčinu $X^{k}$, ktorej prvky označíme $(x_{1}, x_{2}, ..., x_{k})$ a ktorá spĺňa podmienky:
-  \begin{enumerate}
-    \item prvok $x_{1}$ je možné z množiny $X$ vybrať $n_{1}$ spôsobmi
-    \item pre každé $i \in \{1, ..., k - 1\} $, po akomkoľvek výbere usporiadanej i-tice $(x_{1}, x_{2}, ..., x_{k})$ je možné prvok $x_{i+1}$ vybrať vždy $n_{i+1}$ spôsobmi.
-  \end{enumerate}
+      Nech A a B sú konečné množiny, pričom $|A| = n$ a $|B| = m$. Potom počet všetkých injektívnych zobrazení z A do B je\\
+      $ m \cdot (m - 1) . . . (m - n + 1) = \Pi_{i = 0}^{n - 1} (m - i)$
 
-Potom $|A|=n_{1} \cdot n_{2} \cdot ... \cdot n_{k}$.
+      Injekcie z množiny $A = \{1, 2, ..., n\}$ do množiny $B$, kde $|B| = m$, sa nazývajú variácie (bez opakovania) $n$-tej triedy z $m$ prvkov (množiny $B$).
+  
 
-  [variácie s opakovaním a bez opakovania, permutácie, určenie ich počtu] 
+      Na označenie počtu variácií bez opakovania n-tej triedy z m prvkov používame symbol $m^{\underline{n}} = m(m - 1)...(m - n + 1)$, pričom platia vzťahy $m^{\underline{0}} = 1$ a $m^{\underline{1}} = m$ číslo $m^{\underline{n}}$ sa nazýva $n$-tý klesajúci faktoriál z $m$. Číslo $m^{\underline{n}} = m \cdot (m - 1) \cdot ... \cdot 2 \cdot 1$ sa označuje $m!$ a nazýva sa $m$-faktoriál.
+
+    \subsection{Permutácie a enumerácia zobrazení}
+      Variácie bez opakovania n-tej triedy z n prvkov množiny, bijekcie $A \rightarrow A$; $|A| = n|$. Ich počet je $n!$.
+
+      Existuje vzájomne jednoznačná korešpondencia medzi permutáciami ľubovolnej množiny B a lineárnymi usporiadaniami množiny B. Preto počet lineárnych usporiadaní n-prvkovej množiny je $n!$
+
+    \paragraph{Zovšeobecnené pravidlo súčinu: }
+      Nech $X$ je konečná množina. Nech $A \subseteq X^{k}$, $k \geq 2$, je podmnožina karteziánskeho súčinu $X^{k}$, ktorej prvky označíme $(x_{1}, x_{2}, ..., x_{k})$ a ktorá spĺňa podmienky:
+        \begin{enumerate}
+          \item prvok $x_{1}$ je možné z množiny $X$ vybrať $n_{1}$ spôsobmi
+          \item pre každé $i \in \{1, ..., k - 1\} $, po akomkoľvek výbere usporiadanej i-tice $(x_{1}, x_{2}, ..., x_{k})$ je možné prvok $x_{i+1}$ vybrať vždy $n_{i+1}$ spôsobmi.
+        \end{enumerate}
+
+      Potom $|A|=n_{1} \cdot n_{2} \cdot ... \cdot n_{k}$.
 
 \section {Kombinácie a enumerácia podmnožín}
   \subsection{Kombinácie bez opakovania}
@@ -635,33 +647,112 @@ Potom $|A|=n_{1} \cdot n_{2} \cdot ... \cdot n_{k}$.
         \item Pre každé $k > n$ platí $\binom{n}{k} = 0$, lebo $n$-prvková  množina nemá podmnožiny s viac ako $n$ prvkami.
       \end{itemize}
 
+      Nech 
+      $A$ je konečná množina, pričom $|A| = n$. Potom počet $k$-kombinácií z množiny $A$ je \\
+      $|P_{k}(A)| = \binom{n}{k} = \frac{n(n-1) ... (n-k+1)}{k(k-1)...1} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}$\\
 
+      Pre ľubovoľné prirodzené čísla n a k platí:
 
+      $\binom{n}{k} + \binom{n}{k + 1} = \binom{n + 1}{k + 1}$
 
-  
+        \paragraph{Dôkaz: } 
+          Množina $A$, $|A| = n + 1; b \in A$ je pevný prvok. Množinu $\binom{A}{k+1}$ rozdelíme na 2 časti: $B_{0}$ a $B_{1}$, pričom  $B_{0}$ bude obsahovať všetky $(k+1)$-podmnožiny také, že $b \notin B_{0}$ a $B_{1}$ všetky také, že $b \in B_{1}$. Každá množina v $B_{0}$ je podmnožinou $A - \{b\}$, $|B_{0}| = \binom{n}{k+1}$ a každá množina v $B_{1}$ určuje k-prvkovú podmnožinu množiny $A - \{b\}$, preto $|B_{1}| = \binom{n}{k}$. Dostávame tak vzťah:\\
+        $\binom{n+1}{k+1} = \binom{A}{k+1} = |B_{0}| + |B_{1}| = \binom{n}{k+1} + \binom{n}{k}$\\
+
+        \paragraph{Cauchyho sčítací vzorec: }
+          $\forall n, m \in N:$\\
+          $\sum\limits^{n}_{i = 0} \binom{m}{i} \binom{n}{k-i} = \binom{m+n}{k}$
+
   \subsection{Kombinácie s opakovaním}
+    Nech $A$ je $n$-prvková množina a $k$ prirodzené číslo. Potom počet všetkých kombinácií s opakovaním $k$-tej triedy v množine $A$ je\\
+    $ \binom{n+k-1}{k}$
 
-
-
-   a určenie ich počtu, príklady kombinácií s opakovaniami] 
+    TODO príklady kombinácií s opakovaniami
 
 \section {Binomická a polynomická veta}
-  [znenie a dôkaz, dôsledky] 
 
-\section {Rovnosti a nerovnosti s kombinačnými číslami}
+  \subsection{Binomická veta}
+    Pre každé reálne číslo $x$ a prirodzené číslo $n$ platí:\\
+    $(1 + x)^{n} = \sum\limits^{n}_{k = 0} \binom{n}{k}x^{k}$
+    \paragraph{Dôkaz: }
+      $(1+x)^{n+1} = (1+x)^{n}(1+x) \\
+       = (\sum\limits^{n}_{k = 0} \binom{n}{k}x^{k}) (1+x) \\ 
+       = 1 + (\binom{n}{0} + \binom{n}{1})x + (\binom{n}{1} + \binom{n}{2})x^{2} + ... + (\binom{n}{n-1} + \binom{n}{n})x^{n} + x^{n-1} \\
+       = \sum\limits^{n + 1}_{k = 0} x^{k}$
+    \paragraph{Rozšírenie na reálne čísla}
+    Je možné. Pre každé $z \in R$:\\
+    $\binom{z}{k} = \frac{z^{\underline{k}}}{k!} = \frac{z(z-1) ... (z-k+1)}{k!}$\\
+    Potom pre ľubovoľné $z \in R$ a pre každé $x \in R; |x| < 1$ platí\\
+    $(1 + x)^{z} = \sum\limits^{\inf}_{k = 0} \binom{z}{k}x^{k}$\\
+    Ak $z \in N$, tak všetky binomické koefiienty pre $k > z$ sú nulové (pre |x| < 1).\\
+    Využitie: dokazovanie vlastností kombinačných čísel.\\
+    (TODO Niekde tu možno je chyba?)
+
+
+    \paragraph{Dôsledky: }
+      \begin{itemize}
+        \item $\sum\limits^{n}_{k = 0} \binom{n}{k} = 2^{n}$
+        \item $\sum\limits^{n}_{k = 0} (-1)^{k} \binom{n}{k} = 0$
+        \item $\sum\limits_{0 \leq k \leq 0, k párne} \binom{n}{k} = \sum\limits_{0 \leq k \leq 0, k nepárne} \binom{n}{k} = 2^{n-1}$
+      \end{itemize}
+  \subsection{Polynomická veta}
+    Nech $n$ a $k$ sú kladné prirodzené čísla. Potom:\\
+      $(x_{1} + x_{2} + ... + x_{n} )^{n} = \sum\limits_{n_{1}, n_{2}, ... n_{k}} \binom{n}{n_{1}, n_{2}, ... n_{k}} x_{1}^{n_{1}} x_{2}^{n_{2}} ... x_{k}^{n_{k}}, n_{i} \geq 0$\\
+      pričom sčítame cez všetky usporiadané n-tice prirodzených čísel $n_{1}, n_{2}, ... n_{k}$ pre ktoré $n_{1}, n_{2}, ... n_{k} = n$
+
+    \paragraph{Dôkaz: }
+      Vynásobme n činiteľov $(x_{1} + x_{2} + ... + x_{n} )$ a združme rovnaké monómy. Koeficient pri $x_{1}^{n_{1}} x_{2}^{n_{2}} ... x_{k}^{n_{k}}$ je pritom počet spôsobov, ktorými sa tento monóm pri vynásobení získa. Zrejme $M = x_{1}^{n_{1}} x_{2}^{n_{2}} ... x_{k}^{n_{k}}$ vznikne vždy, keď $x_{1}$ vyberieme z $n_{1}$ činiteľov, $x_{2}$ z $n_{2}$ činiteľov atď. Inými slovami, výraz $M$ zodpovedá zobrazeniu z množiny $n$ činiteľov do množiny $x_{1} + x_{2} + ... + x_{n}$ pričom $n_{1}$ činiteľov je zobrazených na $x_{1}$, $n_{2}$ činiteľov na $x_{2}$ atď. Takýchto zobrazení je\\
+      $ \frac{n!}{n_{1}!n_{2}! ... n_{k}!} = \binom{n}{n_{1}, n_{2}, . . ., n_{k}} $\\
+
+      Platí tiež\\
+      $\binom{n}{n_{1}, n_{2}, . . ., n_{k}} = \binom{n}{n_{1}} \binom{n - n_{1}}{n_{2}} ... \binom{n - n_{1} - n_{2} - ... - n_{k-1}}{n_k}$\\ 
+
+
+    \paragraph{Dôsledky: } TODO?
+
+
+\section {Rovnosti a nerovnosti s kombinačnými číslami - TODO}
   [identity zahŕňajúce kombinačné čísla, metódy dokazovania identít]
 
-\section {Princíp zapojenia a vypojenia}
-  [formulácia, dôkaz a aplikácie: enumerácia surjektívnych zobrazení, počet permutácií bez pevných bodov]
+
+\section {Princíp zapojenia a vypojenia - TODO}
+    
+
+    \paragraph{Formulácia:}
+    Nech $M_{1}, M_{2}, ... , M_{n}$ sú konečné množiny. Potom\\
+    $ M_{1} \cup M_{2} \cup ... \cup M_{n} = \sum\limits^{n}_{k = 1} (-1)^{k+1} \sum\limits_{i_{1} < i_{2} < ... < i_{k}}  |M_{i_{1}} \cap M_{i_{2}} \cap ... \cap M_{i_{k}}| = \\
+    = \sum\limits^{n}_{k = 1} (-1)^{k+1} S_{k}$
 
 
+    \paragraph{Dôkaz:}
+
+    \subsection{Enumerácia surjektívnych zobrazení}
+    Počet surjektívnych zobrazení $f : A \rightarrow B$, kde $|A| = n$ a $|B| = m$ je\\
+    $S^{A}_{B} = \sum\limits^{m}_{k = 0} (-1)^{k} \binom{m}{k}(m-k)^{n} $
+
+    \subsection{Počet permutácií bez pevných bodov -TODO}
 
 
 
 
 \section {Hierarchia rastu funkcií, odhady čísla n! O-symbolika, rádová rovnosť, asymptotická rovnosť, odhady}
 
-\section {Stromy a lesy, kostry, súvislé grafy, meranie vzdialeností v grafe} 
+
+\section {Stromy a lesy, kostry, súvislé grafy, meranie vzdialeností v grafe}
+  \paragraph{Základné grafové definície: }
+    \begin{itemize}
+        \item Stupeň vrchola v - počet hrán susedných s vrcholom v
+        \item Pravidelný graf stupňa k - všetky vrcholy rovnaký stupeň k
+        \item Sled
+        \item Ťah
+        \item Cesta
+        \item Uzavretý sled
+        \item Uzavretý ťah
+        \item Kružnica
+    \end{itemize}
+  \subsection{Definície}
+    
+
   [definície, vlastnosti, rozličné charakterizácie stromov]
 
 \section {Eulerovské a bipartitné grafy}
