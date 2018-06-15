@@ -593,15 +593,57 @@
 		Potom $|X_{1} \times X_{2} \times ... \times X_{n}| = |X_{1}| \cdot |X_{2}| \cdot ... \cdot |X_{n}|$.
 
 	\subsection{Pravidlo mocnenia}
-		Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$
+
 
 \section {Variácie a enumerácia zobrazení}
-	Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.
+    Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$\\
+
+    Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.\\
+
+  Variácie spolu s kombináciami patria medzi najjednoduchšie a najbežnejšie kombinatorické konfigurácie.Zatiaľ čo variácie sú usporiadané štruktúry, kombinácie sú neusporiadané. 
+
+  Nech A a B sú konečné množiny, pričom $|A| = n$ a $|B| = m$. Potom počet všetkých injektívnych zobrazení z A do B je \\
+  $ m \cdot (m - 1) . . . (m - n + 1) = \Pi_{i = 0}^{n - 1} (m - i)$
+
+
+  Existuje vzájomne jednoznačná korešpondencia medzi permutáciami ľubovolnej množiny B a lineárnymi usporiadaniami množiny B. Preto počet lineárnych usporiadaní n-prvkovej množiny je $n!$
+
+  \paragraph{Zovšeobecnené pravidlo súčinu: }
+  Nech $X$ je konečná množina. Nech $A \subseteq X^{k}$, $k \geq 2$, je podmnožina karteziánskeho súčinu $X^{k}$, ktorej prvky označíme $(x_{1}, x_{2}, ..., x_{k})$ a ktorá spĺňa podmienky:
+  \begin{enumerate}
+    \item prvok $x_{1}$ je možné z množiny $X$ vybrať $n_{1}$ spôsobmi
+    \item pre každé $i \in \{1, ..., k - 1\} $, po akomkoľvek výbere usporiadanej i-tice $(x_{1}, x_{2}, ..., x_{k})$ je možné prvok $x_{i+1}$ vybrať vždy $n_{i+1}$ spôsobmi.
+  \end{enumerate}
+
+Potom $|A|=n_{1} \cdot n_{2} \cdot ... \cdot n_{k}$.
 
   [variácie s opakovaním a bez opakovania, permutácie, určenie ich počtu] 
 
 \section {Kombinácie a enumerácia podmnožín}
-  [kombinácie bez opakovania a s opakovaním a určenie ich počtu, príklady kombinácií s opakovaniami] 
+  \subsection{Kombinácie bez opakovania}
+    Kombinácie bez opakovania sú neusporiadané súbory neopakujúcich sa prvkov - inými slovami podmnožiny nejakej základnej množiny. Presnejšie, kombinácie (bez opakovania) k-tej triedy z n prvkov množiny A sú k-prvkové podmnožiny množiny A s mohutnosťou $|A| = n$.
+
+
+    Množina všetkých k-prvkových podmnožín množiny A sa označuje $P_{k}(A)$ alebo $\binom{A}{k}$ a ich počet $\binom{n}{k}$. Symbol $\binom{n}{k}$ sa nazýva \textbf{kombinačným číslom} alebo \textbf{binomickým koeficientom}.
+
+    Vlastnosti $\binom{n}{k}$:
+      \begin{itemize}
+        \item Pre každé $n \geq 0$ platí $\binom{n}{0} = 1$, lebo každá množina má práve jednu $\emptyset$.
+        \item Pre každé $n \geq 0$ platí $\binom{n}{n} = 1$, lebo každá n-prvková množina má práve n rôznych n-prvkových množín
+        \item Pre každé $n \geq 0$ platí $\binom{n}{1} = n$,lebo každá n-prvková množina má práve n 1-prvkových podmnožín.
+        \item Pre každé $k \leq n$ platí $\binom{n}{k} = \binom{n}{n-k}$. Počet k-prvkových podmnožín ľubovoľnej n-prvkovej množiny $A$ je ten istý, ako počet $(n-k)$-prvkových podmnožín množiny $A$, lebo zobrazenie $\binom{A}{k} \rightarrow \binom{A}{n-k}$, $x \rightarrow A - x$ je bijekcia.
+        \item Pre každé $k > n$ platí $\binom{n}{k} = 0$, lebo $n$-prvková  množina nemá podmnožiny s viac ako $n$ prvkami.
+      \end{itemize}
+
+
+
+
+  
+  \subsection{Kombinácie s opakovaním}
+
+
+
+   a určenie ich počtu, príklady kombinácií s opakovaniami] 
 
 \section {Binomická a polynomická veta}
   [znenie a dôkaz, dôsledky] 
