@@ -4,7 +4,57 @@
 
 \section{Vektorové priestory, lineárne zobrazenia}
 \subsection*{priestor, podpriestor, lineárna závislosť, báza a dimenzia}
+\emph{Vektorový priestor:} Nech $F$ je pole a $V \not\equiv \emptyset$ je množina. Nech $+$ je binárna operácia na $V$ a každej dvojici $c \in F, \alpha \in V$ je priradený prvok $c \cdot \alpha \in V$, pričom platí pre ľubovoľné $c, d \in F$ a $\alpha, \beta \in V$:
+\begin{itemize}
+    \item $(V, +)$ je komutatívna grupa
+    \item $c \cdot (\alpha + \beta) = c \cdot \alpha + c \cdot \beta$
+    \item $c + d)\cdot\alpha = c\cdot\alpha + d\cdot\beta $
+    \item $(c \cdot d)\cdot\alpha = c \cdot (d\cdot\alpha)$
+    \item $1\cdot\alpha = \alpha$
+\end{itemize}
+
+\bigskip
+
+\emph{Vektorový podpriestor:} Ak $V$ je vektorový priestor nad poľom $F, S \not\equiv \emptyset$ a $S \subseteq V$, tak $S$ nazveme vektorový podpriestor priestoru $V$, ak:
+\begin{itemize}
+    \item pre ľubovoľné $\alpha, \beta \in S$ platí $\alpha + \beta \in S$
+    \item pre ľubovoľné $\alpha \in S$ a $a \in F$ platí $c \cdot \alpha \in S$
+\end{itemize}  
+
+\bigskip
+
+\emph{Lineárna kombinácia:} Nech $V$ je vektorový priestor nad poľom $F$. Hovoríme, že vektor $\alpha$ je lineárnou kombináciou vektorov 
+$\alpha_1, \alpha_2, \alpha_3, ... , \alpha_n$ ak existujú skaláry $c_1, c_2, c_3, ... c_n \in F$ také, že 
+$\alpha = c_1 \cdot \alpha_1 + c_2 \cdot \alpha_2 + c_3 \cdot \alpha_3 + ... + c_n \cdot \alpha_n$
+
+\bigskip
+
+\emph{Lineárna závislosť:} Nech $V$ je vektorový priestor nad poľom $F$. Vektory $\alpha_1, ... , \alpha_n$ sú lineárne
+závislé, ak existujú $c_1, ... , c_n ∈ F$, ktoré nie sú všetky nulové a platí
+$c_1\cdot \alpha_1 + ... + c_n\cdot \alpha_n = \vec{0}$
+
+\bigskip
+
+\emph{Báza:} Nech $V$ je vektorový priestor nad poľom $F$. Množinu vektorov ${\alpha_1, ... , \alpha_n}$
+nazývame bázou priestoru $V$ , ak
+\begin{itemize}
+    \item (i) vektory $\alpha_1, ... , \alpha_n$ sú lineárne nezávislé,
+    \item (ii) $V = [\alpha_1, ... , \alpha_n]$
+\end{itemize}
+
+\bigskip
+
+\emph{Dimenzia:} Dimenziou konečnorozmerného vektorového priestoru $V$ nazývame počet prvkov ľubovoľnej jeho bázy. (Pre nulový priestor dodefinujeme $d({\vec{0}}) = 0$. Toto číslo označujeme $d(V)$.
+
 \subsection*{Steinitzova veta}
+
+Nech $V$ je vektorový priestor nad poľom $F$. Ak
+$V = [\alpha_1, ... , \alpha_n]$ (vektorový priestor V je generovaný vektormi $\alpha_1, ... , \alpha_n$) a $\beta_1, ... , \beta_s s \in V$ sú lineárne nezávislé vektory, tak
+\begin{itemize}
+    \item (i) $s \leq n$,
+    \item (ii) z vektorov $\alpha_1, ... , \alpha_n$ sa dá vybrať $n - s$ vektorov, ktoré spolu s vektormi $\beta_1, ... , \beta_s$ generujú $V$
+\end{itemize}
+
 \subsection*{súčty podpriestorov}
 \subsection*{lineárne zobrazenia, kompozícia lineárnych zobrazení, inverzné lineárne zobrazenia, matica lineárneho zobrazenia, jadro a obraz lineárneho zobrazenia}
 
