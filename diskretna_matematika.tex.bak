@@ -1,0 +1,623 @@
+\chapter[Diskrétna matematika]{Diskrétna matematika}
+\label{diskretna} % id kapitoly pre prikaz ref
+
+(Predmety Úvod do diskrétnych štruktúr, Úvod do kombinatoriky a teórie grafov)
+\section{Základy matematickej logiky}
+
+  \subsection*{Logické operácie}
+  \begin{itemize}
+    \item Negácia $\neg$ (NOT)
+    \item Konjunkcia $\wedge$ (AND)
+    \item Disjunkcia $\vee$ (OR)
+    \item Alternatíva $\oplus$ (XOR)
+    \item Implikácia $\rightarrow$
+    \item Ekvivalencia $\leftrightarrow$ 
+    \item Schafferova spojka $\uparrow$ (NAND) - vie nahradiť všetky ostatné
+    \item Pierce – Lukasiewiçsova spojka $\downarrow$ (NOR) - vie nahradiť všetky ostatné
+  \end{itemize}
+
+  \subsection*{Formuly}
+    Výrokovou formou a(x) s premennou x nazývame takú oznamovaciu vetu (formálny výraz, formulu), ktorá obsahuje premennú x, sama nie je výrokom, a stane sa výrokom vždy vtedy, keď za premennú x dosadíme konkrétny objekt z vopred danej vhodne vybratej množiny. Ku každej výrokovej forme existuje nejaká množina prvkov, ktoré má zmysel do výrokovej formy dosadzovať.
+    (Príklad: \textit{x je väčšie ako číslo 5})
+  \subsection*{Výrokové funkcie}
+  TODO: cite{Toman2009} 1.2 ?
+  \subsection*{Kvantifikácia výrokov}
+    \begin{itemize}
+    \item Existenčný kvantifikátor $\exists$
+    \item Všeobecný kvantifikátor $\forall$
+    \end{itemize}
+    Negácie:\\
+    	$\neg (\exists x)a(x) \leftrightarrow (\forall x)(\neg a(x))$\\
+		$\neg (\forall x)a(x) \leftrightarrow ( \exists x)(\neg a(x))$
+  \subsection*{Tautógia} 
+  Je výrok pravdivý pre všetky možné kombinácie pravdivostných hodnôt výrokov, z ktorých je zložený.
+
+
+    \paragraph{Významné tautológie}
+	\begin{enumerate}
+    \item Idempotentnosť\\
+    $( p \wedge p) \leftrightarrow  p $\\
+    $( p \vee p) \leftrightarrow  p $\\
+    \item Komutatívnosť\\
+    $( p \wedge q) \leftrightarrow  ( q \wedge p)$\\
+    $( p \vee q) \leftrightarrow  ( q \vee p)$ \\
+    $( p \leftrightarrow  q) \leftrightarrow  ( q \leftrightarrow  p)$ \\
+    \item Asociatívnosť \\
+    $( p \vee ( q \vee r)) \leftrightarrow  (( p \vee q) \vee r)$\\
+    $( p \wedge ( q \wedge r)) \leftrightarrow  (( p \wedge q) \wedge r)$\\
+    \item Distributívne zákony \\
+    $( p \vee ( q \wedge r)) \leftrightarrow  (( p \vee q) \wedge ( p \vee r))$\\
+    $( p \wedge ( q \vee r)) \leftrightarrow  (( p \wedge q) \vee ( p \wedge r))$\\
+    \item Absorbčné zákony\\
+    $( p \wedge ( q \vee p)) \leftrightarrow  p$\\
+    $( p \vee ( q \wedge p)) \leftrightarrow  p$\\
+    \item Zákon dvojitej negácie\\
+   	$\neg \neg  p \leftrightarrow  p$\\
+    \item Zákon vylúčenia tretieho\\
+    $( p \vee \neg  p) \leftrightarrow 1$\\
+    \item Zákon o vylúčení sporu\\
+    $( p \wedge \neg  p) \leftrightarrow  0$\\
+    \item De Morganove zákony\\
+    $\neg ( p \wedge q) \leftrightarrow  ( \neg  p \vee \neg q)$\\
+    $\neg ( p \vee q) \leftrightarrow  ( \neg  p \wedge \neg q)$\\
+    \item Kontrapozícia negácie\\
+    $(\neg p \rightarrow \neg q) \rightarrow ( q \rightarrow p)$\\
+    \item Reductio ad absurdum\\
+    $(\neg p \rightarrow p) \rightarrow p$\\
+    \item $( p \rightarrow q) \leftrightarrow  ( \neg  p \vee q)$\\
+    \item $( p \rightarrow q) \leftrightarrow  \neg ( p \wedge \neg q)$\\
+    \item $( p \wedge q) \leftrightarrow  \neg ( p \rightarrow \neg q)$\\
+    \item $( p \vee q) \leftrightarrow ( \neg  p \rightarrow q)$\\
+    \item $( p \leftrightarrow  q) \leftrightarrow  (( p \rightarrow q) \wedge ( q \rightarrow p))$\\
+    \end{enumerate}
+
+
+  \subsection*{Kontradikcia}
+  Výrok, ktorého pravdivostná hodnota je rovná nule bez ohľadu na pravdivostné hodnoty výrokov, z ktorých pozostáva.
+
+
+\section{Matematický dôkaz}
+
+  \subsection*{Logický dôsledok}
+	TODO
+  \subsection*{Základné typy matematických dôkazov}
+    \begin{itemize}
+    \item Priamy dôkaz tvrdenia \textit{a}\\
+      Pozostáva z konečného reťazca implikácií $ a_{1} \rightarrow a_{2} \rightarrow$ ... $\rightarrow a_{n} \rightarrow a $, ktorého prvý člen je axióma, alebo už dokázané tvrdenie, alebo pravdivé tvrdenie, výrok a každé ďalšie tvrdenie je logickým dôsledkom predchádzajúcich, pričom posledným členom reťazca (postupnosti) je dokazované tvrdenia $a$.
+    \item Nepriamy dôkaz tvrdenia $a$ sporom\\
+      Založený je na zákone vylúčenia tretieho, podľa ktorého z dvojice výrokov $a, \neg a$ musí byť práve jeden pravdivý. Keď teda dokážeme, že výrok $\neg a$ nie je pravdivý, vyplýva z toho pravdivosť tvrdenia $a$.
+    \item Priamy dôkaz implikácie $ a \rightarrow b$\\
+      Predpokladajme, že tvrdenie a platí (v prípade, že a je nepravdivé je implikácia $a \rightarrow b$ pravdivá, niet čo dokazovať), nájdeme postupnosť implikácií začínajúcu tvrdením a, končiacu tvrdením b, v ktorej každý člen je logickým dôsledkom predchádzajúcich tvrdení a axióm, resp. skôr dokázaných tvrdení. Niekoľkonásobným použitím pravidla jednoduchého sylogizmu dostávame platnosť implikácie $a \rightarrow b$.
+
+    \item Nepriamy dôkaz implikácie $ a \rightarrow b$ sporom\\
+      Podobne ako v opísanej schéme dôkazu sporom predpokladáme platnosť negácie dokazovanej implikácie, t. j. predpokladáme platnosť tvrdenia $\neg ( a \rightarrow b)$ , ktoré je ekvivalentné tvrdeniu $a \wedge \neg b$ . Z tohto tvrdenia postupne odvodzujeme logické dôsledky tak dlho, pokým dospejeme k sporu. Môžu tu nastať tri prípady:\\
+      - dôjdeme do sporu s tvrdením $a$,\\
+      - dôjdeme do sporu s tvrdením $\neg b$\\
+      - napokon môžeme dokázať dve navzájom odporujúce si tvrdenia $c, \neg c$
+
+    \item Nepriamy dôkaz implikácie $a \rightarrow b$ pomocou obmeny.\\
+      Zakladá sa na skutočnosti, že implikácia $ a \rightarrow b$ a jej obmena $ \neg b \rightarrow \neg a $ sú ekvivalentné, t.j. majú vždy rovnakú pravdivostnú hodnotu.
+
+    \item Matematická indukcia\\
+      Ak nám treba dokázať platnosť nejakého tvrdenia (vety), ktoré je typu (alebo sa dá sformulovať tak, aby bolo tohto typu) „pre každé prirodzené číslo platí ...“, budeme sa pridržiavať princípu na ktorom je založená metóda dokazovania tvrdení nazývaná matematická indukcia.\\
+      Pozostáva z bázy matematickej indukcie a indukčného kroku.
+    \end{itemize}
+
+\section{Intuitívny pojem množiny}
+
+  \subsection*{Základné pojmy a označenia}
+  	Množiny - veľké latinské písmená ($A, B, C, ...$)\\
+  	Prvky množín - malé písmená, prípadne s indexami ($a_{1}, a_{2}, ..., b_{1}, ...$)\\
+
+	Opísať množinu možno v podstate dvomi spôsobmi:\\
+	- vymenovaním jej prvkov\\
+	- charakterizáciou jej prvkov pomocou nejakej spoločnej vlastnosti\\
+
+
+	Russelov paradox: Kto holí holíča? Množina všetkých množín?
+  \subsection*{Množinové operácie}
+  Nech sú A, B ľubovoľné množiny.
+  Hovoríme, že
+  \begin{itemize}
+    \item A = B práve vtedy, ak každý prvok z množiny A je súčasne prvkom množiny B a každý prvok z množiny B je súčasne prvkom množiny A. \\
+    $A = B \leftrightarrow  (\forall x)((x \in A) \leftrightarrow  (x \in B))$\\
+
+    \item $A \subseteq B$ práve vtedy, ak $\forall x \in A$ platí, že $x \in B$, množina A je podmnožinou množiny B alebo tiež, že A je v inklúzií s B. \\
+    Ak $A \subseteq B$ a existuje prvok množiny B taký, ktorý nepatrí do množiny A (t.j. neplatí $B \subseteq A$), tak hovoríme, že A je vlastná alebo pravá podmnožina množiny B a označujeme $A \subset B$.\\
+    $A \subseteq B \leftrightarrow  (\forall x)(( x\in A) \rightarrow ( x\in B))$\\
+
+    \item Zjednotením množín A, B nazveme množinu všetkých prvkov, ktoré patria aspoň do jednej z množín A, B. Označenie: $A \cup B$.\\
+    $A \cup B = \{ x | ( x \in A) \vee ( x \in B )\}$ \\
+
+    \item Prienikom množín A, B nazveme množinu všetkých prvkov, ktoré patria súčasne do oboch množín A, B. Označenie: $A \cap B$ .\\
+    $A \cap B = \{ x | ( x \in A) \wedge ( x \in B)\} $\\
+    Ak A, B nemajú spoločný prvok, v tomto prípade hovoríme, že množiny sú disjunktné a ich prienikom je množina, ktorá neobsahuje žiaden prvok.\\
+
+    \item Množina, ktorá neobsahuje žiaden prvok sa nazýva prázdna množina a označujeme ju $\emptyset$.\\ 
+      - Prázdna množina je podmnožina ľubovoľnej množiny. \\
+      - Existuje práve jedna prázdna množina. \\
+
+    \item Doplnkom množiny A vzhľadom na množinu U nazývame množinu všetkých tých prvkov univerzálnej množiny U, ktoré nepatria do množiny A. Označenie $A'$. \\
+    $A' = \{ x | x \in U \wedge x \notin A\} $\\
+
+    \item Rozdielom množín A, B nazveme množinu všetkých tých prvkov množiny A, ktoré nepatria do B. Označenie $A \setminus B$ , alebo aj A - B .\\
+    $A - B = \{ x | ( x \in A ) \wedge ( x \notin B )\}$\\
+    TODO
+    \item Symetrickou diferenciou množín A, B nazveme množinu 
+   $ A (minus s bodkou hore) B = \{ x | (x \in A \wedge x \notin B) \vee (x \in B \wedge x \notin A) \}$ .\\
+    $A (minus s bodkou hore) B = ( A - B) \cup ( B - A)$\\
+
+    \item Potenčnou množinou množiny A nazveme množinu všetkých podmnožín množiny A. Označenie $P (A) $.\\
+    $P (A) = \{ X | X \subseteq A \}$\\
+  \end{itemize}
+
+  \paragraph{Základné vlastnosti množinových operácií}
+  	\begin{enumerate}
+  		\item Komutatívnosť \\
+		$A \cup B = B \cup A , A \cap B = B \cap A$
+		\item Asociatívnosť \\
+		$A \cup ( B \cup C) = ( A \cup B) \cup C , A \cap ( B \cap C) = ( A \cap B) \cap C $
+		\item Distributívnosť \\
+		$A \cup ( B \cap C) = ( A \cup B ) \cap ( A \cup C ) , A \cap ( B \cup C ) = ( A \cap B) \cup ( A \cap C ) $
+		\item Idempotentnosť \\
+		$ A \cup A = A, A \cap A = A $
+		\item $ A \cup \emptyset = A , A\cap \emptyset = \emptyset $
+		\item de Morganove zákony \\
+		$ A \cup B = A \cap B $ \\
+		$ A \cap B = A \cup B $
+  	\end{enumerate}
+  
+  \subsection*{Množinové identity}
+  Dôkazy sú v UDDŠ str. 36, 37
+
+	\begin{enumerate}
+  		\item $( A \cap B) - C = ( A - C) \cap ( B - C)$
+		\item $A (minus s bodkou) B = ( A \cup B) - ( A \cap B)$
+		\item $A \subseteq B \leftrightarrow A \cap B = A$
+		\item $A \cup B \subseteq C \leftrightarrow A \subseteq C \wedge B \subseteq C$
+  	\end{enumerate}
+
+\section{Karteziánsky súčin množín}
+
+	\subsection*{Definícia usporiadanej dvojice} 
+	Pod usporiadanou n-ticou si môžeme predstaviť konečnú postupnosť o n-členoch.\\
+	
+	Nech sú $a_{1}$ , $a_{2}$ ľubovoľné prvky. Množinu $\{ \{ a_{1} \},  \{a_{1}, a_{2} \}\}$ nazývame usporiadanou dvojicou, označenie ($a_{1}$, $a_{2}$), pričom $a_{1}$ nazývame prvou súradnicou (zložkou), $a_{2}$ druhou súradnicou (zložkou).\\
+	Usporiadané dvojice sa rovnajú ak obe ich zložky sú si rovné.
+
+	\subsection*{Karteziánsky súčin dvoch a viacerých množín}
+	Karteziánskym súčinom množín $A, B$ nazveme množinu
+	$A \times B = \{( x, y) | x \in A \wedge y \in B\}$
+	Definíciu karteziánskeho súčinu môžeme rozšíriť aj pre prípad n množín, môžeme postupovať induktívne, ako v prípade usporiadanej n-tice.
+	Pre dvojicu konečných množín $A, B$ je niekedy vhodná reprezentácia karteziánskeho súčinu pomocou matice AxB. 
+	\subsection*{Množinové identity s karteziánskym súčinom}
+	\begin{itemize}
+		\item ak aspoň jedna z množín A, B je prázdna, tak potom $ A \times B = \emptyset $
+		\item nie je komutatívny
+		\item nie je asociatívny
+		\item $( A \cup B) \times C = ( A \times C) \cup ( B \times C) $
+		\item Ak $A \subseteq B$ , tak pre každú množinu $C$ platí $A \times C \subseteq B \times C $
+		\item $( A \cap B) \times C = ( A \times C) \cap ( B \times C)$
+		\item $( A - B) \times C = ( A \times C) - ( B \times C)$
+		\item Množiny $A, B$ sú disjunktné práve vtedy, keď $ A \times B \cap B \times A = \emptyset $
+	\end{itemize}
+
+	Ďalšie dôležité množinové identity a vzťahy uvádzame v cvičeniach str. 40, 41.
+	\subsection*{Použitie karteziánskeho súčinu}
+
+	Použitie karteziánskeho súčinu prenechávame na skúseného a zručného čitateľa. \\
+	(TODO)
+
+\section{Relácie}
+
+		Nech A, B sú ľubovoľné množiny. Množinu $\varphi$ nazývame textbf{binárnou reláciou} z množiny $A$ do množiny $B$, alebo binárnou reláciou medzi prvkami množín $A$ a $B$ vtedy a len vtedy, keď $\varphi \subseteq A \times B$.\\
+		Slovo binárna z definície znamená, že relácia je definovaná medzi dvomi množinami. Môžeme však zaviesť aj n - árne relácie, ktoré sú podmnožinami karteziánskeho súčinu n - množín.\\
+
+		Binárna relácia $\varphi$ z n–prvkovej množiny A do m – prvkovej množiny B sa dá reprezentovať maticou M typu $n \times m$ . Tie miesta v matici, ktoré zodpovedajú usporiadaným dvojiciam množiny $\varphi$ označíme symbolom 1, na ostatné miesta v matici M napíšeme symbol 0.\\
+
+		Ďalšou veľmi názornou reprezentáciou je grafová reprezentácia binárnej relácie. Prvky množín označíme krúžkami, ktoré nazývame vrcholmi grafu a usporiadanú dvojicu znázorníme šípkou, ktorá ide z vrcholu odpovedajúceho prvému prvku dvojice k vrcholu, ktorý odpovedá druhému prvku dvojice.\\
+
+	\subsection*{Vlastnosti}
+		Nech  $\varphi$  je relácia na množine A. $\varphi$ je:
+		\begin{enumerate}
+			\item Reflexívna, ak pre každé $x \in A$ platí $( x, x ) \in \varphi $
+			\item Ireflexívna, ak pre žiadne $x \in A$ neplatí $( x, x) \in \varphi $
+			\item Symetrická, ak z podmienky $( x, y ) \in \varphi $ vyplýva $( y, x ) \in \varphi$
+			\item Asymetrická, ak pre každé $( x, y ) \in \varphi$  platí $( y, x ) \notin \varphi$  
+			\item Tranzitívna, ak $(( ( x, y ) \in \varphi  \wedge ( y, z ) \in \varphi ) \rightarrow ( x, z ) \in \varphi )$
+			\item Atranzitívna, ak $(( x, y) \in \varphi  \wedge ( y,z) \in \varphi ) \rightarrow ( x,z) \notin \varphi$ 
+			\item Trichotomická, ak pre každé $x, y \in A $ platí:
+
+			$x \neq y \rightarrow (( x, y) \in \varphi  \vee ( y, x) \in \varphi ) $ 
+
+			$[ ( x = y) \vee ( x, y) \in \varphi \vee ( y, x) \in \varphi ]$
+
+			\item Antisymetrická, ak pre každé $x, y \in A$ platí:
+			$(( x, y) \in \varphi  \wedge ( y, x) \in \varphi ) \rightarrow x = y$
+		\end{enumerate}
+
+
+ 	\subsection*{Skladanie relácií}
+
+	  	Nech $\varphi$ je relácia medzi prvkami množín $A, B$ a nech $\psi$ je relácia medzi prvkami množín $B, C$. Potom
+
+		$\{ ( a, c ) \in A \times C : ( \exists b)(b \in B \wedge ( a,b) \in \varphi \wedge ( b, c) \in \psi )\}$
+
+		(je to relácia medzi prvkami množín $A$ a $C$) sa nazýva zložená relácia (zložená z relácií $\varphi$ a $\psi$ ) a označujeme ju $\psi \circ  \varphi$.
+
+ 	\subsection*{Inverzná relácia}
+
+		Nech $\varphi$ je relácia medzi prvkami množín A, B. Potom
+
+		$\{( b, a ) \in B \times A, ( a, b ) \in \varphi \} $
+
+		(je to relácia medzi prvkami množín B a A) sa nazýva inverzná relácia k relácií $\varphi$ a označujeme ju symbolom $\varphi^{-1}$ .
+
+	\subsection*{Relácie na množinách} 
+		Reláciou medzi prvkami množín A, B (v tomto poradí) nazývame akúkoľvek podmnožinu karteziánskeho súčinu $\varphi \subseteq A \times B$. Ak A = B , tak hovoríme o relácií na množine A (alebo medzi prvkami množiny A). Relácia medzi prvkami množín A, B je akákoľvek množina $\varphi \subseteq A \times B $, špeciálne $\varphi = \emptyset$ a $\varphi = A \times B$.
+	\subsection*{Relácia ekvivalencie}
+		Relácia $\varphi$ na množine $A$ sa nazýva relácia ekvivalencie na $A$, ak je \textbf{reflexívna, symetrická a tranzitívna}.
+
+	\subsection*{Rozklad množiny}
+
+		Nech $A$ je neprázdna množina. Systém $S \subseteq P (A)$ sa nazýva rozklad množiny $A$, ak každá množina systému $S$ je neprázdna. Pričom $S$ je systém po dvoch disjunktných množín s vlastnosťou $\bigcup_{M \in S} M = A$
+
+		Teda rozklad množiny $A$ je taký systém neprázdnych podmnožín množiny $A$, že každý prvok
+		$x \in A$ patrí práve do jednej množiny tohto systému.
+
+	\subsection*{Tranzitívny uzáver relácie}
+		$\varphi^{+} = \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 1} \varphi^k$
+
+	\subsection*{Reflexívno-tranzitívny uzáver}
+		$\varphi^{+} = I_{a} \cup \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 0} \varphi^k$\\
+
+		$I_{a} = \{ ( x, x ) | x \in A \}, \varphi^{0} = I_{a}, \varphi^{i} = \varphi^{i-1} \circ \varphi$ pre $i> 0$, t.j. $(x, y) \in \varphi^{k}$ pre nejaké $k>0$ $\leftrightarrow $ ak existuje postupnosť prvkov $x = x_{0}, x_{1}, ..., x_{k-1}, x_{k} = y$ taká, že platí ${x_{0}, x_{1}} \in \varphi,  {x_{1}, x_{2}} \in \varphi, ... {x_{k-1}, x_{k}} \in \varphi$
+
+\section{Usporiadania}
+	\subsection*{Definícia čiastočného a úplného usporiadania množiny}
+		Relácia na množine $A$ sa nazýva čiastočné usporiadanie množiny $A$, ak je \textbf{asymetrická a tranzitívna}. Relácia na množine $A$ sa nazýva (lineárne) usporiadanie množiny $A$, ak je \textbf{asymetrická, tranzitívna a trichotomická}. Teda usporiadanie množiny A je každé čiastočné usporiadanie, ktoré je \textbf{trichotomické na množine $A$}.\\
+
+		Formálnejšie, relácia $\varphi$ na množine $A$ je čiastočné usporiadanie množiny $A$, ak pre každé $ x, y, z \in A $ platí:
+		\begin{enumerate}
+		\item $( x, y) \in \varphi \rightarrow ( y, x ) \notin \varphi$
+		\item $( x, y) \in \varphi \wedge ( y,z) \in  \rightarrow ( x, z) \in \varphi$ \\
+		
+		Ak navyše pre každé $x, y \in A$ platí:
+		\item $( x = y) \vee ( x, y ) \int \varphi \vee ( y, x ) \in \varphi$ \\, čo je ekvivalentné s \\
+		$ x \neq y \rightarrow (( x, y) \in \varphi \vee ( y, x ) \in \varphi)$,
+		\end{enumerate}
+		tak $\varphi$ je usporiadanie množiny $A$.\\
+
+
+		Ak $A$ je množina a $\varphi$ je jej usporiadanie (resp. čiastočné usporiadanie), tak hovoríme, že množina $A$ je usporiadaná (resp. čiastočne usporiadaná) reláciou $\varphi$ a zapisujeme to v tvare $( A, \varphi )$ , alebo $( A, < )$ , ak namiesto $( x, y) \in \varphi $ píšeme $x < y$ . Uvedený zápis je motivovaný tým, že pre tú istú množinu možno vo všeobecnosti definovať viacero čiastočných usporiadaní.
+
+	\subsection*{Ostré a neostré usporiadanie}
+		\begin{itemize}
+			\item Ostré, ak $x<y$
+			\item Neostré, ak $x \leq y \leftrightarrow x < y \vee x = y$
+		\end{itemize}
+	\subsection*{Minimálny, maximálny, prvý a posledný prvok množiny}
+		Prvok $a$ čiastočne usporiadanej množiny $( A, < )$ sa nazýva
+		\begin{itemize}
+			\item minimálny prvok, ak pre žiadne $x \in A$ neplatí $x < a$
+			\item maximálny prvok, ak pre žiadne $x \in A$ neplatí $a < x$
+		\end{itemize}
+		Prvok $b$ čiastočne usporiadanej množiny $( A, <)$ sa nazýva
+		\begin{itemize} 
+		\item \textbf{prvý} alebo \textbf{najmenší prvok} množiny $A$, ak pre každý prvok $x \in A, x \neq b$ platí $b < x$
+		\item  \textbf{najväčší} alebo \textbf{posledný prvok} množiny A, ak pre každé $x \in A, x \neq b$ platí $x < b$
+		\end{itemize}
+		
+		Posledný je vždy maximálnym, ale nie vždy aj naopak.
+		Prvý je vždy minimálnym, ale nie vždy aj naopak.
+
+	\subsection*{Lexikografické usporiadanie karteziánskeho súčinu}
+		Nech $(A, \leq )$ je usporiadaná množina a $n$ je prirodzené číslo.
+		Usporiadanie na množine $A^{n}$ = $A \times A \times ... \times A$ : $(a_{1}, a_{2}, ..., a_{n}) \leq  (b_{1}, b_{2}, ..., b_{n})$ sa nazýva \textbf{lexikografické usporiadanie množiny} $A^n$ práve vtedy, keď existuje taký index $i = 1, 2, ..., n$, že $a_{i} < b_{i}$ a pre $j < i$ platí $a_{j} = b_{j}$\\
+		\paragraph{Príklad: }
+		$A = \{a,b,c\}$ je množina s usporiadaním $a < b < c $, tak lexikografické usporiadanie množiny $A \times A$ vyzerá takto: $(a,a) \leq ( a,b) \leq ( a,c) \leq (b,a) \leq (b,b) \leq (b,c) \leq ( c,a) \leq ( c,b) \leq ( c,c)$
+
+\section{Zobrazenia}
+
+	\subsection*{Definícia pomocou relácií} 
+
+		Zobrazením $f$ z množiny $X$ do množiny $Y$ nazývame reláciu $f \subseteq X \times Y$ ak ku každému $x \in X$ existuje práve jedno také $y in Y$ , že dvojica $( x, y ) \in f$.\\
+
+		Podrobnejšie: relácia $f$ z množiny $X$ do množiny $Y$ (alebo medzi prvkami množín $X$ a $Y$ v uvedenom poradí) sa nazýva \textbf{zobrazenie (funkcia)} množiny $X$ do $Y$, ak platí:
+		\begin{enumerate}
+			\item $\forall_{x \in X} \exists_{y \in Y} (x, y) \in f $
+			\item $\forall_{x \in X} \forall_{y \in Y} \forall_{y' \in Y} ((x, y) \in f \wedge (x, y') \in f ) \rightarrow y = y'$
+		\end{enumerate}
+
+
+
+
+
+		Ak $f$ je zobrazenie množiny $X$ do množiny $Y$ zapisujeme $f : X \rightarrow Y$. 
+		Namiesto $( x, y) \in f$ píšeme $ f( x) = y $. Prvok $ y \in Y $ sa nazýva hodnota zobrazenia $f$ v prvku $x$.
+
+		Ak $A \subseteq X$, tak znakom $f ( A)$ označujeme množinu všetkých tých $y \in Y$, ku ktorým existuje $x \in A$, že $y = f ( x)$ Teda: 
+		$f(A) = \{y \in T: \exists_{x}x \in A \wedge y = f(x) \}$\\
+
+		\begin{itemize}
+			\item Množina $f ( A)$ sa nazýva obraz množiny $A$ v zobrazení $f$
+			\item Množina $X$ sa nazýva obor definície zobrazenia $f : X \rightarrow Y$
+			\item $Y$ sa nazýva obor hodnôt zobrazenia $f$.
+		\end{itemize}
+
+	\subsection*{Injektívne, surjektívne a bijektívne zobrazenia}
+		Pripúšťame aj možnosť $Y \neq f (X)$ (t.j. platí $f ( X ) \subseteq Y$).
+		\begin{itemize}
+			\item \textbf{Surjektívne zobrazenie (X na Y)} ak $f ( X ) = Y$
+			\item \textbf{Injektívne zobrazenie (prosté)} ak $x, y \in X$ a $x \neq y$, tak $f ( x) \neq f ( y)$
+			\item \textbf{Bijektívne zobrazenie} ak je injektívne a surjektívne zároveň.
+		\end{itemize}
+
+		\paragraph{Zúženie funkcie}
+		Ak $f : X \rightarrow Y$ je funkcia a $A \subseteq X$, tak znakom $f | A$ označujeme funkciu $g : A \rightarrow Y$ definovanú takto; pre $x \in A$ platí $f (x) = g(x)$ , t.j. $f | A = f \cap ( A \times Y )$ . Funkcia $g = f | A$ sa nazýva parciálna funkcia k funkcií $f$ , alebo zúženie funkcie $f$ (na množine $A$).
+
+	\subsection*{Skladanie zobrazení}
+		Ak $f$ je injektívne zobrazenie množiny $X$ do $Y$, tak $f^{-1}$ je bijektívne zobrazenie množiny $f ( X )$ do $X$.\\
+
+		Ak je $f$ bijekcia množiny $X$ na $Y$, tak $f^{-1}$ je bijekcia množiny $Y$ do $X$.Poznamenávame, že $f^{-1} = \{(y, x) \in Y \times X ( x,  y) \in f \}$.\\
+
+		Nech $f : X \rightarrow Y$ a $g :Y \rightarrow Z$ . Potom zložená relácia $g \circ f$je zobrazenie množiny $X$ do $Z$. Poznamenávame, že $g \circ f = \{( x, z) \in ( X , Z ) | \exists y, y \in Y, ( x, y ) \in f \wedge ( y, z) \in g\}$.\\
+
+		$g \circ f(x) = g(f(x))$\\
+
+		Zobrazenie $g \circ f$ sa nazýva \textbf{zložené zobrazenie} alebo \textbf{kompozícia zobrazení}\\
+
+		\begin{enumerate}
+		\item $f , g$ sú injektívne zobrazenia, tak aj $g \circ f$ je injektívne zobrazenie
+		\item $f , g$ sú surjektívne zobrazenia, tak aj $g \circ f$ je surjektívne zobrazenie
+		\item $f , g$ sú bijektívne zobrazenia, tak aj $g \circ f$ je bijektívne zobrazenie
+		\end{enumerate}
+
+
+\section {Mohutnosť množiny}
+	\subsection*{Základné vlastnosti mohutnosti a nerovnosti}
+		Nech $A, B$ sú dve množiny. Budeme hovoriť, že množiny $A, B$ majú rovnakú mohutnosť alebo rovnaký počet prvkov, píšeme $|A| = |B|$ , ak existuje prosté zobrazenie množiny $A$ na množinu $B$, teda bijekcia.\\
+
+		Vzťah „mať rovnakú mohutnosť“ je reflexívny, symetrický a tranzitívny. Vyjadruje ho nasledujúca veta:
+		\begin{enumerate}
+			\item Pre každú množinu $A$ platí $|A| = |A|$ 
+			\item Ak $|A| = |B|$ , potom $|B| = |A|$
+			\item Ak $|A| = |B|$ , $|B| = |C|$ , tak $|A| = |C|$
+		\end{enumerate}
+
+
+	Nech A, B sú množiny.
+	\begin{itemize}
+		\item $A$ má mohutnosť menšiu alebo rovnú ako množina $B$ a písať $|A| \leq |B|$, ak existuje injektívne zobrazenie $f : A \rightarrow B$
+		\item $A$ má mohutnosť menšiu ako množina $B$, píšeme $|A| < |B|$ , ak $|A| \leq |B|$ a nie je $|A| = |B|$
+	\end{itemize}
+
+	Nech A, B, C sú množiny potom platí:
+	\begin{itemize}
+		\item Ak $|A| = |B|$ , tak $|A| \leq |B|$
+		\item Ak $|A| \leq |B|$ a $|B| \leq |C|$, tak $|A| \leq |C|$
+		\item Ak $|A| = |B|$ a $|B| < |C|$ , tak $|A| < |C|$
+	\end{itemize}
+
+
+	Vzťah „ $|A| \leq |B|$ “ je antisymetrický, t.j. ak $|A| \leq |B|$ a súčasne $|B| \leq |A|$, tak $|A| = |B|$. Príklad: $|(0, 1)| \leq |<0,1>|$ a $|<0,1>| \leq |(0,1)|$ - nekonečné požičiavanie; zobrazenie z $(0,1)$ nemôže byť spojité.\\
+
+
+	Nech $f , g$ sú zobrazenia $f : A \rightarrow B$ a $g : B \rightarrow A$ a $f$ je prosté. Potom existujú množiny $A_{1}, A_{2}, B_{1}, B_{2}$ také, že platí:
+	\begin{itemize}
+		\item $A_{1} \cap A_{2} = \emptyset, B_{1} \cap B_{2} = \emptyset$
+		\item $A_{1} \cup A_{2} = A, B_{1} \cup B_{2} = B$
+		\item $f(A_{1}) = B_{1} , g(B_{2}) = A_{2}$
+		\end{itemize}
+
+   \subsection*{Počítanie s mohutnosťami} 
+   \paragraph{Súčet} 
+   Nech $A, B, C$ sú množiny. Budeme hovoriť, že mohutnosť množiny $C$ je súčet mohutností množín $A$ a $B$, písať $|C| = |A| + |B|$, ak existujú množiny $A_{1} , B_{1} $také že:
+   \begin{itemize}
+	   \item $A_{1} \cup B_{1} = C$
+	   \item $A_{1} \cap B_{1} = \emptyset $
+	   \item $|A| = |A_{1}|, |B| = |B_{1}| $
+   \end{itemize}
+   Je potrebné overiť, či rovnosť platí aj pre iné množiny ako $A, B$, ktoré majú rovnakú mohutnosť. (vytvoríme prosté zobrazenia $f$, $g$ z $A$ a $B$ do $X$ a $Y$, vytvoríme zobrazenie $h(x) = f(x) | x \in A; h(x) = g(x) | x \in B$, všetko je prosté, všetci sú šťastní, na strane 62 je obrázok.)
+
+   \paragraph{Umocňovanie}
+   Mohutnosť množiny $C$ je mohutnosť množiny $A$ umocnená na mohutnosť množiny $B$, 
+   $|C| = |A|^{|B|}$, ak $|C| = |A^{B}|$ . Pričom $A^{B}$ označujeme množinu všetkých zobrazení množiny $B$ do množiny $A$.
+
+   \paragraph{Súčin}
+   Mohutnosť množiny $C$ je súčin mohutností množín $A$ a $B$,
+   $|C| = |A \cdot B|$, ak platí $|C| = |A \times B|$
+
+
+   \paragraph{Vlastnosti}
+
+	Všetky tieto operácie  sú monotónne, t.j. ak $|A| \leq |X|$ , $|B| \leq |Y|$ , potom
+	\begin{itemize}
+	   \item $|A| + |B| \leq |X| + |Y|$
+	   \item $|A| \cdot |B| \leq |X| \cdot |Y|$
+	   \item $A^{B} \leq X^{Y}$
+	\end{itemize}
+
+	Pre sčítanie a násobenie mohutností platia zákony aritmetiky, napr.:
+
+	\begin{itemize} 
+		\item Komutativita\\
+		$|A| + |B| = |B| + |A|$\\
+		$|A| \cdot |B| = |B| \cdot |A|$
+	\item Asociatívnosť\\
+	$|A| + ( |B| + |C| ) = ( |A| + |B| ) + |C|$\\
+	$|A| \cdot ( |B| \cdot |C| ) = ( |A| \cdot |B| ) \cdot |C|$ 
+	\item Distributívny zákon\\
+	$|A| \cdot ( |B| + |C| ) = ( |A| \cdot |B| ) + ( |A| \cdot |C| )$
+	\end{itemize}
+
+	Pre umocňovanie platia tiež zákony aritmetiky
+
+	\begin{itemize}
+		\item $A^{B+C} = A^{B} \cdot A^{C}$
+		\item $(|A| \cdot |B|)^{|C|} = |A|^{|C|} \cdot |B|^{|C|}$
+		\item $(|A|^{|B|})^{|C|} = A^{|B| \cdot |C|}$
+	\end{itemize}
+
+	Odčítanie a delenie mohutnosti sa definovať nedá.
+
+%odtialto je to riedke, netreba sa na nic spoliehat
+
+\section {Cantor-Bernsteinova veta a jej dôsledky}
+ 	\subsection*{formulácia vety}
+ 		Nech $A, B$ sú množiny. Ak platí $|A| \leq |B|$ a súčasne $|B| \leq |A|$ , tak $|A| = |B|$
+ 	\subsection*{idea dôkazu}
+ 		TODO, nechce sa mi
+ 	\subsection*{usporiadanie kardinálnych čísel}
+
+\section {Konečné a nekonečné množiny}
+	\subsection*{Definícia konečnej množiny, definícia nekonečnej množiny}
+		Množina $A$ sa nazýva konečná, ak $A < \aleph_{0}$,t.j. ak $A < N$ . Množina sa nazýva nekonečná, ak nie je konečná.
+
+  	\subsection*{existencia nekonečných množín} 
+		Množina A má n prvkov, $|A| = n$, kde $n \in N$ , ak $|A| = |N_{n}|$.\\
+		$ \forall n \in N$ platí $|N_{n}| < |N_{n+1}| \rightarrow $ Ak má množina n prvkov, $n \in N$, tak je konečná.
+		(Dôkaz indukciou)
+
+		Pre $n,m \in N$ je $|N_{n}| = |N_{m}|  \leftrightarrow n = m$.
+		(Dôkaz sporom)
+
+		Ak $A \subseteq N_{n}$, tak existuje $k$ také, že $|A| = k$ .
+		(Dôkaz indukciou)
+
+		Ak množina $A \subseteq N$ je zhora neohraničená, tak $|A| = |N|$
+
+		Ak množina $A$ je konečná $\leftrightarrow$ tak existuje také $n \in N$, že $|A| = n$.
+
+  	\subsection*{vlastnosti konečných a nekonečných množín}
+
+\section {Spočítateľné a nespočítateľné množiny}
+
+	Množina A sa nazýva spočítateľná, ak platí $A \leq \aleph_{0}$ ,t.j. ak existuje prosté zobrazenie množiny $A$ do množiny $N$ – prirodzených čísel. Množina sa nazýva nespočítateľná, ak nie je spočítateľná.
+
+	Zrejme každá konečná množina je spočítateľná. Podmnožina spočítateľnej množiny je
+	spočítateľná. Množina $N$ je nekonečná spočítateľná. Podľa Cantorovej vety množina $P(N)$ je
+	nespočítateľná.
+
+	Budeme hovoriť, že množina A sa dá zoradiť do postupnosti, ak existuje zobrazenie množiny $N$ na množinu $A$, t.j. ak existuje postupnosť $\{a_{n}\}_{n=0}^{\infty} $ taká, že $A={a_{n}, n \in N}$
+
+	Neprázdna množina je spočítateľná vtedy a len vtedy, keď sa dá zoradiť do postupnosti.
+
+	Ak existuje prosté zobrazenie f množiny A na množinu B a množina A je spočítateľná, potom aj množina B je spočítateľná.
+
+	\subsection*{Zjednotenie a karteziánsky súčin spočítateľných množín}
+
+
+	Zjednotenie a karteziánsky súčin dvoch spočítateľných množín sú spočítateľné množiny.
+
+	Zjednotenie spočítateľne mnoho spočítateľných množín je spočítateľná množina.
+
+	Množina všetkých reálnych čísel je nespočítateľná.
+
+
+  	\subsection*{Existencia nespočítateľných množín}
+
+	\subsection*{Cantorova diagonálna metóda}
+
+
+
+\section {Potenčná množina a jej kardinalita}
+	Pre ľubovoľnú množinu $X$ platí $|P (X)| = 2^{|X|}$
+	\subsection*{formulácia Cantorovej vety o potenčnej množine}
+	Pre každú množinu $X$ platí $|X| < |P (X)|$.
+	
+	idea dôkazu:
+
+
+
+
+
+
+	Pre každú množinu $X$ platí $|X| < 2^{|X|}$.
+	Neexistuje množina všetkých množín.
+
+
+	dôsledky pre nekonečné množiny:
+
+
+
+
+
+
+\section {Prirodzené čísla a matematická indukcia, Dirichletov princíp}
+
+	\subsection*{Definícia prirodzených čísiel}
+		Nech $M, N$ je podmnožina spĺňajúca dve podmienky:
+		$0 \in M$
+		ak $x \in M$, tak potom aj $(x + 1) \in M$.
+		Potom $M = N$.
+
+
+
+	\subsection*{Dôkaz matematickou indukciou}
+		Nech $(V(n))_{n \in N}$ je postupnosť výrokov. 
+
+		Báza indukcie: Predpokladajme, že platí výrok $V(0)$
+		Indukčný krok: pre každé prirodzené číslo $n$, ak platí $V(n)$ , tak potom platí $V(n + 1)$, potom výrok $V(n)$ platí pre každé prirodzené číslo.
+		
+		Predpokladajme, že z platnosti výroku $V(k)$ pre každé $k < n$ vyplýva aj platnosť výroku $V(n)$. Ak platí výrok $V(0)$, tak výrok $V(n)$ platí pre každé prirodzené číslo $n$.
+	\subsection*{Dirichletov princíp}
+		Nech $A$ a $B$ sú konečné množiny, pričom $|A| = n$, |$B| = m$ a $n > m$
+		Potom neexistuje žiadne injektívne zobrazenie $f : A \rightarrow B$.
+
+		\paragraph{Silnejšie tvrdenie: }
+		Ak $f : A \rightarrow B$ je zobrazenie konečných mnžoín také, že $|A| = n$, $|B| = m$ a $n/m > r - 1$ pre nejaké prirodzené číslo r, tak existuje prvok množiny B, na ktorý sa zobrazí aspoň r prvkov množiny A.
+
+	\subsection*{Vlastnosť dobrého usporiadania}
+
+\section {Základné pravidlá kombinatorického počítania}
+	\subsection*{Počítanie prvkov množiny dvoma spôsobmi}
+		\begin{enumerate}
+			\item Určiť počet \textbf{neusporiadaných} kongurácií, pričom opakovanie objektov v konguráciách je alebo nie je povolené.
+			\item Určiť počet \textbf{usporiadaných} kongurácií, pričom opakovanie objektov v konguráciách je alebo nie je povolené.
+		\end{enumerate}
+	\subsection*{Pravidlo súčtu}
+		Nech $X_{1}, X_{2}, ...,  X_{n}$, $n \geq 2$ sú navzájom disjunktné podmnožiny konečnej množiny $X$, pričom $X = X_{1} \cup X_{2} \cup , ..., \cup X_{n}$: \\
+		Potom $|X| = |X_{1}| + |X_{2}| + ... + |X_{n}|$.
+	\subsection*{Pravidlo súčinu}
+		Nech $X_{1}, X_{2}, ...,  X_{n}$, $n \geq 2$ sú ľubovoľné konečné množiny.\\
+		Potom $|X_{1} \times X_{2} \times ... \times X_{n}| = |X_{1}| \cdot |X_{2}| \cdot ... \cdot |X_{n}|$.
+
+	\subsection*{Pravidlo mocnenia}
+		Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$
+
+\section {Variácie a enumerácia zobrazení}
+	Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.
+
+  [variácie s opakovaním a bez opakovania, permutácie, určenie ich počtu] 
+
+\section {Kombinácie a enumerácia podmnožín}
+  [kombinácie bez opakovania a s opakovaním a určenie ich počtu, príklady kombinácií s opakovaniami] 
+
+\section {Binomická a polynomická veta}
+  [znenie a dôkaz, dôsledky] 
+
+\section {Rovnosti a nerovnosti s kombinačnými číslami}
+  [identity zahŕňajúce kombinačné čísla, metódy dokazovania identít]
+
+\section {Princíp zapojenia a vypojenia}
+  [formulácia, dôkaz a aplikácie: enumerácia surjektívnych zobrazení, počet permutácií bez pevných bodov]
+
+
+
+
+
+
+\section {Hierarchia rastu funkcií, odhady čísla n! O-symbolika, rádová rovnosť, asymptotická rovnosť, odhady}
+
+\section {Stromy a lesy, kostry, súvislé grafy, meranie vzdialeností v grafe} 
+  [definície, vlastnosti, rozličné charakterizácie stromov]
+
+\section {Eulerovské a bipartitné grafy}
+  [charakterizácie eulerovských a bipartitných grafov, algoritmus na nájdenie eulerovského ťahu]
+
+\section {Meranie vrcholovej a hranovej súvislosti grafu}
+  [definície, vzájomný vzťah, artikulácie, mosty, charakterizácia 2-súvislých grafov] 
+
+\section {Hamiltonovské grafy}
+  [definícia, postačujúce podmienky, zložitosť problému] 

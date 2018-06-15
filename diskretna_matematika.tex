@@ -1,10 +1,10 @@
 \chapter[Diskrétna matematika]{Diskrétna matematika}
-\label{diskretna} % id kapitoly pre prikaz ref
+\label{diskretna_matematika} % id kapitoly pre prikaz ref
 
 (Predmety Úvod do diskrétnych štruktúr, Úvod do kombinatoriky a teórie grafov)
 \section{Základy matematickej logiky}
 
-  \subsection*{Logické operácie}
+  \subsection{Logické operácie}
   \begin{itemize}
     \item Negácia $\neg$ (NOT)
     \item Konjunkcia $\wedge$ (AND)
@@ -16,12 +16,12 @@
     \item Pierce – Lukasiewiçsova spojka $\downarrow$ (NOR) - vie nahradiť všetky ostatné
   \end{itemize}
 
-  \subsection*{Formuly}
+  \subsection{Formuly}
     Výrokovou formou a(x) s premennou x nazývame takú oznamovaciu vetu (formálny výraz, formulu), ktorá obsahuje premennú x, sama nie je výrokom, a stane sa výrokom vždy vtedy, keď za premennú x dosadíme konkrétny objekt z vopred danej vhodne vybratej množiny. Ku každej výrokovej forme existuje nejaká množina prvkov, ktoré má zmysel do výrokovej formy dosadzovať.
     (Príklad: \textit{x je väčšie ako číslo 5})
-  \subsection*{Výrokové funkcie}
+  \subsection{Výrokové funkcie}
   TODO: cite{Toman2009} 1.2 ?
-  \subsection*{Kvantifikácia výrokov}
+  \subsection{Kvantifikácia výrokov}
     \begin{itemize}
     \item Existenčný kvantifikátor $\exists$
     \item Všeobecný kvantifikátor $\forall$
@@ -29,7 +29,7 @@
     Negácie:\\
     	$\neg (\exists x)a(x) \leftrightarrow (\forall x)(\neg a(x))$\\
 		$\neg (\forall x)a(x) \leftrightarrow ( \exists x)(\neg a(x))$
-  \subsection*{Tautógia} 
+  \subsection{Tautógia} 
   Je výrok pravdivý pre všetky možné kombinácie pravdivostných hodnôt výrokov, z ktorých je zložený.
 
 
@@ -72,15 +72,15 @@
     \end{enumerate}
 
 
-  \subsection*{Kontradikcia}
+  \subsection{Kontradikcia}
   Výrok, ktorého pravdivostná hodnota je rovná nule bez ohľadu na pravdivostné hodnoty výrokov, z ktorých pozostáva.
 
 
 \section{Matematický dôkaz}
 
-  \subsection*{Logický dôsledok}
+  \subsection{Logický dôsledok}
 	TODO
-  \subsection*{Základné typy matematických dôkazov}
+  \subsection{Základné typy matematických dôkazov}
     \begin{itemize}
     \item Priamy dôkaz tvrdenia \textit{a}\\
       Pozostáva z konečného reťazca implikácií $ a_{1} \rightarrow a_{2} \rightarrow$ ... $\rightarrow a_{n} \rightarrow a $, ktorého prvý člen je axióma, alebo už dokázané tvrdenie, alebo pravdivé tvrdenie, výrok a každé ďalšie tvrdenie je logickým dôsledkom predchádzajúcich, pričom posledným členom reťazca (postupnosti) je dokazované tvrdenia $a$.
@@ -104,8 +104,17 @@
     \end{itemize}
 
 \section{Intuitívny pojem množiny}
-
-  \subsection*{Základné pojmy a označenia}
+ \paragraph{Dôležité množiny}
+  \begin{itemize}
+  \item N: množina prirodzených čísel: $0, 1, 2, 3, . . .$
+  \item Z: množina celých čísel: $-\infty . . . , -2, -1, 0, 1, 2, . . . ,\infty$
+  \item Q: množina racionálnych (ratio, podiel, zlomok) čísel: $\{a/b| a, b \in Z, b \neq 0\}$
+  \item R: množina reálnych čísel, tj. všetkých čísel, ktoré sú hodnotou na číselnej osi,
+  \item I: množina iracionálnych čísel $R \setminus Q$, napr. $\sqrt{2}$ alebo $\pi$,
+  \item C: množina komplexných čísel: $\{ a + bi | a, b \in R\}$ (reálna + imaginárna zložka).
+  \end{itemize}
+  $N \subset Z \subset Q \subset R \subset C$
+  \subsection{Základné pojmy a označenia}
   	Množiny - veľké latinské písmená ($A, B, C, ...$)\\
   	Prvky množín - malé písmená, prípadne s indexami ($a_{1}, a_{2}, ..., b_{1}, ...$)\\
 
@@ -115,7 +124,7 @@
 
 
 	Russelov paradox: Kto holí holíča? Množina všetkých množín?
-  \subsection*{Množinové operácie}
+  \subsection{Množinové operácie}
   Nech sú A, B ľubovoľné množiny.
   Hovoríme, že
   \begin{itemize}
@@ -167,7 +176,7 @@
 		$ A \cap B = A \cup B $
   	\end{enumerate}
   
-  \subsection*{Množinové identity}
+  \subsection{Množinové identity}
   Dôkazy sú v UDDŠ str. 36, 37
 
 	\begin{enumerate}
@@ -179,18 +188,18 @@
 
 \section{Karteziánsky súčin množín}
 
-	\subsection*{Definícia usporiadanej dvojice} 
+	\subsection{Definícia usporiadanej dvojice} 
 	Pod usporiadanou n-ticou si môžeme predstaviť konečnú postupnosť o n-členoch.\\
 	
 	Nech sú $a_{1}$ , $a_{2}$ ľubovoľné prvky. Množinu $\{ \{ a_{1} \},  \{a_{1}, a_{2} \}\}$ nazývame usporiadanou dvojicou, označenie ($a_{1}$, $a_{2}$), pričom $a_{1}$ nazývame prvou súradnicou (zložkou), $a_{2}$ druhou súradnicou (zložkou).\\
 	Usporiadané dvojice sa rovnajú ak obe ich zložky sú si rovné.
 
-	\subsection*{Karteziánsky súčin dvoch a viacerých množín}
+	\subsection{Karteziánsky súčin dvoch a viacerých množín}
 	Karteziánskym súčinom množín $A, B$ nazveme množinu
 	$A \times B = \{( x, y) | x \in A \wedge y \in B\}$
 	Definíciu karteziánskeho súčinu môžeme rozšíriť aj pre prípad n množín, môžeme postupovať induktívne, ako v prípade usporiadanej n-tice.
 	Pre dvojicu konečných množín $A, B$ je niekedy vhodná reprezentácia karteziánskeho súčinu pomocou matice AxB. 
-	\subsection*{Množinové identity s karteziánskym súčinom}
+	\subsection{Množinové identity s karteziánskym súčinom}
 	\begin{itemize}
 		\item ak aspoň jedna z množín A, B je prázdna, tak potom $ A \times B = \emptyset $
 		\item nie je komutatívny
@@ -203,7 +212,7 @@
 	\end{itemize}
 
 	Ďalšie dôležité množinové identity a vzťahy uvádzame v cvičeniach str. 40, 41.
-	\subsection*{Použitie karteziánskeho súčinu}
+	\subsection{Použitie karteziánskeho súčinu}
 
 	Použitie karteziánskeho súčinu prenechávame na skúseného a zručného čitateľa. \\
 	(TODO)
@@ -217,7 +226,7 @@
 
 		Ďalšou veľmi názornou reprezentáciou je grafová reprezentácia binárnej relácie. Prvky množín označíme krúžkami, ktoré nazývame vrcholmi grafu a usporiadanú dvojicu znázorníme šípkou, ktorá ide z vrcholu odpovedajúceho prvému prvku dvojice k vrcholu, ktorý odpovedá druhému prvku dvojice.\\
 
-	\subsection*{Vlastnosti}
+	\subsection{Vlastnosti}
 		Nech  $\varphi$  je relácia na množine A. $\varphi$ je:
 		\begin{enumerate}
 			\item Reflexívna, ak pre každé $x \in A$ platí $( x, x ) \in \varphi $
@@ -237,7 +246,7 @@
 		\end{enumerate}
 
 
- 	\subsection*{Skladanie relácií}
+ 	\subsection{Skladanie relácií}
 
 	  	Nech $\varphi$ je relácia medzi prvkami množín $A, B$ a nech $\psi$ je relácia medzi prvkami množín $B, C$. Potom
 
@@ -245,7 +254,7 @@
 
 		(je to relácia medzi prvkami množín $A$ a $C$) sa nazýva zložená relácia (zložená z relácií $\varphi$ a $\psi$ ) a označujeme ju $\psi \circ  \varphi$.
 
- 	\subsection*{Inverzná relácia}
+ 	\subsection{Inverzná relácia}
 
 		Nech $\varphi$ je relácia medzi prvkami množín A, B. Potom
 
@@ -253,28 +262,28 @@
 
 		(je to relácia medzi prvkami množín B a A) sa nazýva inverzná relácia k relácií $\varphi$ a označujeme ju symbolom $\varphi^{-1}$ .
 
-	\subsection*{Relácie na množinách} 
+	\subsection{Relácie na množinách} 
 		Reláciou medzi prvkami množín A, B (v tomto poradí) nazývame akúkoľvek podmnožinu karteziánskeho súčinu $\varphi \subseteq A \times B$. Ak A = B , tak hovoríme o relácií na množine A (alebo medzi prvkami množiny A). Relácia medzi prvkami množín A, B je akákoľvek množina $\varphi \subseteq A \times B $, špeciálne $\varphi = \emptyset$ a $\varphi = A \times B$.
-	\subsection*{Relácia ekvivalencie}
+	\subsection{Relácia ekvivalencie}
 		Relácia $\varphi$ na množine $A$ sa nazýva relácia ekvivalencie na $A$, ak je \textbf{reflexívna, symetrická a tranzitívna}.
 
-	\subsection*{Rozklad množiny}
+	\subsection{Rozklad množiny}
 
 		Nech $A$ je neprázdna množina. Systém $S \subseteq P (A)$ sa nazýva rozklad množiny $A$, ak každá množina systému $S$ je neprázdna. Pričom $S$ je systém po dvoch disjunktných množín s vlastnosťou $\bigcup_{M \in S} M = A$
 
 		Teda rozklad množiny $A$ je taký systém neprázdnych podmnožín množiny $A$, že každý prvok
 		$x \in A$ patrí práve do jednej množiny tohto systému.
 
-	\subsection*{Tranzitívny uzáver relácie}
+	\subsection{Tranzitívny uzáver relácie}
 		$\varphi^{+} = \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 1} \varphi^k$
 
-	\subsection*{Reflexívno-tranzitívny uzáver}
+	\subsection{Reflexívno-tranzitívny uzáver}
 		$\varphi^{+} = I_{a} \cup \varphi^{1} \cup \varphi^{2} \cup ... = \cup_{k \geq 0} \varphi^k$\\
 
 		$I_{a} = \{ ( x, x ) | x \in A \}, \varphi^{0} = I_{a}, \varphi^{i} = \varphi^{i-1} \circ \varphi$ pre $i> 0$, t.j. $(x, y) \in \varphi^{k}$ pre nejaké $k>0$ $\leftrightarrow $ ak existuje postupnosť prvkov $x = x_{0}, x_{1}, ..., x_{k-1}, x_{k} = y$ taká, že platí ${x_{0}, x_{1}} \in \varphi,  {x_{1}, x_{2}} \in \varphi, ... {x_{k-1}, x_{k}} \in \varphi$
 
 \section{Usporiadania}
-	\subsection*{Definícia čiastočného a úplného usporiadania množiny}
+	\subsection{Definícia čiastočného a úplného usporiadania množiny}
 		Relácia na množine $A$ sa nazýva čiastočné usporiadanie množiny $A$, ak je \textbf{asymetrická a tranzitívna}. Relácia na množine $A$ sa nazýva (lineárne) usporiadanie množiny $A$, ak je \textbf{asymetrická, tranzitívna a trichotomická}. Teda usporiadanie množiny A je každé čiastočné usporiadanie, ktoré je \textbf{trichotomické na množine $A$}.\\
 
 		Formálnejšie, relácia $\varphi$ na množine $A$ je čiastočné usporiadanie množiny $A$, ak pre každé $ x, y, z \in A $ platí:
@@ -291,12 +300,12 @@
 
 		Ak $A$ je množina a $\varphi$ je jej usporiadanie (resp. čiastočné usporiadanie), tak hovoríme, že množina $A$ je usporiadaná (resp. čiastočne usporiadaná) reláciou $\varphi$ a zapisujeme to v tvare $( A, \varphi )$ , alebo $( A, < )$ , ak namiesto $( x, y) \in \varphi $ píšeme $x < y$ . Uvedený zápis je motivovaný tým, že pre tú istú množinu možno vo všeobecnosti definovať viacero čiastočných usporiadaní.
 
-	\subsection*{Ostré a neostré usporiadanie}
+	\subsection{Ostré a neostré usporiadanie}
 		\begin{itemize}
 			\item Ostré, ak $x<y$
 			\item Neostré, ak $x \leq y \leftrightarrow x < y \vee x = y$
 		\end{itemize}
-	\subsection*{Minimálny, maximálny, prvý a posledný prvok množiny}
+	\subsection{Minimálny, maximálny, prvý a posledný prvok množiny}
 		Prvok $a$ čiastočne usporiadanej množiny $( A, < )$ sa nazýva
 		\begin{itemize}
 			\item minimálny prvok, ak pre žiadne $x \in A$ neplatí $x < a$
@@ -311,7 +320,7 @@
 		Posledný je vždy maximálnym, ale nie vždy aj naopak.
 		Prvý je vždy minimálnym, ale nie vždy aj naopak.
 
-	\subsection*{Lexikografické usporiadanie karteziánskeho súčinu}
+	\subsection{Lexikografické usporiadanie karteziánskeho súčinu}
 		Nech $(A, \leq )$ je usporiadaná množina a $n$ je prirodzené číslo.
 		Usporiadanie na množine $A^{n}$ = $A \times A \times ... \times A$ : $(a_{1}, a_{2}, ..., a_{n}) \leq  (b_{1}, b_{2}, ..., b_{n})$ sa nazýva \textbf{lexikografické usporiadanie množiny} $A^n$ práve vtedy, keď existuje taký index $i = 1, 2, ..., n$, že $a_{i} < b_{i}$ a pre $j < i$ platí $a_{j} = b_{j}$\\
 		\paragraph{Príklad: }
@@ -319,7 +328,7 @@
 
 \section{Zobrazenia}
 
-	\subsection*{Definícia pomocou relácií} 
+	\subsection{Definícia pomocou relácií} 
 
 		Zobrazením $f$ z množiny $X$ do množiny $Y$ nazývame reláciu $f \subseteq X \times Y$ ak ku každému $x \in X$ existuje práve jedno také $y in Y$ , že dvojica $( x, y ) \in f$.\\
 
@@ -345,7 +354,7 @@
 			\item $Y$ sa nazýva obor hodnôt zobrazenia $f$.
 		\end{itemize}
 
-	\subsection*{Injektívne, surjektívne a bijektívne zobrazenia}
+	\subsection{Injektívne, surjektívne a bijektívne zobrazenia}
 		Pripúšťame aj možnosť $Y \neq f (X)$ (t.j. platí $f ( X ) \subseteq Y$).
 		\begin{itemize}
 			\item \textbf{Surjektívne zobrazenie (X na Y)} ak $f ( X ) = Y$
@@ -356,7 +365,7 @@
 		\paragraph{Zúženie funkcie}
 		Ak $f : X \rightarrow Y$ je funkcia a $A \subseteq X$, tak znakom $f | A$ označujeme funkciu $g : A \rightarrow Y$ definovanú takto; pre $x \in A$ platí $f (x) = g(x)$ , t.j. $f | A = f \cap ( A \times Y )$ . Funkcia $g = f | A$ sa nazýva parciálna funkcia k funkcií $f$ , alebo zúženie funkcie $f$ (na množine $A$).
 
-	\subsection*{Skladanie zobrazení}
+	\subsection{Skladanie zobrazení}
 		Ak $f$ je injektívne zobrazenie množiny $X$ do $Y$, tak $f^{-1}$ je bijektívne zobrazenie množiny $f ( X )$ do $X$.\\
 
 		Ak je $f$ bijekcia množiny $X$ na $Y$, tak $f^{-1}$ je bijekcia množiny $Y$ do $X$.Poznamenávame, že $f^{-1} = \{(y, x) \in Y \times X ( x,  y) \in f \}$.\\
@@ -375,7 +384,7 @@
 
 
 \section {Mohutnosť množiny}
-	\subsection*{Základné vlastnosti mohutnosti a nerovnosti}
+	\subsection{Základné vlastnosti mohutnosti a nerovnosti}
 		Nech $A, B$ sú dve množiny. Budeme hovoriť, že množiny $A, B$ majú rovnakú mohutnosť alebo rovnaký počet prvkov, píšeme $|A| = |B|$ , ak existuje prosté zobrazenie množiny $A$ na množinu $B$, teda bijekcia.\\
 
 		Vzťah „mať rovnakú mohutnosť“ je reflexívny, symetrický a tranzitívny. Vyjadruje ho nasledujúca veta:
@@ -410,7 +419,7 @@
 		\item $f(A_{1}) = B_{1} , g(B_{2}) = A_{2}$
 		\end{itemize}
 
-   \subsection*{Počítanie s mohutnosťami} 
+   \subsection{Počítanie s mohutnosťami} 
    \paragraph{Súčet} 
    Nech $A, B, C$ sú množiny. Budeme hovoriť, že mohutnosť množiny $C$ je súčet mohutností množín $A$ a $B$, písať $|C| = |A| + |B|$, ak existujú množiny $A_{1} , B_{1} $také že:
    \begin{itemize}
@@ -463,18 +472,18 @@
 
 %odtialto je to riedke, netreba sa na nic spoliehat
 
-\section {Cantor-Bernsteinova veta a jej dôsledky}
- 	\subsection*{formulácia vety}
+\section {Cantor-Bernsteinova veta a jej dôsledky - TODO}
+ 	\subsection{formulácia vety}
  		Nech $A, B$ sú množiny. Ak platí $|A| \leq |B|$ a súčasne $|B| \leq |A|$ , tak $|A| = |B|$
- 	\subsection*{idea dôkazu}
+ 	\subsection{idea dôkazu}
  		TODO, nechce sa mi
- 	\subsection*{usporiadanie kardinálnych čísel}
+ 	\subsection{usporiadanie kardinálnych čísel}
 
-\section {Konečné a nekonečné množiny}
-	\subsection*{Definícia konečnej množiny, definícia nekonečnej množiny}
+\section {Konečné a nekonečné množiny - TODO}
+	\subsection{Definícia konečnej množiny, definícia nekonečnej množiny}
 		Množina $A$ sa nazýva konečná, ak $A < \aleph_{0}$,t.j. ak $A < N$ . Množina sa nazýva nekonečná, ak nie je konečná.
 
-  	\subsection*{existencia nekonečných množín} 
+  	\subsection{existencia nekonečných množín} 
 		Množina A má n prvkov, $|A| = n$, kde $n \in N$ , ak $|A| = |N_{n}|$.\\
 		$ \forall n \in N$ platí $|N_{n}| < |N_{n+1}| \rightarrow $ Ak má množina n prvkov, $n \in N$, tak je konečná.
 		(Dôkaz indukciou)
@@ -489,9 +498,9 @@
 
 		Ak množina $A$ je konečná $\leftrightarrow$ tak existuje také $n \in N$, že $|A| = n$.
 
-  	\subsection*{vlastnosti konečných a nekonečných množín}
+  	\subsection{vlastnosti konečných a nekonečných množín}
 
-\section {Spočítateľné a nespočítateľné množiny}
+\section {Spočítateľné a nespočítateľné množiny - TODO}
 
 	Množina A sa nazýva spočítateľná, ak platí $A \leq \aleph_{0}$ ,t.j. ak existuje prosté zobrazenie množiny $A$ do množiny $N$ – prirodzených čísel. Množina sa nazýva nespočítateľná, ak nie je spočítateľná.
 
@@ -505,7 +514,7 @@
 
 	Ak existuje prosté zobrazenie f množiny A na množinu B a množina A je spočítateľná, potom aj množina B je spočítateľná.
 
-	\subsection*{Zjednotenie a karteziánsky súčin spočítateľných množín}
+	\subsection{Zjednotenie a karteziánsky súčin spočítateľných množín}
 
 
 	Zjednotenie a karteziánsky súčin dvoch spočítateľných množín sú spočítateľné množiny.
@@ -515,21 +524,21 @@
 	Množina všetkých reálnych čísel je nespočítateľná.
 
 
-  	\subsection*{Existencia nespočítateľných množín}
+  	\subsection{Existencia nespočítateľných množín}
 
-	\subsection*{Cantorova diagonálna metóda}
+	\subsection{Cantorova diagonálna metóda}
 
 
 
-\section {Potenčná množina a jej kardinalita}
+\section {Potenčná množina a jej kardinalita - TODO}
 	Pre ľubovoľnú množinu $X$ platí $|P (X)| = 2^{|X|}$
-	\subsection*{formulácia Cantorovej vety o potenčnej množine}
+	\subsection{formulácia Cantorovej vety o potenčnej množine}
 	Pre každú množinu $X$ platí $|X| < |P (X)|$.
 	
 	idea dôkazu:
 
 
-
+TODO
 
 
 
@@ -540,77 +549,210 @@
 	dôsledky pre nekonečné množiny:
 
 
-
+TODO
 
 
 
 \section {Prirodzené čísla a matematická indukcia, Dirichletov princíp}
 
-	\subsection*{Definícia prirodzených čísiel}
+	\subsection{Definícia prirodzených čísiel}
 		Nech $M, N$ je podmnožina spĺňajúca dve podmienky:
 		$0 \in M$
 		ak $x \in M$, tak potom aj $(x + 1) \in M$.
 		Potom $M = N$.
 
 
-
-	\subsection*{Dôkaz matematickou indukciou}
+	\subsection{Dôkaz matematickou indukciou}
 		Nech $(V(n))_{n \in N}$ je postupnosť výrokov. 
 
 		Báza indukcie: Predpokladajme, že platí výrok $V(0)$
 		Indukčný krok: pre každé prirodzené číslo $n$, ak platí $V(n)$ , tak potom platí $V(n + 1)$, potom výrok $V(n)$ platí pre každé prirodzené číslo.
 		
 		Predpokladajme, že z platnosti výroku $V(k)$ pre každé $k < n$ vyplýva aj platnosť výroku $V(n)$. Ak platí výrok $V(0)$, tak výrok $V(n)$ platí pre každé prirodzené číslo $n$.
-	\subsection*{Dirichletov princíp}
+	\subsection{Dirichletov princíp}
 		Nech $A$ a $B$ sú konečné množiny, pričom $|A| = n$, |$B| = m$ a $n > m$
 		Potom neexistuje žiadne injektívne zobrazenie $f : A \rightarrow B$.
 
 		\paragraph{Silnejšie tvrdenie: }
 		Ak $f : A \rightarrow B$ je zobrazenie konečných mnžoín také, že $|A| = n$, $|B| = m$ a $n/m > r - 1$ pre nejaké prirodzené číslo r, tak existuje prvok množiny B, na ktorý sa zobrazí aspoň r prvkov množiny A.
 
-	\subsection*{Vlastnosť dobrého usporiadania}
+	\subsection{Vlastnosť dobrého usporiadania}
+    TODO
+
 
 \section {Základné pravidlá kombinatorického počítania}
-	\subsection*{Počítanie prvkov množiny dvoma spôsobmi}
+	\subsection{Počítanie prvkov množiny dvoma spôsobmi}
 		\begin{enumerate}
 			\item Určiť počet \textbf{neusporiadaných} kongurácií, pričom opakovanie objektov v konguráciách je alebo nie je povolené.
 			\item Určiť počet \textbf{usporiadaných} kongurácií, pričom opakovanie objektov v konguráciách je alebo nie je povolené.
 		\end{enumerate}
-	\subsection*{Pravidlo súčtu}
+	\subsection{Pravidlo súčtu}
 		Nech $X_{1}, X_{2}, ...,  X_{n}$, $n \geq 2$ sú navzájom disjunktné podmnožiny konečnej množiny $X$, pričom $X = X_{1} \cup X_{2} \cup , ..., \cup X_{n}$: \\
 		Potom $|X| = |X_{1}| + |X_{2}| + ... + |X_{n}|$.
-	\subsection*{Pravidlo súčinu}
+	\subsection{Pravidlo súčinu}
 		Nech $X_{1}, X_{2}, ...,  X_{n}$, $n \geq 2$ sú ľubovoľné konečné množiny.\\
 		Potom $|X_{1} \times X_{2} \times ... \times X_{n}| = |X_{1}| \cdot |X_{2}| \cdot ... \cdot |X_{n}|$.
 
-	\subsection*{Pravidlo mocnenia}
-		Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$
+	\subsection{Pravidlo mocnenia}
+
+    Ak $A$ a $B$ sú končné množiny, pričom $|A| = n$ a $|B| = m$, tak $|B^{|A|}| = |B|^{|A|} = m^{n}$
 
 \section {Variácie a enumerácia zobrazení}
-	Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.
+    
+    Variácie spolu s kombináciami patria medzi najjednoduchšie a najbežnejšie kombinatorické konfigurácie.Zatiaľ čo variácie sú usporiadané štruktúry, kombinácie sú neusporiadané. 
 
-  [variácie s opakovaním a bez opakovania, permutácie, určenie ich počtu] 
+    \subsection{Variácie s opakovaním}
+      Pre $A = \{1, 2, ..., n\}$  a $|B| = m$ sa prvky množiny $B^{A}$ nazývajú \textbf{variácie s opakovaním} $n$-tej triedy z $m$ prvkov (množiny $B$).
+     
+      Nech $A$ je konečná množina, $|A| = n$. Potom počet všetkých podmnožín množiny $A$ je $|P(A)| = 2^{n}$.
+
+
+    \subsection{Variácie bez opakovania}
+
+      Nech A a B sú konečné množiny, pričom $|A| = n$ a $|B| = m$. Potom počet všetkých injektívnych zobrazení z A do B je\\
+      $ m \cdot (m - 1) . . . (m - n + 1) = \Pi_{i = 0}^{n - 1} (m - i)$
+
+      Injekcie z množiny $A = \{1, 2, ..., n\}$ do množiny $B$, kde $|B| = m$, sa nazývajú variácie (bez opakovania) $n$-tej triedy z $m$ prvkov (množiny $B$).
+  
+
+      Na označenie počtu variácií bez opakovania n-tej triedy z m prvkov používame symbol $m^{\underline{n}} = m(m - 1)...(m - n + 1)$, pričom platia vzťahy $m^{\underline{0}} = 1$ a $m^{\underline{1}} = m$ číslo $m^{\underline{n}}$ sa nazýva $n$-tý klesajúci faktoriál z $m$. Číslo $m^{\underline{n}} = m \cdot (m - 1) \cdot ... \cdot 2 \cdot 1$ sa označuje $m!$ a nazýva sa $m$-faktoriál.
+
+    \subsection{Permutácie a enumerácia zobrazení}
+      Variácie bez opakovania n-tej triedy z n prvkov množiny, bijekcie $A \rightarrow A$; $|A| = n|$. Ich počet je $n!$.
+
+      Existuje vzájomne jednoznačná korešpondencia medzi permutáciami ľubovolnej množiny B a lineárnymi usporiadaniami množiny B. Preto počet lineárnych usporiadaní n-prvkovej množiny je $n!$
+
+    \paragraph{Zovšeobecnené pravidlo súčinu: }
+      Nech $X$ je konečná množina. Nech $A \subseteq X^{k}$, $k \geq 2$, je podmnožina karteziánskeho súčinu $X^{k}$, ktorej prvky označíme $(x_{1}, x_{2}, ..., x_{k})$ a ktorá spĺňa podmienky:
+        \begin{enumerate}
+          \item prvok $x_{1}$ je možné z množiny $X$ vybrať $n_{1}$ spôsobmi
+          \item pre každé $i \in \{1, ..., k - 1\} $, po akomkoľvek výbere usporiadanej i-tice $(x_{1}, x_{2}, ..., x_{k})$ je možné prvok $x_{i+1}$ vybrať vždy $n_{i+1}$ spôsobmi.
+        \end{enumerate}
+
+      Potom $|A|=n_{1} \cdot n_{2} \cdot ... \cdot n_{k}$.
 
 \section {Kombinácie a enumerácia podmnožín}
-  [kombinácie bez opakovania a s opakovaním a určenie ich počtu, príklady kombinácií s opakovaniami] 
+  \subsection{Kombinácie bez opakovania}
+    Kombinácie bez opakovania sú neusporiadané súbory neopakujúcich sa prvkov - inými slovami podmnožiny nejakej základnej množiny. Presnejšie, kombinácie (bez opakovania) k-tej triedy z n prvkov množiny A sú k-prvkové podmnožiny množiny A s mohutnosťou $|A| = n$.
+
+
+    Množina všetkých k-prvkových podmnožín množiny A sa označuje $P_{k}(A)$ alebo $\binom{A}{k}$ a ich počet $\binom{n}{k}$. Symbol $\binom{n}{k}$ sa nazýva \textbf{kombinačným číslom} alebo \textbf{binomickým koeficientom}.
+
+    Vlastnosti $\binom{n}{k}$:
+      \begin{itemize}
+        \item Pre každé $n \geq 0$ platí $\binom{n}{0} = 1$, lebo každá množina má práve jednu $\emptyset$.
+        \item Pre každé $n \geq 0$ platí $\binom{n}{n} = 1$, lebo každá n-prvková množina má práve n rôznych n-prvkových množín
+        \item Pre každé $n \geq 0$ platí $\binom{n}{1} = n$,lebo každá n-prvková množina má práve n 1-prvkových podmnožín.
+        \item Pre každé $k \leq n$ platí $\binom{n}{k} = \binom{n}{n-k}$. Počet k-prvkových podmnožín ľubovoľnej n-prvkovej množiny $A$ je ten istý, ako počet $(n-k)$-prvkových podmnožín množiny $A$, lebo zobrazenie $\binom{A}{k} \rightarrow \binom{A}{n-k}$, $x \rightarrow A - x$ je bijekcia.
+        \item Pre každé $k > n$ platí $\binom{n}{k} = 0$, lebo $n$-prvková  množina nemá podmnožiny s viac ako $n$ prvkami.
+      \end{itemize}
+
+      Nech 
+      $A$ je konečná množina, pričom $|A| = n$. Potom počet $k$-kombinácií z množiny $A$ je \\
+      $|P_{k}(A)| = \binom{n}{k} = \frac{n(n-1) ... (n-k+1)}{k(k-1)...1} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}$\\
+
+      Pre ľubovoľné prirodzené čísla n a k platí:
+
+      $\binom{n}{k} + \binom{n}{k + 1} = \binom{n + 1}{k + 1}$
+
+        \paragraph{Dôkaz: } 
+          Množina $A$, $|A| = n + 1; b \in A$ je pevný prvok. Množinu $\binom{A}{k+1}$ rozdelíme na 2 časti: $B_{0}$ a $B_{1}$, pričom  $B_{0}$ bude obsahovať všetky $(k+1)$-podmnožiny také, že $b \notin B_{0}$ a $B_{1}$ všetky také, že $b \in B_{1}$. Každá množina v $B_{0}$ je podmnožinou $A - \{b\}$, $|B_{0}| = \binom{n}{k+1}$ a každá množina v $B_{1}$ určuje k-prvkovú podmnožinu množiny $A - \{b\}$, preto $|B_{1}| = \binom{n}{k}$. Dostávame tak vzťah:\\
+        $\binom{n+1}{k+1} = \binom{A}{k+1} = |B_{0}| + |B_{1}| = \binom{n}{k+1} + \binom{n}{k}$\\
+
+        \paragraph{Cauchyho sčítací vzorec: }
+          $\forall n, m \in N:$\\
+          $\sum\limits^{n}_{i = 0} \binom{m}{i} \binom{n}{k-i} = \binom{m+n}{k}$
+
+  \subsection{Kombinácie s opakovaním}
+    Nech $A$ je $n$-prvková množina a $k$ prirodzené číslo. Potom počet všetkých kombinácií s opakovaním $k$-tej triedy v množine $A$ je\\
+    $ \binom{n+k-1}{k}$
+
+    TODO príklady kombinácií s opakovaniami
 
 \section {Binomická a polynomická veta}
-  [znenie a dôkaz, dôsledky] 
 
-\section {Rovnosti a nerovnosti s kombinačnými číslami}
+  \subsection{Binomická veta}
+    Pre každé reálne číslo $x$ a prirodzené číslo $n$ platí:\\
+    $(1 + x)^{n} = \sum\limits^{n}_{k = 0} \binom{n}{k}x^{k}$
+    \paragraph{Dôkaz: }
+      $(1+x)^{n+1} = (1+x)^{n}(1+x) \\
+       = (\sum\limits^{n}_{k = 0} \binom{n}{k}x^{k}) (1+x) \\ 
+       = 1 + (\binom{n}{0} + \binom{n}{1})x + (\binom{n}{1} + \binom{n}{2})x^{2} + ... + (\binom{n}{n-1} + \binom{n}{n})x^{n} + x^{n-1} \\
+       = \sum\limits^{n + 1}_{k = 0} x^{k}$
+    \paragraph{Rozšírenie na reálne čísla}
+    Je možné. Pre každé $z \in R$:\\
+    $\binom{z}{k} = \frac{z^{\underline{k}}}{k!} = \frac{z(z-1) ... (z-k+1)}{k!}$\\
+    Potom pre ľubovoľné $z \in R$ a pre každé $x \in R; |x| < 1$ platí\\
+    $(1 + x)^{z} = \sum\limits^{\inf}_{k = 0} \binom{z}{k}x^{k}$\\
+    Ak $z \in N$, tak všetky binomické koefiienty pre $k > z$ sú nulové (pre |x| < 1).\\
+    Využitie: dokazovanie vlastností kombinačných čísel.\\
+    (TODO Niekde tu možno je chyba?)
+
+
+    \paragraph{Dôsledky: }
+      \begin{itemize}
+        \item $\sum\limits^{n}_{k = 0} \binom{n}{k} = 2^{n}$
+        \item $\sum\limits^{n}_{k = 0} (-1)^{k} \binom{n}{k} = 0$
+        \item $\sum\limits_{0 \leq k \leq 0, k párne} \binom{n}{k} = \sum\limits_{0 \leq k \leq 0, k nepárne} \binom{n}{k} = 2^{n-1}$
+      \end{itemize}
+  \subsection{Polynomická veta}
+    Nech $n$ a $k$ sú kladné prirodzené čísla. Potom:\\
+      $(x_{1} + x_{2} + ... + x_{n} )^{n} = \sum\limits_{n_{1}, n_{2}, ... n_{k}} \binom{n}{n_{1}, n_{2}, ... n_{k}} x_{1}^{n_{1}} x_{2}^{n_{2}} ... x_{k}^{n_{k}}, n_{i} \geq 0$\\
+      pričom sčítame cez všetky usporiadané n-tice prirodzených čísel $n_{1}, n_{2}, ... n_{k}$ pre ktoré $n_{1}, n_{2}, ... n_{k} = n$
+
+    \paragraph{Dôkaz: }
+      Vynásobme n činiteľov $(x_{1} + x_{2} + ... + x_{n} )$ a združme rovnaké monómy. Koeficient pri $x_{1}^{n_{1}} x_{2}^{n_{2}} ... x_{k}^{n_{k}}$ je pritom počet spôsobov, ktorými sa tento monóm pri vynásobení získa. Zrejme $M = x_{1}^{n_{1}} x_{2}^{n_{2}} ... x_{k}^{n_{k}}$ vznikne vždy, keď $x_{1}$ vyberieme z $n_{1}$ činiteľov, $x_{2}$ z $n_{2}$ činiteľov atď. Inými slovami, výraz $M$ zodpovedá zobrazeniu z množiny $n$ činiteľov do množiny $x_{1} + x_{2} + ... + x_{n}$ pričom $n_{1}$ činiteľov je zobrazených na $x_{1}$, $n_{2}$ činiteľov na $x_{2}$ atď. Takýchto zobrazení je\\
+      $ \frac{n!}{n_{1}!n_{2}! ... n_{k}!} = \binom{n}{n_{1}, n_{2}, . . ., n_{k}} $\\
+
+      Platí tiež\\
+      $\binom{n}{n_{1}, n_{2}, . . ., n_{k}} = \binom{n}{n_{1}} \binom{n - n_{1}}{n_{2}} ... \binom{n - n_{1} - n_{2} - ... - n_{k-1}}{n_k}$\\ 
+
+
+    \paragraph{Dôsledky: } TODO?
+
+
+\section {Rovnosti a nerovnosti s kombinačnými číslami - TODO}
   [identity zahŕňajúce kombinačné čísla, metódy dokazovania identít]
 
-\section {Princíp zapojenia a vypojenia}
-  [formulácia, dôkaz a aplikácie: enumerácia surjektívnych zobrazení, počet permutácií bez pevných bodov]
+
+\section {Princíp zapojenia a vypojenia - TODO}
+    
+
+    \paragraph{Formulácia:}
+    Nech $M_{1}, M_{2}, ... , M_{n}$ sú konečné množiny. Potom\\
+    $ M_{1} \cup M_{2} \cup ... \cup M_{n} = \sum\limits^{n}_{k = 1} (-1)^{k+1} \sum\limits_{i_{1} < i_{2} < ... < i_{k}}  |M_{i_{1}} \cap M_{i_{2}} \cap ... \cap M_{i_{k}}| = \\
+    = \sum\limits^{n}_{k = 1} (-1)^{k+1} S_{k}$
 
 
+    \paragraph{Dôkaz:}
+
+    \subsection{Enumerácia surjektívnych zobrazení}
+    Počet surjektívnych zobrazení $f : A \rightarrow B$, kde $|A| = n$ a $|B| = m$ je\\
+    $S^{A}_{B} = \sum\limits^{m}_{k = 0} (-1)^{k} \binom{m}{k}(m-k)^{n} $
+
+    \subsection{Počet permutácií bez pevných bodov -TODO}
 
 
 
 
 \section {Hierarchia rastu funkcií, odhady čísla n! O-symbolika, rádová rovnosť, asymptotická rovnosť, odhady}
 
-\section {Stromy a lesy, kostry, súvislé grafy, meranie vzdialeností v grafe} 
+
+\section {Stromy a lesy, kostry, súvislé grafy, meranie vzdialeností v grafe}
+  \paragraph{Základné grafové definície: }
+    \begin{itemize}
+        \item Stupeň vrchola v - počet hrán susedných s vrcholom v
+        \item Pravidelný graf stupňa k - všetky vrcholy rovnaký stupeň k
+        \item Sled
+        \item Ťah
+        \item Cesta
+        \item Uzavretý sled
+        \item Uzavretý ťah
+        \item Kružnica
+    \end{itemize}
+  \subsection{Definície}
+    
+
   [definície, vlastnosti, rozličné charakterizácie stromov]
 
 \section {Eulerovské a bipartitné grafy}

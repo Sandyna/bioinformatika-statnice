@@ -3,7 +3,7 @@
 \label{algebra} % id kapitoly pre prikaz ref
 
 \section{Vektorové priestory, lineárne zobrazenia}
-\subsection{priestor, podpriestor, lineárna závislosť, báza a dimenzia}
+\subsection*{priestor, podpriestor, lineárna závislosť, báza a dimenzia}
 \emph{Vektorový priestor:} Nech $F$ je pole a $V \not\equiv \emptyset$ je množina. Nech $+$ je binárna operácia na $V$ a každej dvojici $c \in F, \alpha \in V$ je priradený prvok $c \cdot \alpha \in V$, pričom platí pre ľubovoľné $c, d \in F$ a $\alpha, \beta \in V$:
 \begin{itemize}
     \item $(V, +)$ je komutatívna grupa
@@ -46,25 +46,26 @@ nazývame bázou priestoru $V$ , ak
 
 \emph{Dimenzia:} Dimenziou konečnorozmerného vektorového priestoru $V$ nazývame počet prvkov ľubovoľnej jeho bázy. (Pre nulový priestor dodefinujeme $d({\vec{0}}) = 0$. Toto číslo označujeme $d(V)$.
 
-\subsection{Steinitzova veta}
+\subsection*{Steinitzova veta}
 
 Nech $V$ je vektorový priestor nad poľom $F$. Ak
-$V = [\alpha_1, ... , \alpha_n]$ (vektorový priestor V je generovaný vektormi $\alpha_1, ... , \alpha_n$) a $\beta_1, ... , \beta_s s \in V$ sú lineárne nezávislé vektory, tak
+$V = [\alpha_1, ... , \alpha_n] (vektorový priestor V je generovaný vektormi \alpha_1, ... , \alpha_n) a \beta_1, ... , \beta_s s \in V sú lineárne nezávislé vektory, tak$
 \begin{itemize}
-    \item (i) $s \leq n$,
+    \item (i) $s  n$,
     \item (ii) z vektorov $\alpha_1, ... , \alpha_n$ sa dá vybrať $n - s$ vektorov, ktoré spolu s vektormi $\beta_1, ... , \beta_s$ generujú $V$
 \end{itemize}
 
-\subsection{súčty podpriestorov}
-\subsection{lineárne zobrazenia, kompozícia lineárnych zobrazení, inverzné lineárne zobrazenia, matica lineárneho zobrazenia, jadro a obraz lineárneho zobrazenia}
+\subsection*{súčty podpriestorov}
+\subsection*{lineárne zobrazenia, kompozícia lineárnych zobrazení, inverzné lineárne zobrazenia, matica lineárneho zobrazenia, jadro a obraz lineárneho zobrazenia}
 
 \section{Matice a riešenia lineárnych rovníc nad poľom F}
-\subsection{matice, operácie s maticami (násobenie, sčítanie), elementárne riadkové operácie}
-\subsection{trojuholníkový a redukovaný trojuholníkový tvar matice}
-\subsection{systémy lineárnych rovníc nad poľom F}
-\subsection{množina riešení homogénnych a nehomogénnych systémov lineárnych rovníc, existencia a tvary riešení}
+\subsection*{matice, operácie s maticami (násobenie, sčítanie), elementárne riadkové operácie}
+\subsection*{trojuholníkový a redukovaný trojuholníkový tvar matice}
+\subsection*{systémy lineárnych rovníc nad poľom F}
+\subsection*{množina riešení homogénnych a nehomogénnych systémov lineárnych rovníc, existencia a tvary riešení}
 
 \section{Determinanty}
-\subsection{Determinant matice}
-\subsection{Vlastnosti determinantov}
-\subsection{Výpočty determinantov a ich použitie pri riešení lineárnych rovníc a hľadaní inverznej matice}
+\subsection*{Determinant matice}
+\subsection*{Vlastnosti determinantov}
+\subsection*{Výpočty determinantov a ich použitie pri riešení lineárnych rovníc a hľadaní inverznej matice}
+
