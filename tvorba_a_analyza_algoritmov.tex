@@ -111,8 +111,57 @@
 	\subsection{Naivný algoritmus} TODO
 	\subsection{Strassenov algoritmus} TODO
 	\subsection{Efektívne umocňovanie matice} TODO
-	\subsection{Tranzitívny uzáver grafu pomocou umocňovania matíc} TODO
+	\subsection{Tranzitívny uzáver grafu pomocou umocňovania matíc}
+        Tranzitívny uzáver (orientovaného, alebo neorientovaného) grafu $G$ je graf s tou istou množinou vrcholov,
+        kde medzi vrcholmi $u$ a $v$ je hrana práve vtedy, ak existuje sled z $u$ do $v$ v $G$. Malé nuansy definície:
+        V tranzitívnom uzávere grafu $G$ môžu byť aj slučky. V reflexívno-tranzitívnom uzávere by sme mali slučky nad
+        každým vrcholom, ale v tranzitívnom uzávere si musíme dať pozor: sledy musia mať nenulovú dĺžku. To znamená, že
+        ak sa nedá vyjsť z vrcholu $v$ a vrátiť sa späť, tak vrchol $v$ nesmie mať slučku. Ďalej si povieme,
+        ako sa to počíta.
 
+        Pod znakom $A$ budeme rozumieť maticu susednosti grafu $G$. Ak je $G$ orientovaný, tak na políčku $i,j$ bude
+        jednotka vtedy, keď existuje orientovaná hrana z $i$ do $j$.
+
+        Pozrieme sa na to, ako bude vyzerať matica $A^2$. Z definície násobenia matíc:
+        $$ A^2 = \| \sum_{k=1}^n a_{ik}a_{kj} \| $$
+
+        To znamená, že v $i$-tom riadku a $j$-tom stĺpci bude počet takých políčok ($k$), že existuje hrana z $i$
+        do $k$ a $k$ do $j$. Povedané inak, ide o počet sledov\footnote{Vrcholy sa môžu opakovať, napr. ak máme v grafe
+        slučky. Preto to nie sú cesty, ale sledy.} z vrchola $i$ do $j$, ktoré majú dĺžku presne $2$.
+
+        Podobne by sme zistili, že $A^3$ má v $i$-tom riadku a $j$-tom stĺpci počet sledov z $i$ do $j$
+        dĺžky $3$, a tak ďalej pre väčšie mocniny. Vieme, že ak v našom grafe existuje nejaký sled z $i$
+        do $j$, tak existuje sled, ktorý má dĺžku nanajvýš $n$. Čo by sme teda chceli spočítať, je:
+        $$ B = \sum_{k=1}^{n} A^k $$
+
+        Z takejto matice by sme vedeli ľahko vytiahnuť koľko sledov dĺžky \emph{nanajvýš $n$} ide z ľubovoľného
+        vrchola $i$ do ľubovoľného vrchola $j$. Tranzitívny uzáver vypočítame ľahko:
+        Z vrcholu $i$ pôjde hrana do vrcholu $j$ práve vtedy, ak hodnota $b_{ij}$ je kladná.
+
+        Ak by sme horeuvedený zápis pretavili do programu, urobil by $n$ násobení matice. Dá sa to však spraviť
+        trošku šikovnejšie: Najprv k matici pripočítame identitu (maticu s jednotkami na diagonále): $C := A + I$.
+        
+        Pozrime sa na hodnotu výrazu $C^n = (A + I)^n$:
+
+        $$(A+I)^n = \sum_{k=1}^n {n \choose k}A^kI^{n-k} = \sum_{k=1}^n {n \choose k} A^k \quad \footnote{Pozor, bežné násobenie matíc nie je komutatívne. Identická matica je však neutrálny prvok, preto ako jediná môže meniť svoje miesto vo výraze a tento zápis je korektný.}$$
+
+        Pôvodne nás zaujímalo, či je v niektorom riadku a stĺpci matice nenulové číslo. Stačí si uvedomiť, že ak je v matici $B$
+        v niektorom políčku nenulová hodnota, tak bude (iná) nenulová hodnota aj v matici $C^n$. Nakoniec si ešte musíme dať
+        pozor na jednu zradu, ktorú sme avizovali na začiatku. Pre každý vrchol potrebujeme zistiť, či doňho máme pridať slučku.
+        V matici $C^n$ je na nejakom diagonálnom políčku $i$ jednotka práve vtedy, ak sme nenašli žiaden sled, ktorý by
+        začínal v $i$, prešiel do iného vrchola, a časom sa vrátil\footnote{Ako je to v prípade, keď pôvodný graf obsahoval
+        slučku?}. To znamená, že matica $C^n - I$ je presne tá, čo hľadáme.
+
+        Časová zložitosť: Vypočítame maticu $A$, maticu $C = A + I$ (v $O(n)$), maticu $C^n$ na $O(\log(n))$ násobení
+        (napr. Strassenovym algoritmom v čase $O(n^{\log_2(7)})$), ďalej maticu $C^n - I$ a nakoniec sa pozrieme na
+        každé jej políčko ($O(n^2)$). Dokopy teda \\ $O(\log(n) \cdot n^{\log_2(7)})$.
+        
+        Poznámka na záver: Ak by sme to chceli naozaj implementovať, tak pri násobení matíc nám strašne narastú veľkosti
+        premenných. S tým by sme sa vedeli vysporiadať napríklad tak, že v každej medzivýsledkovej matici zmenšíme
+        všetky hodnoty väčšie ako $2$ na presne $2$. Porozmýšľajte, čo to spôsobí :-)
+
+        Druhá poznámka na záver: Existuje aj ešte jedno šikovnejšie riešenie, kde z časovej zložitosti zmizne $\log(n)$.
+        Tento algoritmus je však dosť komplikovaný, preto sa učí až na predmete Pokročilé efektívne algoritmy.
 
 \section{Dynamické programovanie}
 	Bottom-up riešenie
