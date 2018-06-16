@@ -112,6 +112,12 @@
 	\subsection{Strassenov algoritmus} TODO
 	\subsection{Efektívne umocňovanie matice} TODO
 	\subsection{Tranzitívny uzáver grafu pomocou umocňovania matíc}
+
+        \subsubsection{TL;DR}
+        Nech $A$ je matica susednosti. Vypočítame $D = (A + I)^n - I$. Hranu z $i$ do $j$ pridáme,
+        ak $d_{ij} \neq 0$
+
+        \subsubsection{Vysvetlenie}
         Tranzitívny uzáver (orientovaného, alebo neorientovaného) grafu $G$ je graf s tou istou množinou vrcholov,
         kde medzi vrcholmi $u$ a $v$ je hrana práve vtedy, ak existuje sled z $u$ do $v$ v $G$. Malé nuansy definície:
         V tranzitívnom uzávere grafu $G$ môžu byť aj slučky. V reflexívno-tranzitívnom uzávere by sme mali slučky nad
