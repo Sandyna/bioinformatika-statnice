@@ -1,14 +1,10 @@
 \chapter[Tvorba a analýza algoritmov]{Tvorba a analýza algoritmov}
 \label{tvorba_a_analyza_algoritmov} % id kapitoly pre prikaz ref
 
-\section{Analýza časovej zložitosti algoritmov} 
+%zdroje:
+%https://www.ksp.sk/kucharka/
+%http://www.dcs.fmph.uniba.sk/~anderle/tea/tea_skripta.pdf
 
-\subsection{Definícia časovej zložitosti} TODO
-\subsection{O-notácia} TODO
-\subsection{Odhad časovej zložitosti rekurzívnych algoritmov používajúcich metódu rozdeľuj a panuj} TODO
-
-\section{Algoritmy pre triedenie}\chapter[Tvorba a analýza algoritmov]{Tvorba a analýza algoritmov}
-\label{tvorba_a_analyza_algoritmov} % id kapitoly pre prikaz ref
 
 \section{Analýza časovej zložitosti algoritmov} 
 
@@ -89,7 +85,48 @@
 
 		\paragraph{BFS}
 
+
+
+Ak sú dva vrcholy v jednom komponente súvislosti, mohli by sme chcieť vypísať aj cestu, ktorá ich spája
+Najlepšie najkratšiu cestu, teda takú, ktorá obsahuje najmenej hrán
+To nám prehľadávanie do hĺbky nenájde, použijeme prehľadávanie do šírky
+Začneme v nejakom vrchole s
+V prehľadávaní do šírky najprv navštívime všetky vrcholy vo vzdialenosti 1 od s, potom vo vzdialenosti 2, ...
+Pre každý navštívený vrchol v spočítame jeho vzdialenosť od s aj predposledný vrchol na najkratšej ceste z s do v
+Hrany medzi v a pred[v] tvoria strom (kostru grafu, ak je súvislý)
+Ak chceme vypísať cestu, po strome sa pohybujeme smerom k jeho koreňu vo vrchole s
+Algoritmus používa rad (frontu, queue), do ktorej dáva vrcholy, ktoré už majú známu vzdialenosť, ale ešte sme nepozreli ich susedov
+V rade sú v každej chvíli vrcholy najviac dvoch vzdialeností od s: najprv nejaké vrcholy vo vzdialenosti d, potom nejaké vrcholy vo vzdialenosti d+1
+Zložitosť je tiež O(n+m), ak použijeme zoznamy susedov
+
+
+
+
 	\subsection{Topologické triedenie} TODO
+Motivačná úloha:
+
+Na úrade potrebujeme vybaviť niekoľko potvrdení. Ale číha tam na nás byrokracia: o niektorých dvojiciach potvrdení vieme, že na získanie potvrdenia B potrebujeme predložiť potvrdenie A.
+Úlohou je nájsť poradie (a zistiť, či také vôbec existuje) ako potvrdenia na úrade vybavovať.
+Úlohu reprezentujeme ako orientovaný graf, kde vrcholy sú potvrdenia a hrany závislosti medzi nimi.
+Topologické usporiadanie orientovaného grafu je permutácia jeho vrcholov $v_{1},v_{2},\dots v_{n}$ taká, že pre každú hranu $(v_{i},v_{j})$ platí, že $i<j$
+
+t.j. všetky hrany idú v permutácii zľava doprava
+orientovaný graf môže mať aj viac ako jedno topologické usporiadanie
+Koľko najviac topologických usporiadaní môže mať orientovaný graf s n vrcholmi? Pre aký graf sa to stane?
+Môže sa však stať, že graf nemá žiadne topologické usporiadanie
+To sa stane práve vtedy, ak je v grafe orientovaný cyklus
+Zjavne ak je v grafe orientovaný cyklus, topologické usporiadanie neexistuje, lebo v topologickom usporiadaní idú hrany zľava doprava a cyklus sa nemá ako vrátiť späť
+Skúste si dokázať aj opačnú implikáciu
+Graf bez cyklu voláme acyklický
+
+Samotné topologické triedenie bude pracovať nasledovne:
+
+ak máme vrchol, do ktorého nevchádza žiadna hrana, môžeme ho vypísať (potvrdenie, ktoré nemá žiadne závislosti)
+z tohto vrcholu vychádzajú hrany, môžeme ich odteraz ignorovať (splnené závislosti)
+pre každý vrchol si pamätáme počet zatiaľ nesplnených závislostí
+na začiatku to bude počet hrán vchádzajúcich do vrchola
+keď vypíšeme vrchol v, prejdeme všetky hrany z neho vychádzajúce a vrcholom na druhom konci znížime počet nesplnených závislostí
+udržujeme si tiež množinu vrcholov, ktoré už nemajú nesplnené závislosti a v každom kroku jeden vrchol z nej vyberieme a vypíšeme
 
 \section{Najkratšie cesty v grafe}
 	Vedia pracovať len na ohodnotených grafoch s nezápornými cenami hrán. Neexistujúce cesty medzi 
