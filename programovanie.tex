@@ -550,7 +550,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 		Pri práci so zloženými objektami sa častokrát používajú iné metódy ako pre prácu so základnými objektami (primitívami) a aj jednotlivé primitíva majú rozdielne metódy. Potom však vznikajú problémy pri používaní týchto objektov. Tieto problémy rieši Composite pattern.
 
 
-		\includegraphics[width=.9\textwidth]{images/composite1}
+		\includegraphics[width=.9\textwidth]{images/programovanie/composite1}
 
 		Graphic je abstraktná trieda pre primitíva ale aj ich kontajnery.
 
@@ -564,7 +564,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 		\paragraph{Štruktúra}
 
 		:\\
-			\includegraphics[width=.9\textwidth]{images/composite2}
+			\includegraphics[width=.9\textwidth]{images/programovanie/composite2}
 
 		\paragraph{Účastníci}
 			\begin{enumerate}
@@ -638,7 +638,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 					\item Všetky tieto problémy sa vyriešia definovaním tried, ktoré zapúzdrujú formátovacie algoritmy.\\
 				\end{itemize}
 
-				\includegraphics[width=.9\textwidth]{images/strategy1}
+				\includegraphics[width=.9\textwidth]{images/programovanie/strategy1}
 
 		Trieda Compositor je abstraktná trieda pre formátovacie algoritmy. Konkrétne algoritmy sú z nej odvodené. SimpleCompositor jednoducho počíta, či už nie sme na konci riadku a ak áno, dá slovo do nového riadku. TeXCompositor robí krajšie (ale časovo náročnejšie) zarovnávanie do riadkov, pričom rovnomerne distribuuje medzery a môže aj podfarbovať text, čo signalizuje, že to ešte nie je zarovnané. ArrayCompositor dá do každého riadku rovnaký počet objektov (napr. ak usporiadavame ikony).
 
@@ -653,7 +653,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 			\end{itemize}
 		\paragraph{Štruktúra}:\\
 
-			\includegraphics[width=.9\textwidth]{images/strategy2}
+			\includegraphics[width=.9\textwidth]{images/programovanie/strategy2}
 
 		\paragraph{Účastníci}
 			\begin{enumerate}
@@ -702,7 +702,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 		\paragraph{Motivácia}
 			Niekedy chceme pridať funkcionalitu jednotlivým objektom a nie celej triede. Napr. pri pridaní posuvnej lišty a okraju pre vizuálne komponenty.
 
-			\includegraphics[width=.9\textwidth]{images/decorator1}
+			\includegraphics[width=.9\textwidth]{images/programovanie/decorator1}
 
 		\paragraph{Použiteľnosť}
 			\begin{itemize}
@@ -713,7 +713,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 		\paragraph{Štruktúra}:\\
 
 
-		\includegraphics[width=.9\textwidth]{images/decorator2}
+		\includegraphics[width=.9\textwidth]{images/programovanie/decorator2}
 		
 		\paragraph{Účastníci}
 			\begin{enumerate}
@@ -765,7 +765,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 
 		Vytvoríme preto abstraktnú triedu WidgetFactory, ktorá obsahuje rozhranie na vytvorenie ľubovoľného komponentu (napr. Button, Menu). Musíme mať však aj abstraktnú triedu pre každý komponent (napr. Button) a od nej odvodené konkrétne triedy (napr. PMButton, MotifButton, …) pre každý vzhľad. Triedy PMWidgetFactory, MotifWidgetFactory, … , ktoré sú odvodené od abstraktnej triedy WidgetFactory potom vrátia konkrétnu implementáciu daného objektu (napr. PMButton, MotifButton, …). Klient sa tak nemusí starať o to, aký objekt má vytvárať, iba si najprv vytvorí továreň (WidgetFactory) pre požadovaný vzhľad (napr. PMWidgetFactory) a potom si už od nej pýta jednotlivé komponenty (t.j. napr. pre PMWidgetFactory vráti funkcia CreateButton objekt typu PMButton). Získame tým to, že sa nemusíme starať o to, akú verziu (vzhľadovú) objektu máme vytvoriť a navyše tým máme aj zabezpečené, že všetky komponenty budú rovnakého vzhľadu a nemôžeme sa pomýliť.\\
 
-		\includegraphics[width=.9\textwidth]{images/abstractfactory1}
+		\includegraphics[width=.9\textwidth]{images/programovanie/abstractfactory1}
 
 		\paragraph{Použiteľnosť}
 		Návrhový vzor Abstract factory sa používa, ak:
@@ -777,7 +777,7 @@ Zabalenie algoritmu do samostatného objektu je úlohou návrhového vzoru strat
 			\end{itemize}
 		\paragraph{Štruktúra}
 
-		\includegraphics[width=.9\textwidth]{images/abstractfactory2}
+		\includegraphics[width=.9\textwidth]{images/programovanie/abstractfactory2}
 
 		\paragraph{Vzťahy (spolupráca)}
 		Za normálnych okolností sa počas behu programu vytvára iba jediná všeobecne dostupná inštancia triedy AbstractFactory. Táto konkrétna továreň potom vytvára všetky komponenty (objekty majúce požadované správanie). Ak potrebujeme mať objekty viacerých typov, musíme si vytvoriť ďalšiu továreň (inštanciu indej triedy ConcreteFactory)\\
@@ -813,14 +813,14 @@ Handle/Body
 		\begin{itemize}
 			\item Ak by sme mali triedu IconWindow odvodenú od triedy Window, museli by sme urobiť pre ňu dve nové podtriedy XIconWindow a MacIconWindow. V konečnom dôsledku by sme museli vytvoriť jednu podtriedu pre každú dvojicu: typ systému, podtrieda triedy Window. Počet nových podtried by bol preto súčinom počtu podtried triedy Window a počtu systémov.\\
 
-			\includegraphics[width=.9\textwidth]{images/bridge1}
+			\includegraphics[width=.9\textwidth]{images/programovanie/bridge1}
 
 
 			\item Zmena typu systému je príliš zložitá, keďže pri vytváraní okna už vytváram okno konkrétneho typu pre daný typ systému a zmena tohoto typu sa nedá jednoducho urobiť niekde na jednom mieste v kóde.
 		\end{itemize}
 		Návrhový vzor Bridge rieši tento problém oddelením hierarchií tried pre abstrakciu a implementáciu okna. Máme hierarchiu triedy Window (rôzne typy okien) a hierarchiu triedy WindowImp (implementácie pre rôzne oknové systémy).\\
 
-	\includegraphics[width=.9\textwidth]{images/bridge2}
+	\includegraphics[width=.9\textwidth]{images/programovanie/bridge2}
 
 
 		Všetky operácie na podtriedach triedy Window sú implementované pomocou abstraktných operácií definovaných v triede WindowImp. Tento návrhový vzor sa nazýva Bridge, lebo premosťuje abstrakciu a jej implementáciu, pričom sú však tieto dve hierarchie úplne nezávislé.
@@ -835,7 +835,7 @@ Handle/Body
 		\end{itemize}
 	\paragraph{Štruktúra}:\\
 
-		\includegraphics[width=.9\textwidth]{images/bridge3}
+		\includegraphics[width=.9\textwidth]{images/programovanie/bridge3}
 
 
 	\paragraph{Účastníci}:
@@ -889,7 +889,7 @@ Handle/Body
 				\item Keď priame rozhranie pre získanie stavu by zviditeľnilo implementačné detaily a narušilo zapuzdrenie objektu.
 			\end{itemize}
 		\paragraph{Štruktúra}:\\
-			\includegraphics[width=.9\textwidth]{images/memento1}
+			\includegraphics[width=.9\textwidth]{images/programovanie/memento1}
 
 		\paragraph{Účastníci}:\\
 			\begin{itemize}
@@ -907,7 +907,7 @@ Handle/Body
 			\end{itemize}
 		\paragraph{Vzťahy (spolupráca)}:\\
 
-			\includegraphics[width=.7\textwidth]{images/memento2}
+			\includegraphics[width=.7\textwidth]{images/programovanie/memento2}
 				\begin{enumerate}
 				\item Caretaker\\
 					Požaduje memento od originatora\\
@@ -937,11 +937,11 @@ Handle/Body
 			Štruktúrované objekty (napr. listy) by nám mali poskytovať možnosť prístupu k ich prvkom bez exponovania vnútornej štruktúry. Navyše môžeme chcieť prechádzať štruktúrou rôznymi spôsobmi. Nechceme však príslušnú triedu zaplaviť množstvom metód na všetky možné spôsoby prechádzania, aké si len dokážeme vymyslieť (a možno by aj tak niekto chcel ešte iný spôsob). Riešením je vytvoriť nový objekt, ktorý prevezme zodpovednosť za prechod štruktúrou. Tento objekt si bude pamätať, v ktorých objektoch už bol. Trieda Iterator definuje rozhranie pre objekty zodpovedné za prechod štruktúrou.\\
 
 			ListIterator bude zodpovedný za prechod štruktúrou List\\
-				\includegraphics[width=.7\textwidth]{images/iterator1}
+				\includegraphics[width=.7\textwidth]{images/programovanie/iterator1}
 
 			Konkrétny List, ktorým má prechádzať, sa poskytne objektu ListIterator už pri jeho vytváraní. Oddelením algoritmu na prechod štruktúrou od štruktúry môžeme jednoducho bez zasahovania do existujúceho kódu pridávať nové algoritmy. Všimnime si, že iterátor a list sú zviazané. T.j. klient pracuje s konkrétnym typom štruktúry. Radi by sme však zmenili typ štruktúry bez zmeny klientovho kódu. Majme napríklad SkipList, čo je štruktúra s vlastnosťami podobnými balancovaným stromom. Radi by sme vytvorili kód, ktorý bude schopný pracovať s oboma týmito štruktúrami. Definujeme si preto triedu AbstractList, ktorá poskytuje spoločné rozhranie pre manipuláciu s listami. Potom môžeme definovať podtriedy triedy Iterator pre každú podtriedu triedy AbstractList.\\
 
-				\includegraphics[width=.9\textwidth]{images/iterator2}
+				\includegraphics[width=.9\textwidth]{images/programovanie/iterator2}
 
 			Pri vytváraní konkrétneho iterátora nám pomôže samotný list. V triede AbstractList si zadeklarujeme funkciu CreateIterator a necháme už na príslušné podtriedy, aby vytvorili iterátor vhodný pre ich štruktúru (hovoríme o polymorfickom iterátore).
 
@@ -954,7 +954,7 @@ Handle/Body
 				\end{itemize}
 			\paragraph{Štruktúra}:\\
 
-				\includegraphics[width=.9\textwidth]{images/iterator3}
+				\includegraphics[width=.9\textwidth]{images/programovanie/iterator3}
 
 			\paragraph{Účastníci}:\\
 				\begin{enumerate}
@@ -998,12 +998,12 @@ Handle/Body
 		Majme kompilátor, ktorý reprezentuje programy pomocou abstraktných syntaktických stromov. Potrebuje vykonávať operácie statickej analýzy, ako napr. kontrola, či sú všetky premenné definované, či je premennej priradená hodnota skôr, ako je použitá, kontrola typov, optimalizácia kódu, … Navyše môže využívať syntaktické stromy na krajšie zobrazenie programu (odsadenie, …), počítanie rôznych metrík, … Väčšina z týchto operácii potrebuje, aby sa k jednotlivým typom uzlov pristupovalo rôzne (t.j. inak sa správať k priradeniu, inak k uzlom reprezentujúcim premenné, aritmetické výrazy, …) . Na obrázku je časť hierarchie triedy Node.\\
 
 
-			\includegraphics[width=.7\textwidth]{images/visitor1}
+			\includegraphics[width=.7\textwidth]{images/programovanie/visitor1}
 
 		Problémom je, že tým, že všetky operácie budeme implementovať vo všetkych podtriedach triedy Node, dostaneme kód, ktorý je veľmi ťažko zrozumiteľný, ťažko sa udržiava a mení.Je to spôsobené tým, že metódy jednotlivých operácií sú pomiešané a vznikajú dlhé a neprehľadné triedy. Navyše pridanie novej triedy zvyčajne vyžaduje prekompilovanie všetkých tried. Bolo by lepšie, keby sa nová operácia mohla pridať bez toho, aby sa robili zmeny v triede Node a v jej podtriedach. Obe tieto požiadavky môžeme splniť tak, že jednotlivé operácie zapúzdrime do samostatného objektu nazvaného Visitor, ktorý budeme poskytovať uzlom syntaktického stromu, keď ním budeme prechádzať. Keď uzol 'akceptuje' daný objekt Visitor (t.j. v metóde Accept), pošle požiadavku objektu Visitor, v ktorej je zašiforvaný aj typ uzla. Navyše obsahuje daný uzol ako parameter. Objekt Visitor potom vykoná operáciu pre daný typ objektu. Napríklad kompilátor, ktorý by nepoužíval objekt Visitor by mohol kontrolu typov implementovať pomocou metódy TypeCheck na uzloch syntaktického stromu. Ak by kompilátor používal návrhový vzor Visitor, vytvoril by objekt TypeCheckingVisitor a volal by metódu Accept na uzloch syntaktického stromu. Argumentom metódy Accept by bol práve TypeCheckingVisitor. Každá trieda odvodená od triedy Node by v metóde Accept volala naspäť metódu objektu TypeCheckingVisitor, ktorá je priradená danému typu uzla. Napríklad trieda VariableRefNode by volala metódu VisitVariableRef. To, čo zvyklo byť naimplementované v metóde TypeCheck v triede VariableRefNode bude teraz naimplementované v metóde VisitVariableRef v triede TypeCheckingVisitor. Aby sme nezostali iba pri kontrole typov, pridáme abstraktnú triedu NodeVisitor, ktorú potom budeme môcť používať aj na ostatné analýzy. Trieda NodeVisitor bude musieť deklarovať metódu pre každú triedu odvodenú od triedy Node. Pre nové typy analýzy už len odvodíme novú triedu od triedy NodeVisitor a nemusíme meniť existujúce triedy.\\
 
 
-		\includegraphics[width=.7\textwidth]{images/visitor2}
+		\includegraphics[width=.7\textwidth]{images/programovanie/visitor2}
 
 
 
@@ -1020,7 +1020,7 @@ Handle/Body
 				\item triedy reprezentujúce štruktúru objektov sa menia iba veľmi zriedkavo, alo často chceme definovať nové operácie nad touto štruktúrou
 			\end{itemize}
 		\paragraph{Štruktúra}:\\
-			\includegraphics[width=.9\textwidth]{images/visitor3}
+			\includegraphics[width=.9\textwidth]{images/programovanie/visitor3}
 
 			\begin{enumerate}
 				\item Visitor (NodeVisitor)\\
@@ -1045,7 +1045,7 @@ Handle/Body
 			Na obrázku je znázornená spolupráca medzi štruktúrou objektov, objektom Visitor a dvoma elementami.\\
 
 
-			\includegraphics[width=.9\textwidth]{images/visitor4}
+			\includegraphics[width=.9\textwidth]{images/programovanie/visitor4}
 
 		\paragraph{Dôsledky}:\\
 			Návrhový vzor Visitor má nasledovné výhody a nevýhody:
