@@ -145,9 +145,66 @@ udržujeme si tiež množinu vrcholov, ktoré už nemajú nesplnené závislosti
 
 \section{Násobenie matíc}
 
-	\subsection{Naivný algoritmus} TODO
-	\subsection{Strassenov algoritmus} TODO
-	\subsection{Efektívne umocňovanie matice} TODO
+	\subsection{Naivný algoritmus}
+        Definícia násobenia: Máme dve matice $A, B$, kde prvá má rozmery $n \times m$ a druhá $m \times k$. Výsledkom
+        je matica $C$ rozmerov $n \times k$. Prvok $c_{ij}$ vypočítame nasledovne:
+        $$c_{ij} = \sum_{l=1}^{m} a_{il} \cdot b_{lj}$$
+
+        Tento vzorec nám dáva aj triviálny postup, ako počítať súčin matíc:
+
+        \begin{verbatim}
+        (inicializuj maticu C nulami, over, ci sedia rozmery)
+        for i = 1 to n:
+            for j = 1 to k:
+                for l = 1 to m:
+                    c[i][j] += a[i][l] * b[l][j]
+        \end{verbatim}
+
+	\subsection{Strassenov algoritmus}
+        Základnú myšlienku si najprv demonštrujeme na násobení polynómov, keďže tam sa dá rozumne zapamätať.
+        Následne myšlienku rozšírime na matice.
+
+        \subsubsection{Myšlienka pre polynómy}
+        Budeme násobiť polynómy $P[x] = p_nx^n + p_{n-1}x^{n-1} + \cdots + p_0x^0 $ a $Q[x] = q_nx^n + q_{n-1}x^{n-1} + \cdots + q_0x^0$.
+        Pre jednoduchosť predpokladáme, že $n = 2^k - 1$, čiže počet koeficientov je mocnina dvojky a oba polynómy sú rovnako
+        dlhé. Toto nie je príliš silná podmienka, lebo každý polynóm vieme doplniť niekoľkými nulovými koeficientami a zväčšíme
+        ho nanajvýš dvojnásobne.
+
+        Bežný postup výpočtu je, že vynásobíme každú dvojicu koeficientov a vhodne nasčítame tie s rovnakou mocninou pri $x$.
+        Tento postup by nás stál $O(n^2)$ operácií násobenia a sčítania. Snaha je spraviť niečo lepšie.
+        My si oba polynómy rozdelíme na vyššie a nižšie mocniny: $P[x] = A[x] \cdot x\strut^{\frac{n+1}{2}} + B[x]$ a $Q[x] = C[x] \cdot x\strut^{\frac{n+1}{2}} + D[x]$.
+
+        Jednou možnosťou, ako počítať súčín $P\cdot Q$ je nasledovný: $P \cdot Q = A \cdot C \cdot x\strut^{n+1} + (A \cdot D + B \cdot C) \cdot x\strut^{\frac{n+1}{2}} + C \cdot D$.
+        Každý zo štyroch menších súčinov by sme mohli realizovať rekurzívne, ale dostali by sme opäť časovú zložitosť
+        $O(n^2)$.
+        
+        Hlavná myšlienka vylepšenia je nasledovná: Vypočítame $AC$, $BD$ a namiesto $AD + BC$ vypočítame $(A + B)(C + D) = AC + AD + BC + BD$,
+        čím ušetríme jedno násobenie. Výsledok sa bude líšiť o $AC$ a $BD$. Ale tie máme predsa vypočítané a odčítanie polynómov
+        sa dá robiť v lineárnom čase! Rekapitulácia: spočítame $X = AC, Y = BD, Z' = (A+B)(C+D), Z = Z - X - Y$.
+
+        Všetky násobenia počítame rekurzívne na polynómoch polovičnej dĺžky, všetky sčítania a odčítania vieme robiť v lineárnom čase.
+        Časová zložitosť teda spĺňa takúto rekurenciu: $T(n) = 3T(n/2) + O(n)$. Z master theorem zistíme, že časová zložitosť je $\Theta(n^{\log_2(3)}) \approx \Theta(n^{1.585})$.
+
+        \subsubsection{Matice}
+        Násobenie matíc sa robí podobne. Pre jednoduchosť opäť predpokladáme, že matice sú rovnako veľké, štvorcové a rozmer je
+        mocnina dvojky. Každú maticu rozdelíme na štyri matice polovičnej veľkosti. Pri normálnom násobení matíc by sme
+        vedeli výpočet rekurzívne spraviť na $8$ násobení menších matíc. Podobným trikom, ako pri polynómoch,
+        stačí vypočítať iba $7$ súčinov a tieto vhodne poodčitovať. Opäť je dôležité uvedomiť si, že sčítanie aj
+        odčítanie matíc vieme robiť v $O(n^2)$.
+        
+        Presné vzorce si môžete pozrieť na Wikipédii, ale snáď ich po vás nebudú chcieť. Časová zložitosť spĺňa rekurentný
+        vzťah $T(n) = 7T(n/2) + O(n^2)$. Použitím master theorem zistíme, že $T(n) = \Theta(n^{\log_2(7)}) \approx \Theta(n^{2.8074})$.
+
+	\subsection{Efektívne umocňovanie matice}
+
+        Ide o rovnaký trik, ako pri rýchlom umocňovaní čísel. Na vstupe máme štvorcovú maticu $A$ a exponent $n$.
+        Postupne vypočítame $A^2 = A \cdot A,\quad A^4 = A^2 \cdot A^2,\quad A^8 = A^4 \cdot A^4,\quad \ldots$
+
+        Pozrieme sa na zápis čísla $n$ v dvojkovej sústave a spomenieme si, čo znamená zápis v dvojkovej sústave. Konkrétne
+        si to zdemonštrujeme na čísle $47 = (101111)_2 = 2^{32} + 2^{8} + 2^{4} + 2^{2} + 2^1$. To znamená, že napr.
+        $A^{47}$ vieme vypočítať ako $A^{32} \cdot A^{8} \cdot A^{4} \cdot A^{2} \cdot A$. Nech vyzerá číslo $n$
+        akokoľvek, spravíme nanajvýš $2 \lceil \log_2(n) \rceil = \Theta(\log(n))$ násobení matíc.
+        
 	\subsection{Tranzitívny uzáver grafu pomocou umocňovania matíc}
 
         \subsubsection{TL;DR}
