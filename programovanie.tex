@@ -6,7 +6,6 @@
 
 \section{Objektovo orientované programovanie}
 
-
 	Konkrétne veci (kľúčové slová, syntax, etc.) platia pre Javu, v iných jazykoch sa môžu líšť, ofc
 	\subsection{Zapúzdrenie}
 	Encapsulation: spojenie dát a súvisiaceho kódu.\\
@@ -35,8 +34,8 @@
 		\end{itemize}
 
 	\subsection{Trieda}
-	Trieda je údajový typ definovaný užívateľom. Reprezentuje skupinu objektov, ktoré majú spoločné vlastnosti.
-	Do definície triedy dávame: Premenné – pomenované kúsky pamäte, ktoré slúžia na uloženie nejakej informácie alebo dátovej položky, u nás sú to premenné r,i. Metódy – funkcie definované v triede, ktoré vykonávajú operácie pre triedu. Metódy väčšinou pracujú s premennými. V príklade sú to GetI(),SetI()…
+	Údajový typ definovaný užívateľom, reprezentuje skupinu objektov, ktoré majú spoločné vlastnosti.\\
+	Do definície triedy dávame: Premenné -- pomenované kúsky pamäte, ktoré slúžia na uloženie nejakej informácie alebo dátovej položky, u nás sú to premenné r,i. Metódy – funkcie definované v triede, ktoré vykonávajú operácie pre triedu. Metódy väčšinou pracujú s premennými. V príklade sú to GetI(),SetI()…
 
 
 		\begin{itemize}
@@ -87,31 +86,15 @@
 				\item Jeden interface môže rozširovať iný - dopĺňať ho o ďalšie požadované funkciem používame rovnako kľúčove slovo extends
 			\end{itemize}
 
-	\subsection{Vnorené triedy(nested classes)}
-	TODO
+	\subsection{Vnorené triedy(nested classes, vnútorné triedy)}
 
+obsiahnuté v inej triede, Java od verzie 1.1 podporuje 4 vnorené triedy:\\
 
-Zatiaľ sme väčšinou vytvárali triedy alebo rozhrania, ktoré boli priamo členmi balíka (neboli obsiahnuté v žiadnej inej triede). Java však od verzie 1.1 podporuje štyri druhy vnorených tried:
-
-statické členské triedy (static member classes)
-Statická členská trieda je definovaná ako statický člen nejakej inej triedy. Takáto trieda sa správa ako obyčajná nevnorená trieda ale má prístup k statickým členom triedy do ktorej je vnorená (aj súkromným).
-členské triedy (member classes)
-Členská trieda je definovaná ako nestatický člen nejakej inej triedy. Takáto trieda je analogická s členskou metódou. Inštancia členskej triedy je vždy spojená s nejakou inštanciou uzatvárajúcej (enclosing) triedy (akoby mala na ňu v sebe referenciu). Členská trieda má prístup ku všetkým (statickým, nestatický, verejným aj súkromným) členským metódam a premenným uzatvárajúcej triedy.
-lokálne triedy (local classes)
-Lokálna trieda je trieda definovaná v nejakom bloku programu (čiže v nejakej metóde). Tak isto ako lokálna premenná aj lokálna trieda je viditeľná iba v tomto bloku. Aj keď lokálne triedy nie sú členské triedy, tiež sú definované v rámci nejakej uzatvárajúcej triedy. Preto majú prístup ku všetkým (statickým, nestatický, verejným aj súkromným) členským metódam a premenným uzatvárajúcej triedy (ako členské triedy) ale aj ku konštantným lokálnym premenným viditeľným v danom bloku.
-anonymné triedy (anonymous classes)
-Anonymná trieda je lokálna trieda, ktorá nemá meno. Spája v sebe syntax pre definíciu triedy a vytvorenie jej inštancie. Zatiaľ čo definícia lokálnej triedy je príkaz, definícia a inštancovanie anonymnej triedy je výraz.
-
-
-Vzhľadom na to, že nie je v tejto oblasti ustálená terminológia môžeme sa stretnúť s rôznym pomenovaním týchto štyroch typov tried:
-
-Statické členské triedy sa tiež nazývajú vnorené triedy.
-Členské triedy sa tiež nazávajú vnútorné triedy (inner classes).
-Vnútorné triedy môžu byť tiež všetky triedy okrem statických členských tried.
-Pod pojmom vnorené alebo vnútorné triedy sa niekedy môžu myslieť všetky štyri možnosti.
-
-
-
+statické členské triedy (static member classes, vnorené triedy) -- definovaná ako statický člen nejakej inej triedy, má prístup k statickým členom triedy do ktorej je vnorená (aj súkromným).\\
+členské triedy (member classes, vnútorné triedy (inner classes)) -- definovaná ako nestatický člen nejakej inej triedy, analogická s členskou metódou, inštancia členskej triedy je spojená s inštanciou uzatvárajúcej (enclosing) triedy (akoby mala na ňu v sebe referenciu). Má prístup ku všetkým (statickým, nestatický, verejným aj súkromným) členským metódam a premenným uzatvárajúcej triedy.\\
+lokálne triedy (local classes) -- definovaná v nejakom bloku programu (čiže v nejakej metóde), viditeľná iba v tomto bloku. Nie sú členské triedy ale sú definované v rámci nejakej uzatvárajúcej triedy, majú prístup ku všetkým (statickým, nestatický, verejným aj súkromným) členským metódam a premenným uzatvárajúcej triedy (ako členské triedy), aj ku konštantným lokálnym premenným viditeľným v danom bloku.\\
+anonymné triedy (anonymous classes) -- lokálna trieda, ktorá nemá meno, spája v sebe syntax pre definíciu triedy a vytvorenie jej inštancie. Definícia lokálnej triedy je príkaz, definícia a inštancovanie anonymnej triedy je výraz.\\
+Vnútorné triedy môžu byť tiež všetky triedy okrem statických členských tried.\\
 
 
 		Java umožňuje definovať triedu v inej triede alebo dokonca v metóde
@@ -180,27 +163,7 @@ Pod pojmom vnorené alebo vnútorné triedy sa niekedy môžu myslieť všetky �
 
 
 
-
-
-
-
-
-
-
-
-Viactvarosť (Polymorphism)
-Princípy OOP
-Vznik
-Počas zrodu prvých programovacích jazykov prevládalo procedurálne programovanie, teda vykoná sa nejaká postupnosť výpočtov a to je všetko.
-
-Prvým krokom smerom k objektom bola (ako ináč) programátorská lenivosť. Programátori boli leniví po štrnásty krát písať ten istý kus programu, napríklad kód zásobníka. Namiesto toho by bolo lepšie vytvoriť si nejaký objekt (triedu,jednotku) Zásobník, ktorý by mal nejaké rozhranie (metódy push,pop,isEmpty) oddelené od implementácie.
-
-Keď niekto chcel používať zásobník, stačilo mu pridať si potrebnú knižnicu k programu a vytvoriť si novú inštanciu triedy/jednotky. To malo za následok napríklad aj zjednodušenie programov (hlavne čo sa týka pochopenia, čo program robí) a tým pádom menej chýb.
-
-Postupne sa Objektovo orientované programovanie (OOP) vyvinulo do dnešnej podoby a sformovalo sa niekoľko základných princípov.
-
 Zapúzdrenie (Encapsulation)
-Každá trieda (používateľsky definovaný dátový typ, ktorý spája logicky súvisiace členské dáta, členské funkcie a prípadne ďalšie vnorené dátové typy.) by mala mať rozhranie(interface) na komunikáciu s užívateľom. Toto rozhranie – súbor nejakých metód(funkcií) je všetko, čo by mal užívateľ o triede vedieť. Samotná implementácia metód, použité algoritmy a pomocné dátové štruktúry sú užívateľovi neprístupné.
 
 class Stack {
     // verejné rozhranie:
@@ -310,12 +273,6 @@ Programátor sa nemusí starať o uvoľňovanie pamäte sám, čo má za násled
 
 
 
-
-
-
-
-
-
 \section{Výnimky (exceptions)}
 
 	Ošetrovanie chýb bez požitia výnimiek
@@ -329,33 +286,27 @@ Aj ked sa snažíme písať aplikácie bez chýb, a kompilátor sa nám v tom sn
 
 	\subsection{vyhodenie výnimky}
 
-Pre vyhodenie výnimky slúži kľúčové slovo throw. Za ním nasleduje objekt triedy Exception alebo od nej odvodenej.
-
-
-	Počas behu programu môže dôjsť k rôznym chybám a neobvyklým situáciám, napr. neexistujúci súbor, zlý formát súboru, málo pamäte pri alokovaní polí, objektov, adresovanie mimo hraníc poľa, delenie nulou, ...
+Chyby počas behu programu \ra vyhodenie výnimky (throw) \ra Za ním je objekt triedy Exception alebo od nej odvodenej.\\
+\tab (napr. neexistujúci súbor, zlý formát súboru, málo pamäte pri alokovaní polí, objektov, adresovanie mimo hraníc poľa, delenie nulou, ...)
 
 
 	\subsection{zachytenie a spracovanie výnimiek (try, catch), finally}
 
-	Využívame konštrukty try a catch.
-	Do try bloku dáme príkazy, z ktorých niektorý môže zlyhať.
-	Ak niektorý zlyhá a vyhodí výnimku, okamžite sa ukončí vykonávanie bloku try a pokračuje sa blokom catch. V bloku catch túto výnimku spracujeme, v našom prípade len debugovacím výpisom.
+	konštrukty try a catch.\\
+	try blok -- príkazy, ktoré môžú zlyhať\\
+	Ak niektorý zlyhá a vyhodí výnimku \ra ukončí sa vykonávanie bloku try \ra blok/bloky catch\\
+	V bloku catch túto výnimku spracujeme, napr. debugovacím výpisom.\\
+	výnimka -- objekt, potomok triedy System.Exception (alebo java.lang.Exception). \\
+	Druh výnimky sa určí názvom triedy \ra spracuje všetky výnimky, ktoré sú tejto triedy alebo jej potomkom.\\
+	finally - blok kódu, ktorý sa vykoná vždy, aj ak je v try/catch bloku return. Return vo finally prekryje return v try bloku. \\
 
+	Výnimky prechádzajú hierarchiou volaní metód. Ak nie je zachytená v tejto metóde, možno bude zachytená v metóde, ktorá ju volala, atď. Pokiaľ by žiadna metóda výnimku nespracovala (ani Main), prejde výnimka až do operačného systému (virtuálneho stroja), ktorý zastaví vykonávanie aplikácie. \\
 
-	Pokiaľ chceme zachytiť výnimky, ktoré môžu vzniknúť v nejakom bloku kódu, je potrebné tento blok označiť kľúčovým slovom try. Bezprostredne za ním môže ísť bezprostredne po sebe niekoľko blokov označených kľúčovým slovom catch. Ich účelom je zistiť, o aký druh výnimky ide a vykonať príkazy z jej príslúchajúceho bloku catch. Každá výnimka je vlastne objekt, ktorý je potomkom triedy System.Exception (alebo java.lang.Exception). Druh výnimky, ktorú daný catch spracováva sa určí názvom triedy. Potom spracuje všetky výnimky, ktoré sú tejto triedy alebo jej potomkom.
-
-	Keď nastane výnimka v nejakom bloku try sú zvyšné príkazy až do jeho konca preskočené. Potom môžu byť vykonané príkazy z niektorého bloku catch. Ak chceme mať istotu, že sa určitý kód vykoná vždy, nezávisle na tom, či nastala výnimka alebo nie, musíme za posledný catch zadať ešte blok finally. Obyčajne sa blok finally používa na upratanie po operáciách vykonaných pred alebo v rámci bloku try.
-
-
-
-Výnimky prechádzajú hierarchiou volaní metód. Ak teda nebude zachytená v tejto metóde, možno bude zachytená v metóde, ktorá ju volala, alebo v … . Pokiaľ by žiadna metóda výnimku nespracovala (ani Main), prejde výnimka až do operačného systému (virtuálneho stroja), ktorý zastaví vykonávanie aplikácie.
-
-Poradie catch blokov je dôležité. Vždy sa vykoná najviac jeden z nich a to prvý, ktorý špecifikuje triedu, ktorá je rodičom alebo priamo triedou vyhodenej výnimky.
-
+	Poradie catch blokov -- vykoná sa iba prvý, ktorý špecifikuje triedu, ktorá je rodičom alebo priamo triedou vyhodenej výnimky.\\
 
 
 	\paragraph{Rozpoznávanie typov výnimiek}
-	Možno by náš program mal rôzne reagovať na rôzne typy chýb, napr.:
+	Rôzna reakcia na rôzne typy chýb, napr.:
 	Chýbajúci súbor: vypýtať si od užívateľa nové meno súboru
 	Zlý formát súboru: ukázať užívateľovi, kde nastala chyba, požiadať ho, aby ju opravil alebo zadal nové meno súboru
 	Nedostatok pamäte: program vypíše, že operáciu nie je možné uskutočniť vzhľadom na málo pamäte
@@ -374,11 +325,6 @@ Poradie catch blokov je dôležité. Vždy sa vykoná najviac jeden z nich a to 
 	Metóda musí deklarovať všetky výnimky, ktoré hádže, alebo ktoré v nej môžu vzniknúť a ich nechytá
 	Neplatí pre výnimky triedy RuntimeException a jej podtried a pre Throwable, ktoré nie sú výnimka (ale napr. Error)
 
-	\paragraph{finally}
-	Blok finally sa vykoná vždy, keď je aj keď nie je výnimka a aj ak sa výnimku nepodarilo chytiť. Slúži na zatváranie súborov a iné upratovacie práce.
-
-
-Blok finally sa vždy, za všetkých okolností vykoná pred príkazom return, aj keď try blok alebo catch blok obsahuje príkaz return. * Pokiaľ blok finally obsahuje príkaz return, tak tento return prekryje originálny return v try bloku. Napríklad nasledovná funkcia pre n=2 vráti 0.
 
 	\subsection{vlastné triedy výnimiek}
 	Výnimku vyhodíme príkazom throw, pričom musíme vytvoriť objekt nejakej vhodnej triedy, ktorá podtriedou Throwable
@@ -394,25 +340,20 @@ Ako sme už spomínali, všetky výnimky sú objekty tried odvodených od triedy
 
 
 	\subsection{checked a unchecked výnimky}
-Jazyk Java rozdeľuje výnimky ešte na dva typy:
-
-Checked výnimky:
-sú potomkovia triedy Exception
-metódy musia tieto výnimky ošetriť (catch blok) alebo ich označiť ako neošetrené v klauzule throws za názvom metódy
-predstavujú neočakávané situácie mimo priamej kontroly programu (napríklad málo miesta na disku, neexistujúci súbor)
-Unchecked výnimky:
-sú potomkovia triedy RuntimeException? (napríklad IllegalArgumentException?, NullPointerException?, IllegalStateException)
-metódy nemusia tieto výnimky ošetriť ani ich uvádzať v klauzule throws za názvom metódy
-predstavujú chyby priamo v programe
-Aj keď to môže byť trochu zavádzajúce, RuntimeException? je potomok Exception.
-
+Checked výnimky\\
+	\tab potomkovia triedy Exception, metódy musia tieto výnimky ošetriť (catch blok) alebo ich označiť ako neošetrené v klauzule throws za názvom metódy\\
+	\tab neočakávané situácie mimo priamej kontroly programu (napríklad málo miesta na disku, neexistujúci súbor)\\
+Unchecked výnimky\\
+	\tab potomkovia triedy RuntimeException? (napríklad IllegalArgumentException?, NullPointerException?, IllegalStateException), metódy nemusia tieto výnimky ošetriť ani ich uvádzať v klauzule,  throws za názvom metódy\\
+	\tab predstavujú chyby priamo v programe\\
+RuntimeException? je potomok Exception\\
 
 
 \section{Vlákna (threads)}
 
 %https://micro.dcs.fmph.uniba.sk/dokuwiki/sk:dcs:p3:lectures:lecture4:threads
 
-	Moorov zákon, teda pozorovanie, že každý rok a pol sa výpočtová sila integrovaných obvodov zdvojnásobí, pričom cena ostáva konštantná, v posledných rokoch stráca silu - výroba integrovaných obdovov naráža na technické limity. Riešením, ktoré dovoľuje naďalej zvyšovať výkonnosť je paralelizmus. Podstatnou otázkou je, ako paralelizovať.
+	Moorov zákon -- pozorovanie, že každý rok a pol sa výpočtová sila integrovaných obvodov zdvojnásobí, pričom cena ostáva konštantná, v posledných rokoch stráca silu - výroba integrovaných obdovov naráža na technické limity. Riešením, ktoré dovoľuje naďalej zvyšovať výkonnosť je paralelizmus. Podstatnou otázkou je, ako paralelizovať.
 
 Možností je viacero:
 
@@ -432,10 +373,6 @@ Implementácia rozhrania Runnable sa používa, ak vytváraný objekt musí byť
 
 
 	\subsection{stav vlákna (new, runnable, blocked, waiting, timed\_waiting, terminated)}
-
-
-
-
 
 
 
